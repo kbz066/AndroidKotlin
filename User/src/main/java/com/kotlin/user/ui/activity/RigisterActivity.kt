@@ -13,6 +13,8 @@ class RigisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rigister)
 
+
+
     }
 
 }

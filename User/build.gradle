@@ -9,6 +9,9 @@ if(isUserLibrary.toBoolean()){
 
 apply plugin: 'kotlin-android'
 
+apply plugin: 'kotlin-android-extensions'
+
+
 android {
     compileSdkVersion 27
 
@@ -61,9 +64,7 @@ dependencies {
     implementation project(':Provider')
 
 
-}
-repositories {
-    mavenCentral()
+
 }
 
-apply plugin: 'kotlin-android-extensions'
+
