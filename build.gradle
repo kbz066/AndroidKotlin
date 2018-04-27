@@ -2,6 +2,14 @@
 
 buildscript {
     ext.kotlin_version = '1.2.40'
+    ext.retrofit='2.4.0'
+    ext.rxkotlin='2.2.0'
+    ext.rxandroid='2.0.1'
+    ext.fastjson='1.1.68.android'
+    ext.converter_fastjson='2.2.0'
+    ext.okhttp='3.10.0'
+    ext.logging_interceptor='3.9.0'
+
     repositories {
         google()
         jcenter()
@@ -19,6 +27,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
 }
 
