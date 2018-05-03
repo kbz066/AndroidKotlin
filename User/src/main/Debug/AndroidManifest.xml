@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".ui.activity.RigisterActivity"
+            android:name="com.kotlin.user.mvp.ui.activity.RigisterActivity"
             android:label="@string/title_activity_rigister"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

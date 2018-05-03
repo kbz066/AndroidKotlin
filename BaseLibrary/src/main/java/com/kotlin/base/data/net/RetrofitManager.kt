@@ -1,11 +1,15 @@
 package com.kotlin.base.data.net
 
+import com.kotlin.base.BaseConstant
+
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.fastjson.FastJsonConverterFactory
+
 import java.util.concurrent.TimeUnit
 
 class RetrofitManager public constructor(){
@@ -15,9 +19,14 @@ class RetrofitManager public constructor(){
     //请求拦截器
     private val requestHeadInterceptor:Interceptor
 
+
     companion object {
         val mInstance:RetrofitManager by lazy { RetrofitManager() }
     }
+
+
+
+
     init {
         requestHeadInterceptor= Interceptor {
             chain ->
@@ -29,8 +38,8 @@ class RetrofitManager public constructor(){
             chain.proceed(req)
         }
         retrofit=Retrofit.Builder()
-                .baseUrl("")
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .baseUrl(BaseConstant.SERVER_ADDRESS)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(FastJsonConverterFactory.create())
                 .client(initClient())
                 .build();
@@ -49,6 +58,7 @@ class RetrofitManager public constructor(){
     private fun initLogInterceptor(): Interceptor {
         var log=HttpLoggingInterceptor()
         log.level=HttpLoggingInterceptor.Level.BODY;
+
         return log;
     }
 
@@ -56,9 +66,11 @@ class RetrofitManager public constructor(){
     /**
      * 执行http
      */
-    fun <T>enqueue(cls:Class<T>): T{
+    fun <T>create(cls:Class<T>): T{
+
         return retrofit.create(cls);
     }
+
 
 
 

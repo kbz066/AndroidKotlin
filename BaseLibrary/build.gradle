@@ -2,6 +2,9 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-noarg'
+apply plugin: 'kotlin-allopen'
+
 android {
     compileSdkVersion 27
 
@@ -25,6 +28,13 @@ android {
     }
 
 }
+noArg {
+    annotation("com.kotlin.base.annotation.Poko")
+}
+
+allOpen {
+    annotation("com.kotlin.base.annotation.Poko")
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -35,15 +45,17 @@ dependencies {
 
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "io.reactivex.rxjava2:rxkotlin:$rxkotlin"
     api "io.reactivex.rxjava2:rxandroid:$rxandroid"
+
     api "com.squareup.retrofit2:retrofit:$retrofit"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
     api "org.ligboy.retrofit2:converter-fastjson-android:$converter_fastjson"
     api "com.squareup.okhttp3:okhttp:$okhttp"
-    api "com.alibaba:fastjson:$fastjson"
+//    api "com.alibaba:fastjson:$fastjson"
     api "com.squareup.retrofit2:adapter-rxjava:$retrofit"
-    api "com.squareup.okhttp3:logging-interceptor:$logging_interceptor"
+    api "com.squareup.okhttp3:logging-interceptor:$okhttp"
 
-   // api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
 }

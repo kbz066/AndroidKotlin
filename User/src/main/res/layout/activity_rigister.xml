@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.RigisterActivity">
+    tools:context=".mvp.ui.activity.RigisterActivity">
 
     <EditText
+        android:id="@+id/test"
         android:text="我是注册页面"
+
         android:layout_width="100dp"
         android:layout_height="wrap_content" />
 
