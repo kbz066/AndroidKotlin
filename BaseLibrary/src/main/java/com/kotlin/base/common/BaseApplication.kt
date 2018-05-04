@@ -1,8 +1,6 @@
-package com.kotlin.base
+package com.kotlin.base.common
 
 import android.app.Application
-import com.kotlin.base.data.net.RetrofitManager
-
 
 
 /**
@@ -11,7 +9,7 @@ import com.kotlin.base.data.net.RetrofitManager
 class BaseApplication  :Application() {
 
 
-    lateinit var mInstance:BaseApplication;
+    lateinit var mInstance: BaseApplication;
 
     override fun onCreate() {
         super.onCreate()

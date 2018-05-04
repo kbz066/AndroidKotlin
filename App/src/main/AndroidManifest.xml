@@ -8,9 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name="com.kotlin.base.BaseApplication"
+        android:name="com.kotlin.base.common.BaseApplication"
         android:theme="@style/AppTheme">
-        <activity android:name="com.kotlin.user.mvp.ui.activity.RigisterActivity">
+        <activity android:name="com.kotlin.user.mvp.activity.RigisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

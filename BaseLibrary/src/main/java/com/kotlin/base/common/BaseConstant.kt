@@ -1,4 +1,4 @@
-package com.kotlin.base
+package com.kotlin.base.common
 
 /**
  * Created by  on 2018/5/2.

@@ -1,4 +1,4 @@
-package com.kotlin.user.mvp.model
+package com.kotlin.user.mvp.model.request
 
 import com.kotlin.base.annotation.Poko
 
