@@ -9,7 +9,7 @@ buildscript {
     ext.converter_fastjson='2.2.0'
     ext.okhttp='3.10.0'
     ext.logging_interceptor='3.9.0'
-
+    ext.anko_version='0.10.5'
 
     repositories {
         google()
