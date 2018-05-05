@@ -1,9 +1,7 @@
-
-
-if(isUserLibrary.toBoolean()){
+if (isUserLibrary.toBoolean()) {
 
     apply plugin: 'com.android.library'
-}else {
+} else {
     apply plugin: 'com.android.application'
 }
 apply plugin: 'kotlin-android'
@@ -20,7 +18,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -41,7 +39,6 @@ android {
         main {
             if (isUserLibrary.toBoolean()) {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
-
 
 
             } else {
@@ -66,7 +63,4 @@ dependencies {
     api project(':Provider')
 
 
-
 }
-
-

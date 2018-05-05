@@ -4,11 +4,13 @@
 
     <application>
         <activity
-            android:name="com.kotlin.user.mvp.activity.RigisterActivity"
-            android:label="@string/title_activity_rigister"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".mvp.activity.RegisterActivity"
 
-        </activity>
+            android:label="@string/title_activity_rigister"
+            android:theme="@style/Translucent"></activity>
+        <activity
+            android:name=".mvp.activity.LoginActivity"
+            android:label="@string/title_activity_login"></activity>
     </application>
 
 </manifest>

@@ -15,7 +15,7 @@ import java.net.UnknownHostException
 /**
  * Created by  on 2018/5/2.
  */
-abstract class  BaseRxResponse<T : BaseResponse<*>>: Observer<T> {
+abstract class  BaseRxObserver<T : BaseResponse<*>>: Observer<T> {
 
 
     abstract fun success(data: T)

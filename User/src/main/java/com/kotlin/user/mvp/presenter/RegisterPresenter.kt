@@ -1,14 +1,14 @@
 package com.kotlin.user.mvp.presenter
 
-import com.kotlin.base.Rx.BaseRxResponse
+import com.kotlin.base.Rx.BaseRxObserver
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.user.mvp.model.server.UserServerImpl
-import com.kotlin.user.mvp.presenter.view.RigisterView
+import com.kotlin.user.mvp.presenter.view.RegisterView
 
 
-class RigisterPresenter:BasePresenter<RigisterView>() {
+class RegisterPresenter:BasePresenter<RegisterView>() {
 
 
 
@@ -16,7 +16,7 @@ class RigisterPresenter:BasePresenter<RigisterView>() {
 
         var impl= UserServerImpl();
         impl.register(email,pwd,code)
-                .excute(object : BaseRxResponse<BaseResponse<String>>(){
+                .excute(object : BaseRxObserver<BaseResponse<String>>(){
                     override fun success(data: BaseResponse<String>) {
 
                         mView.onRegisterSuccess(data.data)

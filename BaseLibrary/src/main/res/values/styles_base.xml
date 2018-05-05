@@ -7,4 +7,6 @@
     <style name="MatchMatch.background">
         <item name="android:background">@color/common_bg</item>
     </style>
+
+
 </resources>
