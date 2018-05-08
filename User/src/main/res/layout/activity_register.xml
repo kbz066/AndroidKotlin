@@ -8,9 +8,14 @@
 
 
     tools:context=".mvp.activity.RegisterActivity">
-
+    <include
+        android:id="@+id/tb_register_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        layout="@layout/layout_header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
     <android.support.v7.widget.CardView
-        android:id="@+id/cv_crad_bg"
+        android:id="@+id/cv_register_bg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
@@ -200,9 +205,9 @@
         app:fabSize="normal"
         android:src="@drawable/plus_x"
         android:transitionName="loginFab"
-        app:layout_constraintLeft_toLeftOf="@+id/cv_crad_bg"
-        app:layout_constraintRight_toRightOf="@+id/cv_crad_bg"
-        app:layout_constraintTop_toTopOf="@+id/cv_crad_bg"
-        app:layout_constraintBottom_toTopOf="@+id/cv_crad_bg"
+        app:layout_constraintLeft_toLeftOf="@+id/cv_register_bg"
+        app:layout_constraintRight_toRightOf="@+id/cv_register_bg"
+        app:layout_constraintTop_toTopOf="@+id/cv_register_bg"
+        app:layout_constraintBottom_toTopOf="@+id/cv_register_bg"
         android:layout_gravity="center_horizontal|top" />
 </android.support.constraint.ConstraintLayout>

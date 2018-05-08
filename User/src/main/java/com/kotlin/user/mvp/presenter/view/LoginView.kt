@@ -9,5 +9,5 @@ import com.kotlin.user.mvp.model.response.UserLoginResponse
 interface LoginView: BaseView {
 
     fun onLoginSuccess(result: UserLoginResponse?)
-    fun onLoginFailure(statusCode: Int, msg: String?)
+
 }

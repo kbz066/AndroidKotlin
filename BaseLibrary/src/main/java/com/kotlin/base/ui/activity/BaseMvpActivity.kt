@@ -11,6 +11,7 @@ import com.kotlin.base.dagger.module.LifecycleProviderModule
 
 import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.base.presenter.view.BaseView
+import com.kotlin.base.ui.widgets.ProgressLoadingBar
 import javax.inject.Inject
 
 abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
@@ -25,10 +26,14 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
 
     lateinit var mActiviComponent: BaseActivityComponent
 
+
+    lateinit var mLoadingBar: ProgressLoadingBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(getContentViewResId())
+        mLoadingBar=ProgressLoadingBar.create(this)
         initActivityComponent()
         injectComponent()
         initView()
@@ -61,14 +66,16 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
 
 
     override fun showLoading() {
-
+        mLoadingBar.showLoadingBar()
 
     }
 
     override fun hideLoading() {
+        mLoadingBar.dismissLoadingBar()
     }
 
-    override fun onError() {
+    override fun onError(statusCode: Int, msg: String?) {
+       // mLoadingBar.dismissLoadingBar()
     }
 
 }

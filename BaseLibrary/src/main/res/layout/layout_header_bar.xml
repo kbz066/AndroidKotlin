@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tb_header_bar"
+    android:background="@color/common_blue"
+    android:layout_width="match_parent"
+    app:contentInsetStart="0dp"
+    app:title=" "
+    android:layout_height="?attr/actionBarSize">
+    <TextView
+        android:id="@+id/tv_bar_title"
+        android:text="登录"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/common_white"
+        android:textSize="@dimen/text_large_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.v7.widget.Toolbar>

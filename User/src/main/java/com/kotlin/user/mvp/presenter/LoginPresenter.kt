@@ -18,6 +18,7 @@ class LoginPresenter @Inject constructor() :BasePresenter<LoginView>() {
 
 
 
+        mView.showLoading()
         var impl= UserServerImpl();
         impl.login(email,pwd,pushId)
                 .excute(object : BaseRxObserver<BaseResponse<UserLoginResponse>>(){
@@ -28,7 +29,7 @@ class LoginPresenter @Inject constructor() :BasePresenter<LoginView>() {
                     }
 
                     override fun failure(statusCode: Int, msg: String?) {
-                        mView.onLoginFailure(statusCode,msg)
+                        mView.onError(statusCode,msg)
 
                     }
 
