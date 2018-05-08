@@ -77,6 +77,7 @@ abstract class  BaseRxObserver<T : BaseResponse<*>>: Observer<T> {
 
         }
 
+        println("异常类型-----------》"+e.message)
         var htttpErrorType = when (e) {
 
             is UnknownHostException -> HtttpErrorType.NETWORK_NOT_CONNECT

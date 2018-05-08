@@ -1,11 +1,14 @@
 package com.kotlin.user.mvp.model.response
 
+import com.kotlin.base.annotation.Poko
+
 /**
- * Created by caofu on 2018/5/5.
+ * Created by caofu on 2018/5/8.
  */
-data class UserLoginRespons(val id:String,
-                            val userIcon:String,
-                            val userName:String,
-                            val userGender:String,
-                            val userMobile:String,
-                            val userSign:String)
+@Poko
+data class UserLoginResponse(var id:String,
+                             var userIcon:String,
+                             var userName:String,
+                             var userGender:String,
+                             var userMobile:String,
+                             var userSign:String)

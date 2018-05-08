@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-noarg'
 apply plugin: 'kotlin-allopen'
@@ -40,7 +40,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     api 'com.android.support:appcompat-v7:27.1.1'
 
-
+    api 'com.android.support:design:27.1.1'
     api 'com.android.support.constraint:constraint-layout:1.1.0'
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -54,7 +54,15 @@ dependencies {
     api "com.squareup.retrofit2:adapter-rxjava:$retrofit"
     api "com.squareup.okhttp3:logging-interceptor:$okhttp"
     api "org.jetbrains.anko:anko-commons:$anko_version"
-    api 'com.android.support:cardview-v7:27.1.1'
+    api "com.android.support:cardview-v7:$cardview"
+
+    //dagger
+    api "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+
+    //RxLifecycle
+    api "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rx_lifecycle_version"
+    api "com.trello.rxlifecycle2:rxlifecycle-components:$rx_lifecycle_version"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

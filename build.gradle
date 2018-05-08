@@ -10,6 +10,9 @@ buildscript {
     ext.okhttp='3.10.0'
     ext.logging_interceptor='3.9.0'
     ext.anko_version='0.10.5'
+    ext.cardview='27.1.1'
+    ext.dagger='2.16'
+    ext.rx_lifecycle_version='2.2.1'
 
     repositories {
         google()

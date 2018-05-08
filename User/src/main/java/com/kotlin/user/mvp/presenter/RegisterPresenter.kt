@@ -4,18 +4,26 @@ import com.kotlin.base.Rx.BaseRxObserver
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
+import com.kotlin.user.mvp.model.server.UserServer
 import com.kotlin.user.mvp.model.server.UserServerImpl
 import com.kotlin.user.mvp.presenter.view.RegisterView
+import javax.inject.Inject
 
 
-class RegisterPresenter:BasePresenter<RegisterView>() {
+class RegisterPresenter @Inject constructor():BasePresenter<RegisterView>() {
+
+
+
+    @Inject
+    lateinit var mUserServer: UserServer
+
 
 
 
     fun register( email:String, pwd:String, code:String){
 
-        var impl= UserServerImpl();
-        impl.register(email,pwd,code)
+
+        mUserServer.register(email,pwd,code)
                 .excute(object : BaseRxObserver<BaseResponse<String>>(){
                     override fun success(data: BaseResponse<String>) {
 
@@ -30,7 +38,7 @@ class RegisterPresenter:BasePresenter<RegisterView>() {
 
 
 
-                })
+                },rxLifecycle)
 
 
 
