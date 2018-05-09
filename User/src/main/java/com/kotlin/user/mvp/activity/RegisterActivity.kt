@@ -14,8 +14,10 @@ import android.view.ViewAnimationUtils
 import android.view.animation.AccelerateInterpolator
 import android.widget.TextView
 import com.kotlin.base.dagger.component.DaggerBaseActivityComponent
+import com.kotlin.base.ext.enable
 import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.user.R
+import com.kotlin.user.R.id.*
 
 import com.kotlin.user.dagger.component.DaggerUserComponent
 
@@ -44,6 +46,10 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
                 mpresenter.register(et_phone_number.text.toString(),et_password.text.toString(),et_verification_code.text.toString())
 
             }
+            R.id.vb_verification->{
+                toast("发送验证码成功")
+                vb_verification.afterMeterTime()
+            }
 
         }
     }
@@ -60,6 +66,11 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
 
         fb_toLoginView.setOnClickListener(this)
         bt_userRegister.setOnClickListener(this)
+        vb_verification.setOnClickListener(this)
+        bt_userRegister.enable(et_phone_number,et_verification_code,et_password,et_confir_password){
+            isBtnEnable()
+        }
+
         tb_register_bar.find<TextView>(R.id.tv_bar_title).setText("注册")
     }
     /**
@@ -143,6 +154,13 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
         mAnimator.start()
     }
 
+
+    fun isBtnEnable():Boolean{
+        return et_phone_number.text.isNotEmpty()&&
+                et_verification_code.text.isNotEmpty()&&
+                et_password.text.isNotEmpty()&&
+                et_confir_password.text.isNotEmpty()
+    }
     override fun onBackPressed() {
         animateRevealClose()
     }

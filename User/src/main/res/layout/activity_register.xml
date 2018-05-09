@@ -27,21 +27,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:cardCornerRadius="6dp"
         app:cardBackgroundColor="#2ea67f">
+
         <android.support.constraint.ConstraintLayout
             android:id="@+id/cl_bg_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/tv_register_title"
-                android:layout_marginTop="40dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
                 android:layout_gravity="center_horizontal"
 
-                app:layout_constraintTop_toTopOf="@+id/cl_bg_layout"
-                app:layout_constraintLeft_toLeftOf="@+id/cl_bg_layout"
-                app:layout_constraintRight_toRightOf="@+id/cl_bg_layout"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 android:text="用户注册"
                 android:textColor="#ffffff"
                 android:textSize="16sp"
@@ -49,129 +51,144 @@
                 />
 
 
+            <android.support.design.widget.TextInputLayout
 
+                android:id="@+id/tl_phone_number"
 
-        <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
 
-
-            android:id="@+id/tl_phone_number"
-
-            android:theme="@style/TextLabel"
-
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_register_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/et_phone_number"
-
-                android:paddingLeft="@dimen/common_padding_small"
-                android:textCursorDrawable="@drawable/bg_input_cursor"
-                android:layout_width="match_parent"
-
-
-
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="10dp"
 
-                android:hint="请输入手机号码"
-                android:drawableLeft="@drawable/icon_phone"
-                android:drawablePadding="@dimen/common_padding_small"
-                android:textColor="@color/common_white"
-                android:inputType="phone"/>
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
+                android:theme="@style/TextLabel"
 
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintHorizontal_weight="3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/vb_verification"
+                app:layout_constraintTop_toBottomOf="@+id/tv_register_title">
 
+                <EditText
 
-            android:id="@+id/tl_verification_code"
-            android:theme="@style/TextLabel"
-            app:layout_constraintTop_toBottomOf="@+id/tl_phone_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-
-                android:id="@+id/et_verification_code"
-                android:paddingLeft="@dimen/common_padding_small"
-                android:textCursorDrawable="@drawable/bg_input_cursor"
-                android:layout_width="match_parent"
+                    android:id="@+id/et_phone_number"
+                    android:includeFontPadding="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
 
 
+                    android:drawableLeft="@drawable/icon_phone"
+                    android:drawablePadding="@dimen/common_padding_small"
 
+                    android:hint="请输入手机号码"
+                    android:inputType="phone"
+                    android:paddingLeft="@dimen/common_padding_small"
+                    android:textColor="@color/common_white"
+                    android:textCursorDrawable="@drawable/bg_input_cursor" />
+            </android.support.design.widget.TextInputLayout>
 
+            <com.kotlin.base.ui.widgets.VerificationButton
+                android:id="@+id/vb_verification"
 
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content"
-
-                android:hint="请输入验证码（服务器默认123456）"
-                android:drawableLeft="@drawable/icon_verify_code"
-                android:drawablePadding="@dimen/common_padding_small"
-                android:textColor="@color/common_white"
-                android:inputType="phone"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-
-            
-
-            android:id="@+id/tl_password"
-            android:theme="@style/TextLabel"
-            app:layout_constraintTop_toBottomOf="@+id/tl_verification_code"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="20dp"
+                android:gravity="center"
                 android:layout_marginRight="20dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:autoLink="all"
+                app:layout_constraintBottom_toBottomOf="@+id/tl_phone_number"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintLeft_toRightOf="@+id/tl_phone_number"
+                app:layout_constraintRight_toRightOf="@id/tl_verification_code"
+                app:layout_constraintTop_toTopOf="@+id/tl_phone_number" />
+
+            <android.support.design.widget.TextInputLayout
 
 
-                android:paddingLeft="@dimen/common_padding_small"
-                android:textColor="@color/common_white"
-                android:textCursorDrawable="@drawable/bg_input_cursor"
-                android:layout_gravity="center_horizontal"
-                android:hint="请输入密码(6-20位字母或数字)"
-                android:drawableLeft="@drawable/icon_pwd"
-                android:drawablePadding="@dimen/common_padding_small"
-
-                android:inputType="textPassword"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-
-
-
-            android:id="@+id/tl_confir_password"
-            android:theme="@style/TextLabel"
-            app:layout_constraintTop_toBottomOf="@+id/tl_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-           >
-            <EditText
-
-
-                android:id="@+id/et_confir_password"
-
-                android:paddingLeft="@dimen/common_padding_small"
-
+                android:id="@+id/tl_verification_code"
                 android:layout_width="match_parent"
-
-
-
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:textCursorDrawable="@drawable/bg_input_cursor"
-                android:hint="请再次输入密码"
-                android:drawableLeft="@drawable/icon_pwd"
-                android:drawablePadding="@dimen/common_padding_small"
-                android:textColor="@color/common_white"
-                android:inputType="textPassword"
-                />
-        </android.support.design.widget.TextInputLayout>
-            
+                android:theme="@style/TextLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tl_phone_number">
+
+                <EditText
+
+                    android:id="@+id/et_verification_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+
+
+                    android:drawableLeft="@drawable/icon_verify_code"
+                    android:drawablePadding="@dimen/common_padding_small"
+
+                    android:hint="请输入验证码（服务器默认123456）"
+                    android:inputType="phone"
+                    android:paddingLeft="@dimen/common_padding_small"
+                    android:textColor="@color/common_white"
+                    android:textCursorDrawable="@drawable/bg_input_cursor" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+
+
+                android:id="@+id/tl_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:theme="@style/TextLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tl_verification_code">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+
+
+                    android:layout_marginRight="20dp"
+                    android:drawableLeft="@drawable/icon_pwd"
+                    android:drawablePadding="@dimen/common_padding_small"
+                    android:hint="请输入密码(6-20位字母或数字)"
+                    android:inputType="textPassword"
+                    android:paddingLeft="@dimen/common_padding_small"
+                    android:textColor="@color/common_white"
+
+                    android:textCursorDrawable="@drawable/bg_input_cursor" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+
+
+                android:id="@+id/tl_confir_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tl_password"
+
+                >
+
+                <EditText
+
+
+                    android:id="@+id/et_confir_password"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/icon_pwd"
+                    android:drawablePadding="@dimen/common_padding_small"
+                    android:hint="请再次输入密码"
+                    android:inputType="textPassword"
+                    android:paddingLeft="@dimen/common_padding_small"
+                    android:textColor="@color/common_white"
+                    android:textCursorDrawable="@drawable/bg_input_cursor" />
+            </android.support.design.widget.TextInputLayout>
+
 
             <Button
 
@@ -180,15 +197,16 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
-                android:text="注册"
 
-                android:background="@drawable/user_register_but_shape"
+
+                android:text="注册"
                 android:textColor="#2fa881"
+                style="@style/FullBtnStyle"
+                app:layout_constraintBottom_toTopOf="@+id/gl_end_guideline"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tl_confir_password"
-                app:layout_constraintBottom_toTopOf="@+id/gl_end_guideline"
-                app:layout_constraintWidth_percent="0.4"/>
+                app:layout_constraintWidth_percent="0.4" />
 
             <android.support.constraint.Guideline
                 android:id="@+id/gl_end_guideline"

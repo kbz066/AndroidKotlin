@@ -13,6 +13,9 @@ buildscript {
     ext.cardview='27.1.1'
     ext.dagger='2.16'
     ext.rx_lifecycle_version='2.2.1'
+    ext.alert_view_version = "1.0.3"
+    ext.rxtools='RxTools:v1.7.8.3'
+
 
     repositories {
         google()
@@ -32,6 +35,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
 }

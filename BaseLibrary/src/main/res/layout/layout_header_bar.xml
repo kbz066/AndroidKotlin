@@ -2,11 +2,18 @@
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/tb_header_bar"
+    android:fitsSystemWindows="true"
     android:background="@color/common_blue"
     android:layout_width="match_parent"
     app:contentInsetStart="0dp"
     app:title=" "
-    android:layout_height="?attr/actionBarSize">
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_back_image"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding"
+        style="@style/WrapMatch"
+        android:src="@drawable/icon_back"/>
     <TextView
         android:id="@+id/tv_bar_title"
         android:text="登录"

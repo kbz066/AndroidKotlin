@@ -4,6 +4,7 @@ import android.app.Application
 import com.kotlin.base.dagger.component.BaseApplicationComponent
 import com.kotlin.base.dagger.component.DaggerBaseApplicationComponent
 import com.kotlin.base.dagger.module.BaseApplicationModule
+import com.vondear.rxtools.RxTool
 import javax.inject.Inject
 
 
@@ -20,10 +21,15 @@ class BaseApplication  :Application() {
         super.onCreate()
         mInstance=this;
 
-        InjectAppComponent()
+        initLibrary()//初始化开源库
+        injectAppComponent()
     }
 
-    private fun InjectAppComponent() {
+    private fun initLibrary() {
+        RxTool.init(this)
+    }
+
+    private fun injectAppComponent() {
         mAppComponent= DaggerBaseApplicationComponent.builder().baseApplicationModule(BaseApplicationModule(this)).build();
     }
 

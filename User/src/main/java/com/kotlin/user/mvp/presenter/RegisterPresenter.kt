@@ -20,11 +20,12 @@ class RegisterPresenter @Inject constructor():BasePresenter<RegisterView>() {
 
 
 
+
     fun register( email:String, pwd:String, code:String){
 
 
         mUserServer.register(email,pwd,code)
-                .excute(object : BaseRxObserver<BaseResponse<String>>(){
+                .excute(object : BaseRxObserver<BaseResponse<String>>(mView){
                     override fun success(data: BaseResponse<String>) {
 
                         mView.onRegisterSuccess(data.data)

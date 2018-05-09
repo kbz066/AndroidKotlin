@@ -1,6 +1,9 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" >
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@color/common_blue</item>
+    </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -45,6 +48,19 @@
         <item name="android:layout_marginRight">20dp</item>
 
     </style>
+    <style name="LoginTextLabel" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorControlActivated">#FFCC00</item>
+
+
+        <item name="android:textSize">13sp</item>
+        <item name="colorControlNormal">@color/common_blue</item>
+        <item name="android:textColor">@color/common_white</item>
+        <item name="android:textColorHint">#f0f7f4</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+
+    </style>
 
 
     <!-- 加载弹框样式 -->
@@ -65,5 +81,28 @@
     <style name="LoadingDialog" parent="@android:style/Widget.ProgressBar.Small">
 
         <item name="android:indeterminateDrawable">@drawable/progressbar_indeterminatederawable</item>
+    </style>
+
+
+    <!-- 横屏按钮样式，带不可用状态 -->
+    <!-- 按钮样式-->
+    <style name="FullBtnStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/common_white</item>
+        <item name="android:background">@drawable/btn_common_selector</item>
+        <item name="android:padding">@dimen/common_padding_middle</item>
+        <item name="android:layout_margin">@dimen/common_margin</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="FullBtnStyleBlue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/common_white</item>
+        <item name="android:background">@drawable/btn_common_selector_blue</item>
+        <item name="android:padding">@dimen/common_padding_middle</item>
+        <item name="android:layout_margin">@dimen/common_margin</item>
+        <item name="android:enabled">false</item>
     </style>
 </resources>

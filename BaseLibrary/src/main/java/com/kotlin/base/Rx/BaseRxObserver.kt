@@ -2,6 +2,7 @@ package com.kotlin.base.Rx
 
 import com.alibaba.fastjson.JSONException
 import com.kotlin.base.data.protocol.BaseResponse
+import com.kotlin.base.presenter.view.BaseView
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import retrofit2.HttpException
@@ -15,7 +16,7 @@ import java.net.UnknownHostException
 /**
  * Created by  on 2018/5/2.
  */
-abstract class  BaseRxObserver<T : BaseResponse<*>>: Observer<T> {
+abstract class  BaseRxObserver<T : BaseResponse<*>>(var view:BaseView): Observer<T> {
 
 
     abstract fun success(data: T)
@@ -37,7 +38,7 @@ abstract class  BaseRxObserver<T : BaseResponse<*>>: Observer<T> {
 
     }
     override fun onComplete() {
-
+        view.hideLoading()
     }
 
     override fun onSubscribe(d: Disposable) {
@@ -48,6 +49,7 @@ abstract class  BaseRxObserver<T : BaseResponse<*>>: Observer<T> {
 
 
         if (t.status !=0){
+            view.hideLoading()
             failure(t.status,t.message)
         }else{
             success(t)
@@ -56,7 +58,7 @@ abstract class  BaseRxObserver<T : BaseResponse<*>>: Observer<T> {
     }
 
     override fun onError(e: Throwable) {
-
+        view.hideLoading()
         if (e is HttpException){
 
 

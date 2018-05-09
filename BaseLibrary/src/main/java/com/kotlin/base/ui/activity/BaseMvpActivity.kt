@@ -12,6 +12,9 @@ import com.kotlin.base.dagger.module.LifecycleProviderModule
 import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.base.presenter.view.BaseView
 import com.kotlin.base.ui.widgets.ProgressLoadingBar
+import com.vondear.rxtools.RxActivityTool
+import com.vondear.rxtools.RxTool
+import org.jetbrains.anko.toast
 import javax.inject.Inject
 
 abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
@@ -29,9 +32,12 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
 
     lateinit var mLoadingBar: ProgressLoadingBar
 
+    var mLastKeyDown: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        RxActivityTool.addActivity(this)
         setContentView(getContentViewResId())
         mLoadingBar=ProgressLoadingBar.create(this)
         initActivityComponent()
@@ -39,6 +45,10 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
         initView()
     }
 
+    override fun onDestroy() {
+        RxActivityTool.finishActivity(this)
+        super.onDestroy()
+    }
     /**
      * 初始化Component
      */
@@ -75,7 +85,20 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
     }
 
     override fun onError(statusCode: Int, msg: String?) {
-       // mLoadingBar.dismissLoadingBar()
+
     }
 
+
+    override fun onBackPressed() {
+
+        val timeMillis = System.currentTimeMillis()
+        // 判断当前按下的时间与上一次按下的间隔.
+        if (timeMillis - mLastKeyDown >= 2000) {
+            toast("连续点击两次返回键退出")
+            mLastKeyDown = timeMillis;
+
+        } else {
+            RxActivityTool.AppExit(this)
+        }
+    }
 }

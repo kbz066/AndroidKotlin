@@ -64,6 +64,11 @@ dependencies {
     api "com.trello.rxlifecycle2:rxlifecycle-kotlin:$rx_lifecycle_version"
     api "com.trello.rxlifecycle2:rxlifecycle-components:$rx_lifecycle_version"
 
+    //Alert View
+    api "com.bigkoo:alertview:${alert_view_version}"
+    //RxTools
+    api "com.github.vondear:${rxtools}"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
