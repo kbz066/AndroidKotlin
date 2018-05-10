@@ -5,12 +5,13 @@
     <application>
         <activity
             android:name=".mvp.activity.RegisterActivity"
-
             android:label="@string/title_activity_rigister"
-            android:theme="@style/Translucent"></activity>
+            android:theme="@style/Translucent" />
         <activity
             android:name=".mvp.activity.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity android:name=".mvp.activity.ForgetPwdActivity" />
+        <activity android:name=".mvp.activity.ResetPwdActivity"></activity>
     </application>
 
 </manifest>

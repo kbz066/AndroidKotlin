@@ -7,12 +7,13 @@
     tools:context=".mvp.activity.LoginActivity">
 
 
-    <include
+    <com.kotlin.base.ui.widgets.HeaderToolBar
         android:id="@+id/tb_login_bar"
+        app:titleText="登录"
+        style="@style/MatchWrap">
 
-        layout="@layout/layout_header_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></include>
+    </com.kotlin.base.ui.widgets.HeaderToolBar>
+
 
 
     <android.support.v7.widget.CardView
@@ -44,8 +45,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:text="用户注册"
-                android:textColor="#2fa881"
+                android:text="用户登录"
+                android:textColor="@color/common_blue"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 />
@@ -56,7 +57,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="8dp"
                 android:layout_height="45dp"
-                android:background="#2fa881"
+                android:background="@color/common_blue"
                 />
             <android.support.design.widget.TextInputLayout
 
@@ -133,7 +134,7 @@
 
                 style="@style/FullBtnStyle"
 
-                android:textColor="#2fa881"
+                android:textColor="@color/common_blue"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tl_password"
@@ -154,7 +155,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/gl_end_guideline"
                 android:text="忘记密码?"
-                android:textColor="#2fa881"
+                android:textColor="@color/common_blue"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 />
@@ -173,6 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:fabSize="normal"
+        android:backgroundTint="@color/common_blue"
         android:src="@drawable/plus"
         android:transitionName="loginFab"
         android:layout_marginTop="20dp"

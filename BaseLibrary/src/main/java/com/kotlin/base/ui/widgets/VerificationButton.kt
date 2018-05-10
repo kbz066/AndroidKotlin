@@ -18,24 +18,27 @@ import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
 /**
- * Created by caofu on 2018/5/9.
+ * Created by  on 2018/5/9.
  */
 class VerificationButton @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : Button(context, attrs, defStyleAttr) {
 
 
-     var showTxtNumber:Long=59
+    var defaultTxtColor:Int=0
+    var showTxtNumber:Long=59
 
 
     init {
         this.setText("获取验证码")
-        this.setTextColor(resources.getColor(R.color.common_white))
+
+        defaultTxtColor=textColors.defaultColor
     }
 
 
 
 
+    //倒计时
     fun afterMeterTime(){
 
         //设置状态
@@ -81,7 +84,7 @@ class VerificationButton @JvmOverloads constructor(
         this.isEnabled=true
         this.setText("重获验证码")
         this.showTxtNumber=59
-        this.setTextColor(resources.getColor(R.color.common_white))
+        this.setTextColor(defaultTxtColor)
 
     }
 

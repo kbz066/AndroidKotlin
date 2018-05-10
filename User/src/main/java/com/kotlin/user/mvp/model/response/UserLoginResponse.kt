@@ -3,7 +3,7 @@ package com.kotlin.user.mvp.model.response
 import com.kotlin.base.annotation.Poko
 
 /**
- * Created by caofu on 2018/5/8.
+ * Created by  on 2018/5/8.
  */
 @Poko
 data class UserLoginResponse(var id:String,

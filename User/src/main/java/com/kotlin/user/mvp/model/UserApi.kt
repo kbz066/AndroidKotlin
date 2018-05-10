@@ -1,6 +1,8 @@
 package com.kotlin.user.mvp.model
 
 import com.kotlin.base.data.protocol.BaseResponse
+import com.kotlin.user.mvp.model.request.ForgetPwdRequest
+import com.kotlin.user.mvp.model.request.ResetPwdRequest
 import com.kotlin.user.mvp.model.request.UserLoginRequest
 import com.kotlin.user.mvp.model.request.UserRegisterRequest
 import com.kotlin.user.mvp.model.response.UserLoginResponse
@@ -22,5 +24,14 @@ interface UserApi {
 
     @POST("userCenter/login")
     fun login(@Body request: UserLoginRequest): Observable<BaseResponse<UserLoginResponse>>
+
+
+    @POST("userCenter/forgetPwd")
+    fun forgetPwd(@Body req:ForgetPwdRequest): Observable<BaseResponse<String>>
+
+
+    @POST("userCenter/resetPwd")
+    fun resetPwd(@Body req:ResetPwdRequest): Observable<BaseResponse<String>>
+
 
 }

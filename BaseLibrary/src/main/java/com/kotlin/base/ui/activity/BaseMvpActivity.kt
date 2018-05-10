@@ -25,7 +25,7 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
      */
 
     @Inject
-    lateinit var mpresenter:T;
+    lateinit var mPresenter:T;
 
     lateinit var mActiviComponent: BaseActivityComponent
 
@@ -37,18 +37,17 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        RxActivityTool.addActivity(this)
+
         setContentView(getContentViewResId())
+
         mLoadingBar=ProgressLoadingBar.create(this)
+
         initActivityComponent()
         injectComponent()
         initView()
     }
 
-    override fun onDestroy() {
-        RxActivityTool.finishActivity(this)
-        super.onDestroy()
-    }
+
     /**
      * 初始化Component
      */

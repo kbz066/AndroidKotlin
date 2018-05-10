@@ -43,7 +43,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
                 animateRevealClose()
             }
             R.id.bt_userRegister->{
-                mpresenter.register(et_phone_number.text.toString(),et_password.text.toString(),et_verification_code.text.toString())
+                mPresenter.register(et_phone_number.text.toString(),et_password.text.toString(),et_verification_code.text.toString())
 
             }
             R.id.vb_verification->{
@@ -61,7 +61,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
 
     override fun initView() {
 
-        setSupportActionBar(tb_register_bar as Toolbar)
+        setSupportActionBar(tb_register_bar .getToolBar())
         ShowEnterAnimation()
 
         fb_toLoginView.setOnClickListener(this)
@@ -71,7 +71,14 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
             isBtnEnable()
         }
 
-        tb_register_bar.find<TextView>(R.id.tv_bar_title).setText("注册")
+
+        tb_register_bar.setClickListener(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                animateRevealClose()
+            }
+
+        })
+
     }
     /**
      * 注入
@@ -79,17 +86,17 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
     override fun injectComponent() {
 
         DaggerUserComponent.builder().baseActivityComponent(mActiviComponent).build().inject(this)
-        mpresenter.mView=this
+        mPresenter.mView=this
     }
     override fun onRegisterSuccess(result: String?) {
 
         toast("注册成功")
     }
 
-    override fun onRegisterFailure(statusCode: Int, msg: String?) {
+
+    override fun onError(statusCode: Int, msg: String?) {
         toast("注册失败(${msg})")
     }
-
 
 
     override fun ShowEnterAnimation() {

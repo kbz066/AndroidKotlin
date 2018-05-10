@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import java.util.concurrent.TimeUnit
 
@@ -33,14 +34,13 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
     override fun initView() {
 
 
-        setSupportActionBar(tb_login_bar as Toolbar)
+        setSupportActionBar(tb_login_bar.getToolBar())
 
 
         fb_toRigisterView.setOnClickListener(this)
         bt_userLogin.setOnClickListener(this)
         tv_forget_pwd.setOnClickListener(this)
 
-        tb_login_bar.find<TextView>(R.id.tv_bar_title).setText("登录")
         bt_userLogin.enable(et_login_phone,et_login_password){
             isBtnEnable()
         }
@@ -56,7 +56,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
                 .baseActivityComponent(mActiviComponent)
                 .build()
                 .inject(this)
-        mpresenter.mView=this
+        mPresenter.mView=this
     }
 
     override fun getContentViewResId(): Int {
@@ -88,15 +88,16 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
 
 
                 val options = ActivityOptions.makeSceneTransitionAnimation(this, fb_toRigisterView, fb_toRigisterView.getTransitionName())
-
                 startActivity(Intent(this, RegisterActivity::class.java), options.toBundle())
             }
             R.id.bt_userLogin->{
-                mpresenter.login(et_login_phone.text.toString(),et_login_password.text.toString(),"")//登录
+                mPresenter.login(et_login_phone.text.toString(),et_login_password.text.toString(),"")//登录
             }
 
             R.id.tv_forget_pwd->{
 
+
+                startActivity<ForgetPwdActivity>()
 
             }
         }

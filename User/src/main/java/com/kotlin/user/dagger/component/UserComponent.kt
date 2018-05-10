@@ -2,6 +2,7 @@ package com.kotlin.user.dagger.component
 
 import com.kotlin.base.dagger.component.BaseActivityComponent
 import com.kotlin.user.dagger.module.UserModule
+import com.kotlin.user.mvp.activity.ForgetPwdActivity
 import com.kotlin.user.mvp.activity.LoginActivity
 import com.kotlin.user.mvp.activity.RegisterActivity
 import dagger.Component
@@ -13,4 +14,5 @@ import dagger.Component
 interface UserComponent {
     fun inject(registerActivity: RegisterActivity)
     fun inject(loginActivity: LoginActivity)
+    fun inject(loginActivity: ForgetPwdActivity)
 }

@@ -14,5 +14,18 @@ interface UserServer {
      */
     fun register(email:String, pwd:String, code:String): Observable<BaseResponse<String>>
 
+    /**
+     * 登录
+     */
     fun login( mobile:String,  pwd:String,  pushId:String): Observable<BaseResponse<UserLoginResponse>>
+
+    /**
+     * 忘记密码
+     */
+    fun forgetPwd(mobile: String, verifyCode: String): Observable<BaseResponse<String>>
+
+    /**
+     * 重置密码
+     */
+    fun resetPwd(mobile: String, pwd: String): Observable<BaseResponse<String>>
 }

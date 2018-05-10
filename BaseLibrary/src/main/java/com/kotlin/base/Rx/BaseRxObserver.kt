@@ -31,8 +31,9 @@ abstract class  BaseRxObserver<T : BaseResponse<*>>(var view:BaseView): Observer
         NOT_FOUND(404, "未找到。服务器找不到请求的网页"),
         CONNECTION_TIMEOUT(408, "（请求超时） 服务器等候请求时发生超时"),
         NETWORK_NOT_CONNECT(499,"服务器端处理的时间过长"),
-        UNEXPECTED_ERROR(-2, "未知错误"),
-        JSON_EXCEPTION(-3,"json转换错误");
+        UNEXPECTED_ERROR(1000, "未知错误"),
+        JSON_EXCEPTION(1001,"json转换错误"),
+        NETWORK_UNAVAILABLE(1002,"网络不可用");
 
 
 
@@ -49,7 +50,7 @@ abstract class  BaseRxObserver<T : BaseResponse<*>>(var view:BaseView): Observer
 
 
         if (t.status !=0){
-            view.hideLoading()
+            //view.hideLoading()
             failure(t.status,t.message)
         }else{
             success(t)

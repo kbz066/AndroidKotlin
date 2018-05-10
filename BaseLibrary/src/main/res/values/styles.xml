@@ -35,6 +35,12 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
+    <!-- 竖向分隔线 带上下间距 -->
+    <style name="DividerFixedWidth.MarginTopBottom" parent="@style/DividerFixedWidth">
+        <item name="android:layout_marginTop">@dimen/common_margin_middle</item>
+        <item name="android:layout_marginBottom">@dimen/common_margin_middle</item>
+    </style>
+
     <style name="TextLabel" parent="Theme.AppCompat.Light.NoActionBar">
 
         <item name="colorControlActivated">#FFCC00</item>

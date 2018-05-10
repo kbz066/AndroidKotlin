@@ -27,7 +27,7 @@ class LoginPresenter @Inject constructor() :BasePresenter<LoginView>() {
 
 
         mUserServer.login(email,pwd,pushId)
-                .excute(object : BaseRxObserver<BaseResponse<UserLoginResponse>>(mView){
+                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<UserLoginResponse>>(mView){
                     override fun success(data: BaseResponse<UserLoginResponse>) {
 
                         mView.onLoginSuccess(data.data)

@@ -16,7 +16,7 @@
         android:src="@drawable/icon_back"/>
     <TextView
         android:id="@+id/tv_bar_title"
-        android:text="登录"
+
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
