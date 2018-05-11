@@ -45,6 +45,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
             isBtnEnable()
         }
 
+
     }
 
     /**
@@ -68,8 +69,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
      */
     override fun onLoginSuccess(result: UserLoginResponse?) {
         toast("登录成功${result?.id}")
-
-
+        startActivity<UserInfoActivity>()
     }
 
     override fun onError(statusCode: Int, msg: String?) {

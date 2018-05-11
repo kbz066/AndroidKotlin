@@ -1,4 +1,4 @@
-package com.kotlin.user.mvp.model.server
+package com.kotlin.user.mvp.model.server.impl
 
 import com.kotlin.base.data.net.RetrofitManager
 import com.kotlin.base.data.protocol.BaseResponse
@@ -8,6 +8,7 @@ import com.kotlin.user.mvp.model.request.ResetPwdRequest
 import com.kotlin.user.mvp.model.request.UserLoginRequest
 import com.kotlin.user.mvp.model.request.UserRegisterRequest
 import com.kotlin.user.mvp.model.response.UserLoginResponse
+import com.kotlin.user.mvp.model.server.UserServer
 import io.reactivex.Observable
 
 

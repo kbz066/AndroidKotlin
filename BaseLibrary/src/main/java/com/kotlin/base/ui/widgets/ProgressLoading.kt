@@ -3,6 +3,7 @@ package com.kotlin.base.ui.widgets
 import android.app.Dialog
 import android.content.Context
 import android.graphics.drawable.AnimationDrawable
+import android.os.Bundle
 import android.view.Gravity
 import android.widget.ImageView
 import com.kotlin.base.R
@@ -11,40 +12,45 @@ import org.jetbrains.anko.find
 /**
  * Created by  on 2018/5/9.
  */
-class ProgressLoadingBar private constructor(context: Context?, themeResId: Int) : Dialog(context, themeResId) {
+class ProgressLoadingBar  constructor(context: Context?, themeResId: Int) : Dialog(context, themeResId) {
 
+    lateinit var mAnimationDrawable: AnimationDrawable
 
-    companion object {
-        lateinit var mLoadingBar:ProgressLoadingBar
-        lateinit var mAnimationDrawable: AnimationDrawable
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        fun create(mContext: Context):ProgressLoadingBar{
-            mLoadingBar= ProgressLoadingBar(mContext, R.style.LightProgressDialog)
+        initView()
 
-            mLoadingBar.setContentView(R.layout.progress_dialog)
-
-
-
-            mAnimationDrawable=mLoadingBar.find<ImageView>(R.id.iv_loading_image).background as AnimationDrawable
-
-            val lp = mLoadingBar.window.attributes
-            lp.dimAmount = 0.2f
-
-            lp.gravity= Gravity.CENTER
-            //设置属性
-            mLoadingBar.window.attributes = lp
-
-            return mLoadingBar;
-        }
     }
 
+    private fun initView() {
+        this.setContentView(R.layout.progress_dialog)
+
+        mAnimationDrawable=this.find<ImageView>(R.id.iv_loading_image).background as AnimationDrawable
+
+        val lp = this.window.attributes
+        lp.dimAmount = 0.2f
+
+        lp.gravity= Gravity.CENTER
+        //设置属性
+        this.window.attributes = lp
+    }
+
+
+
+
+
+
     fun showLoadingBar(){
-        mLoadingBar?.show()
+
+
+        this.show()
         mAnimationDrawable?.start()
     }
 
     fun dismissLoadingBar(){
-        mLoadingBar?.dismiss()
+
+        this.dismiss()
         mAnimationDrawable?.stop()
     }
 

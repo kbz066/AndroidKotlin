@@ -5,11 +5,12 @@ import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.user.mvp.model.server.UserServer
-import com.kotlin.user.mvp.presenter.view.RegisterView
+import com.kotlin.user.mvp.presenter.view.ResetPwdView
+import com.kotlin.user.mvp.presenter.view.UserInfoView
 import javax.inject.Inject
 
 
-class RegisterPresenter @Inject constructor():BasePresenter<RegisterView>() {
+class UserInfoPresenter @Inject constructor():BasePresenter<UserInfoView>() {
 
 
 
@@ -20,23 +21,19 @@ class RegisterPresenter @Inject constructor():BasePresenter<RegisterView>() {
 
 
 
-    fun register( email:String, pwd:String, code:String){
+    fun resetPwd( mobile: String, verifyCode: String){
 
 
-        mUserServer.register(email,pwd,code)
+        mUserServer.resetPwd(mobile,verifyCode)
                 .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<String>>(mView){
                     override fun success(data: BaseResponse<String>) {
-
-                        mView.onRegisterSuccess(data.data)
+                      //  mView.onResetPwdResult(data.data)
 
                     }
 
                     override fun failure(statusCode: Int, msg: String?) {
                         mView.onError(statusCode,msg)
-
                     }
-
-
 
                 },rxLifecycle)
 

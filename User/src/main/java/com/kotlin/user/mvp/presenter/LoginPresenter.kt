@@ -6,7 +6,6 @@ import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.user.mvp.model.response.UserLoginResponse
 import com.kotlin.user.mvp.model.server.UserServer
-import com.kotlin.user.mvp.model.server.UserServerImpl
 import com.kotlin.user.mvp.presenter.view.LoginView
 import javax.inject.Inject
 

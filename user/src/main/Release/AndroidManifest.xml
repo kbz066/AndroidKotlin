@@ -11,7 +11,8 @@
             android:name=".mvp.activity.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".mvp.activity.ForgetPwdActivity" />
-        <activity android:name=".mvp.activity.ResetPwdActivity"></activity>
+        <activity android:name=".mvp.activity.ResetPwdActivity" />
+        <activity android:name=".mvp.activity.UserInfoActivity"></activity>
     </application>
 
 </manifest>

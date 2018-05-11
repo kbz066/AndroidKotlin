@@ -47,6 +47,7 @@ class VerificationButton @JvmOverloads constructor(
         this.isEnabled=false
         this.setTextColor(resources.getColor(R.color.common_yellow))
 
+
         Observable.interval(0,1,TimeUnit.SECONDS)
                 .take(60)
                 .observeOn(AndroidSchedulers.mainThread())

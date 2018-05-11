@@ -1,8 +1,7 @@
 package com.kotlin.user.dagger.module
 
-import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.user.mvp.model.server.UserServer
-import com.kotlin.user.mvp.model.server.UserServerImpl
+import com.kotlin.user.mvp.model.server.impl.UserServerImpl
 import dagger.Module
 import dagger.Provides
 

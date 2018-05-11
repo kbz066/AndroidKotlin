@@ -28,4 +28,6 @@ interface UserServer {
      * 重置密码
      */
     fun resetPwd(mobile: String, pwd: String): Observable<BaseResponse<String>>
+
+
 }

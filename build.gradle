@@ -15,7 +15,10 @@ buildscript {
     ext.rx_lifecycle_version='2.2.1'
     ext.alert_view_version = "1.0.3"
     ext.rxtools='RxTools:v1.7.8.3'
-    ext.rxbus='rxbus:2.0.0'
+    ext.eventbus='eventbus:3.1.1'
+    ext.loggers='logger:2.2.0'
+    ext.gilde='glide:4.7.1'
+    ext.glide_compiler='compiler:4.7.1'
 
 
     repositories {
