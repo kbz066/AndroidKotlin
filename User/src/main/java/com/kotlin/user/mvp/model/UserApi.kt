@@ -5,7 +5,7 @@ import com.kotlin.user.mvp.model.request.ForgetPwdRequest
 import com.kotlin.user.mvp.model.request.ResetPwdRequest
 import com.kotlin.user.mvp.model.request.UserLoginRequest
 import com.kotlin.user.mvp.model.request.UserRegisterRequest
-import com.kotlin.user.mvp.model.response.UserLoginResponse
+import com.kotlin.user.mvp.model.response.UserInfoResponse
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -23,7 +23,7 @@ interface UserApi {
 
 
     @POST("userCenter/login")
-    fun login(@Body request: UserLoginRequest): Observable<BaseResponse<UserLoginResponse>>
+    fun login(@Body request: UserLoginRequest): Observable<BaseResponse<UserInfoResponse>>
 
 
     @POST("userCenter/forgetPwd")

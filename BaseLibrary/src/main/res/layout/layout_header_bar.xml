@@ -23,9 +23,20 @@
         android:layout_gravity="center"
         android:textColor="@color/common_white"
         android:textSize="@dimen/text_large_size"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+/>
+
+    <TextView
+        android:id="@+id/tv_bar_right_txt"
+
+
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding"
+        android:textColor="@color/common_white"
+        android:textSize="@dimen/text_large_size"
+/>
 
 </android.support.v7.widget.Toolbar>

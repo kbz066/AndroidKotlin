@@ -19,6 +19,9 @@ buildscript {
     ext.loggers='logger:2.2.0'
     ext.gilde='glide:4.7.1'
     ext.glide_compiler='compiler:4.7.1'
+    ext.alert_view_version = '1.0.3'
+    ext.take_photo_version = '4.0.3'
+    ext.rxpermissions2='rxpermissions:0.9.5@aar'
 
 
     repositories {

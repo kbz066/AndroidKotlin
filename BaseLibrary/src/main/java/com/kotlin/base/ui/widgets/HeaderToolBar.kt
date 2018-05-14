@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
+import android.widget.TextView
 import com.kotlin.base.R
 import com.vondear.rxtools.RxActivityTool
 import kotlinx.android.synthetic.main.layout_header_bar.view.*
@@ -22,7 +23,9 @@ class HeaderToolBar: RelativeLayout {
     //Title文字
     private var titleText:String? = null
 
-    private  var mOnClickListener:OnClickListener?=null
+    private var rightText:String?=null
+    private  var mBackClickListener:OnClickListener?=null
+
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs){
@@ -40,6 +43,8 @@ class HeaderToolBar: RelativeLayout {
 
         val typedArray = context!!.obtainStyledAttributes(attrs,R.styleable.HeaderBar)
         titleText=typedArray.getString(R.styleable.HeaderBar_titleText)
+
+        rightText=typedArray.getString(R.styleable.HeaderBar_rightText)
         isShowBack=typedArray.getBoolean(R.styleable.HeaderBar_isShowBack,true)
 
 
@@ -50,10 +55,16 @@ class HeaderToolBar: RelativeLayout {
             tv_bar_title.text=it
         }
 
+        rightText?.let {
+            tv_bar_right_txt.text=it
+        }
+
+        //设置事件
+
         iv_back_image.setOnClickListener{
 
-            if (mOnClickListener!=null){
-                mOnClickListener!!.onClick(it)
+            if (mBackClickListener!=null){
+                mBackClickListener!!.onClick(it)
             }else{
                 RxActivityTool.finishActivity(context as Activity)
             }
@@ -68,9 +79,13 @@ class HeaderToolBar: RelativeLayout {
         return tb_header_bar
     }
 
-    fun setClickListener(listener:OnClickListener){
-        this.mOnClickListener=listener
-        println("setClickListener------------->"+mOnClickListener)
+    fun setBackClickListener(listener:OnClickListener){
+        this.mBackClickListener=listener
+
+    }
+
+    fun getRightView():TextView{
+        return tv_bar_right_txt
     }
 
 

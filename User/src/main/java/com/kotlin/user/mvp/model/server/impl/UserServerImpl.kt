@@ -7,7 +7,7 @@ import com.kotlin.user.mvp.model.request.ForgetPwdRequest
 import com.kotlin.user.mvp.model.request.ResetPwdRequest
 import com.kotlin.user.mvp.model.request.UserLoginRequest
 import com.kotlin.user.mvp.model.request.UserRegisterRequest
-import com.kotlin.user.mvp.model.response.UserLoginResponse
+import com.kotlin.user.mvp.model.response.UserInfoResponse
 import com.kotlin.user.mvp.model.server.UserServer
 import io.reactivex.Observable
 
@@ -28,7 +28,7 @@ class UserServerImpl: UserServer {
 
     }
 
-    override fun login(mobile: String, pwd: String, pushId: String): Observable<BaseResponse<UserLoginResponse>> {
+    override fun login(mobile: String, pwd: String, pushId: String): Observable<BaseResponse<UserInfoResponse>> {
        return RetrofitManager.mInstance.create(UserApi::class.java)
                 .login(UserLoginRequest(mobile, pwd, pushId))
     }

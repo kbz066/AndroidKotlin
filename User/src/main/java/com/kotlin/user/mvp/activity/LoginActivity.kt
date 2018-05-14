@@ -1,37 +1,42 @@
 package com.kotlin.user.mvp.activity
 
+import android.Manifest
 import android.app.ActivityOptions
 import android.content.Intent
-import android.support.v7.widget.Toolbar
+import android.os.Environment
 import android.view.View
-import android.widget.TextView
+import com.alibaba.fastjson.JSON
+import com.kotlin.base.common.BaseConstant
 import com.kotlin.base.ext.enable
 import com.kotlin.base.ui.activity.BaseMvpActivity
+import com.kotlin.base.utils.AppPrefsUtils
+import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.user.R
-import com.kotlin.user.R.id.*
+
 
 import com.kotlin.user.dagger.component.DaggerUserComponent
 import com.kotlin.user.dagger.module.UserModule
-import com.kotlin.user.mvp.model.response.UserLoginResponse
+import com.kotlin.user.mvp.model.response.UserInfoResponse
 
 
 import com.kotlin.user.mvp.presenter.LoginPresenter
 import com.kotlin.user.mvp.presenter.view.LoginView
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
+import com.orhanobut.logger.Logger
+import com.vondear.rxtools.RxFileTool
+import com.vondear.rxtools.RxSPTool
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 
-import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
-import java.util.concurrent.TimeUnit
 
 class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,LoginView{
 
 
     override fun initView() {
+
+
+        Logger.e("getDataPath                 "+Environment.getExternalStorageDirectory() )
 
 
         setSupportActionBar(tb_login_bar.getToolBar())
@@ -42,11 +47,26 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
         tv_forget_pwd.setOnClickListener(this)
 
         bt_userLogin.enable(et_login_phone,et_login_password){
+
             isBtnEnable()
         }
 
 
+        //获取权限
+
+        checkRxPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,mPermissionsListener = object :PermissionsListener{
+            override fun onPermissionsFail() {
+
+            }
+
+            override fun onPermissionsSuccess() {
+
+            }
+
+
+        })
     }
+
 
     /**
      * 注入
@@ -67,8 +87,12 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
     /**
      * 请求成功的回调
      */
-    override fun onLoginSuccess(result: UserLoginResponse?) {
+    override fun onLoginSuccess(result: UserInfoResponse?) {
         toast("登录成功${result?.id}")
+
+
+        RxSPTool.putJSONCache(this,ProviderConstant.KEY_SP_USER_CACHE,JSON.toJSONString(result))
+
         startActivity<UserInfoActivity>()
     }
 

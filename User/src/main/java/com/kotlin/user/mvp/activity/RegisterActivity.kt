@@ -72,7 +72,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
         }
 
 
-        tb_register_bar.setClickListener(object :View.OnClickListener{
+        tb_register_bar.setBackClickListener(object :View.OnClickListener{
             override fun onClick(v: View?) {
                 animateRevealClose()
             }

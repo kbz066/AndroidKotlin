@@ -21,7 +21,7 @@ class UserInfoPresenter @Inject constructor():BasePresenter<UserInfoView>() {
 
 
 
-    fun resetPwd( mobile: String, verifyCode: String){
+    fun setUserInfo( mobile: String, verifyCode: String){
 
 
         mUserServer.resetPwd(mobile,verifyCode)

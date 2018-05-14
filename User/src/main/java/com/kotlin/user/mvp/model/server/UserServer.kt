@@ -1,7 +1,7 @@
 package com.kotlin.user.mvp.model.server
 
 import com.kotlin.base.data.protocol.BaseResponse
-import com.kotlin.user.mvp.model.response.UserLoginResponse
+import com.kotlin.user.mvp.model.response.UserInfoResponse
 import io.reactivex.Observable
 
 /**
@@ -17,7 +17,7 @@ interface UserServer {
     /**
      * 登录
      */
-    fun login( mobile:String,  pwd:String,  pushId:String): Observable<BaseResponse<UserLoginResponse>>
+    fun login( mobile:String,  pwd:String,  pushId:String): Observable<BaseResponse<UserInfoResponse>>
 
     /**
      * 忘记密码

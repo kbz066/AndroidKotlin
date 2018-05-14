@@ -50,7 +50,8 @@ dependencies {
     api "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
     api "org.ligboy.retrofit2:converter-fastjson-android:$converter_fastjson"
     api "com.squareup.okhttp3:okhttp:$okhttp"
-    //    api "com.alibaba:fastjson:$fastjson"
+   // api "com.alibaba:fastjson:$fastjson"
+
     api "com.squareup.retrofit2:adapter-rxjava:$retrofit"
     api "com.squareup.okhttp3:logging-interceptor:$okhttp"
     api "org.jetbrains.anko:anko-commons:$anko_version"
@@ -78,6 +79,13 @@ dependencies {
 
     api "com.github.bumptech.glide:${gilde}"
     kapt "com.github.bumptech.glide:${glide_compiler}"
+
+    //Alert View
+    api "com.bigkoo:alertview:${alert_view_version}"
+    //Take Photo
+    api "com.jph.takephoto:takephoto_library:${take_photo_version}"
+    //rxpermissions2
+    api "com.tbruyelle.rxpermissions2:${rxpermissions2}"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'

@@ -4,7 +4,7 @@ import com.kotlin.base.Rx.BaseRxObserver
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
-import com.kotlin.user.mvp.model.response.UserLoginResponse
+import com.kotlin.user.mvp.model.response.UserInfoResponse
 import com.kotlin.user.mvp.model.server.UserServer
 import com.kotlin.user.mvp.presenter.view.LoginView
 import javax.inject.Inject
@@ -26,8 +26,8 @@ class LoginPresenter @Inject constructor() :BasePresenter<LoginView>() {
 
 
         mUserServer.login(email,pwd,pushId)
-                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<UserLoginResponse>>(mView){
-                    override fun success(data: BaseResponse<UserLoginResponse>) {
+                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<UserInfoResponse>>(mView){
+                    override fun success(data: BaseResponse<UserInfoResponse>) {
 
                         mView.onLoginSuccess(data.data)
 
