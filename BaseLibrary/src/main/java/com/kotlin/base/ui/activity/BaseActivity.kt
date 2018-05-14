@@ -33,7 +33,7 @@ open class BaseActivity : RxAppCompatActivity(){
         RxActivityTool.addActivity(this)
     }
 
-    fun checkRxPermissions(vararg permissions: String,mPermissionsListener:PermissionsListener) {
+    fun requestRxPermissions(vararg permissions: String,mPermissionsListener:PermissionsListener) {
 
 
         mRxPermissions.request(*permissions)

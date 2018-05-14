@@ -51,20 +51,6 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
             isBtnEnable()
         }
 
-
-        //获取权限
-
-        checkRxPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,mPermissionsListener = object :PermissionsListener{
-            override fun onPermissionsFail() {
-
-            }
-
-            override fun onPermissionsSuccess() {
-
-            }
-
-
-        })
     }
 
 

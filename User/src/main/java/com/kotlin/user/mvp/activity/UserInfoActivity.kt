@@ -25,6 +25,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.jph.takephoto.app.TakePhoto
 import com.jph.takephoto.app.TakePhotoImpl
+import com.jph.takephoto.compress.CompressConfig
 import com.jph.takephoto.model.InvokeParam
 import com.jph.takephoto.model.TResult
 import com.jph.takephoto.permission.InvokeListener
@@ -86,7 +87,8 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>() ,UserInfoView, Tak
             showSelectDialog();
         }
 
-        checkRxPermissions( Manifest.permission.CAMERA,mPermissionsListener = object :PermissionsListener{
+        //申请权限
+        requestRxPermissions( Manifest.permission.CAMERA,mPermissionsListener = object :PermissionsListener{
             override fun onPermissionsFail() {
 
             }
@@ -103,37 +105,21 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>() ,UserInfoView, Tak
      * 选择图片对话框
      */
     private fun showSelectDialog() {
+        AlertView("选择图片", "", "取消", null, arrayOf("拍照", "相册"), this, AlertView.Style.ActionSheet, OnItemClickListener {
+            o, position ->
 
+            mTakePhoto.onEnableCompress(CompressConfig.ofDefaultConfig(),false)
+            when (position) {
+                0 -> {
 
-        var listener= OnItemClickListener {
-            view, position ->
-
-            when(position){
-
-                0->{
+                    createTempFile()
                     mTakePhoto.onPickFromCapture(getImageCropUri())
                 }
-
-
-                1->{
-
-
-                }
+                1 -> mTakePhoto.onPickFromGallery()
             }
-
         }
 
-
-        //builder模式创建
-        AlertView.Builder().setContext(this)
-                .setStyle(AlertView.Style.ActionSheet)
-                .setTitle("选择图片")
-                .setMessage(null)
-                .setCancelText("取消")
-                .setOthers(arrayOf("拍照", "从相册中选择"))
-                .setOnItemClickListener(listener)
-                .build()
-                .show()
+        ).show()
 
     }
 
@@ -186,6 +172,7 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>() ,UserInfoView, Tak
         if (!file.parentFile.exists()) {
             file.parentFile.mkdirs()
         }
+
 
         return Uri.fromFile(file)
     }
