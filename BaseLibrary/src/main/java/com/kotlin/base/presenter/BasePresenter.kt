@@ -14,14 +14,14 @@ open class BasePresenter<T:BaseView> {
     lateinit var rxLifecycle: LifecycleProvider<*>
 
     @Inject
-    lateinit var context: Context
+    lateinit var mContext: Context
 
     /*
     检查网络是否可用
  */
     fun checkNetWork(view:BaseView):Boolean{
 
-        if(RxNetTool.isNetworkAvailable(context)){
+        if(RxNetTool.isNetworkAvailable(mContext)){
             view.showLoading()
             return true
         }

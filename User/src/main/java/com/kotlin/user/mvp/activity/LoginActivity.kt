@@ -36,7 +36,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
     override fun initView() {
 
 
-        Logger.e("getDataPath                 "+Environment.getExternalStorageDirectory() )
+
 
 
         setSupportActionBar(tb_login_bar.getToolBar())

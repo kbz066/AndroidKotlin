@@ -34,16 +34,29 @@ import com.jph.takephoto.permission.PermissionManager
 import org.jetbrains.anko.toast
 import com.jph.takephoto.permission.PermissionManager.TPermissionType
 import com.kotlin.base.utils.GlideUtils
+import com.kotlin.provider.utils.OSSUtils
 import com.kotlin.user.R.id.iv_user_icon_image
+import com.orhanobut.logger.Logger
 import com.vondear.rxtools.RxFileTool
 import com.vondear.rxtools.RxTimeTool
+import io.reactivex.Observable
 import java.io.File
 
 
 class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>() ,UserInfoView, TakePhoto.TakeResultListener {
-    override fun onGetUploadTokenResult(result: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+
+    /**
+     * 上传结果
+     */
+    override fun onUploadImageResult(flag: Boolean) {
+        if (flag){
+
+        }else{
+            toast("上传失败,请重试")
+        }
     }
+
 
     override fun onEditUserResult(result: UserInfoResponse) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -115,7 +128,11 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>() ,UserInfoView, Tak
                     createTempFile()
                     mTakePhoto.onPickFromCapture(getImageCropUri())
                 }
-                1 -> mTakePhoto.onPickFromGallery()
+
+                1 -> {
+                    mTakePhoto.onPickFromGallery()
+                }
+
             }
         }
 
@@ -146,6 +163,7 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>() ,UserInfoView, Tak
         DaggerUserComponent.builder().baseActivityComponent(mActiviComponent)
                 .userModule(UserModule())
                 .build().inject(this)
+        mPresenter.mView=this
     }
 
 
@@ -154,7 +172,11 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>() ,UserInfoView, Tak
 
     override fun takeSuccess(result: TResult?) {
         toast("图片路径-------》"+result!!.getImage().originalPath)
+
+        mPresenter.uploadImage("img/${ System.currentTimeMillis()}.jpg",result.image.compressPath)
         GlideUtils.loadUrlImage(this,result!!.getImage().originalPath, iv_user_icon_image)
+
+
     }
 
     override fun takeCancel() {
@@ -163,6 +185,8 @@ class UserInfoActivity : BaseMvpActivity<UserInfoPresenter>() ,UserInfoView, Tak
 
     override fun takeFail(result: TResult?, msg: String?) {
 
+        toast("获取失败------》"+msg)
+        Logger.e("获取失败------》"+msg)
     }
 
 

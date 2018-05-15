@@ -4,9 +4,14 @@ import com.kotlin.base.Rx.BaseRxObserver
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
+import com.kotlin.provider.common.ProviderConstant
+import com.kotlin.user.mvp.model.server.UploadImageServer
 import com.kotlin.user.mvp.model.server.UserServer
 import com.kotlin.user.mvp.presenter.view.ResetPwdView
 import com.kotlin.user.mvp.presenter.view.UserInfoView
+import com.orhanobut.logger.Logger
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 
@@ -18,6 +23,9 @@ class UserInfoPresenter @Inject constructor():BasePresenter<UserInfoView>() {
     lateinit var mUserServer: UserServer
 
 
+
+    @Inject
+    lateinit var mUploadImageServer: UploadImageServer
 
 
 
@@ -38,6 +46,23 @@ class UserInfoPresenter @Inject constructor():BasePresenter<UserInfoView>() {
                 },rxLifecycle)
 
 
+
+    }
+
+    fun uploadImage( oosPath:String, locationPath:String){
+        mUploadImageServer.uploadHeaderIcon(mContext,ProviderConstant.OOS_BUCKET_NAME,oosPath,locationPath)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe (
+                        {
+                            mView.onUploadImageResult(true)
+                            Logger.e("上传成功------------》"+it.eTag)
+                        },
+                        {
+                            mView.onUploadImageResult(false)
+                            Logger.e("上传失败------------》")
+                        }
+                )
 
     }
 

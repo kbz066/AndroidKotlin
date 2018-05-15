@@ -1,5 +1,8 @@
 package com.kotlin.provider.common
 
+import android.icu.text.SimpleDateFormat
+import java.util.*
+
 /*
     业务常量
  */
@@ -21,6 +24,23 @@ class ProviderConstant {
         const val KEY_ORDER_ID = "order_id"
         //订单价格
         const val KEY_ORDER_PRICE = "order_price"
+
+
+        //阿里云
+        const val OOS_ENDPOINT ="oss-cn-hongkong.aliyuncs.com"
+        const val OOS_ACCESSKEYID = "LTAIRhH2MoxuE44s"  // accessKeyId
+        const val OOS_ACCESSKEYSECRET = "cguCUzUzcOt2MGENfIElGGevCh5iHV" // accessKeySecret
+        const val OOS_BUCKET_NAME="header-icon"
+
+        /**
+         *
+         * @return 图片上传到阿里云的路径
+         */
+//        fun getPhotoFileName(): String {
+//            val date = Date(System.currentTimeMillis())
+//            val dateFormat = SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.getDefault())
+//            return "img" + "/" + dateFormat.format(date) + ".webp"
+//        }
     }
 
 

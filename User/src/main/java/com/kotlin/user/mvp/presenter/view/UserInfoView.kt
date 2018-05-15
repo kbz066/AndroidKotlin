@@ -10,7 +10,7 @@ interface UserInfoView :BaseView {
     /*
     获取上传凭证回调
  */
-    fun onGetUploadTokenResult(result:String)
+    fun onUploadImageResult(flag:Boolean)
 
     /*
         编辑用户资料回调
