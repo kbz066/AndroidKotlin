@@ -12,6 +12,7 @@ import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.base.utils.AppPrefsUtils
 import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.user.R
+import com.kotlin.user.R.id.*
 
 
 import com.kotlin.user.dagger.component.DaggerUserComponent
@@ -74,9 +75,9 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
      * 请求成功的回调
      */
     override fun onLoginSuccess(result: UserInfoResponse?) {
-        toast("登录成功${result?.id}")
+        toast("登录成功")
 
-
+        RxSPTool.putString(this,BaseConstant.KEY_SP_TOKEN, result?.id ?: "")
         RxSPTool.putJSONCache(this,ProviderConstant.KEY_SP_USER_CACHE,JSON.toJSONString(result))
 
         startActivity<UserInfoActivity>()
@@ -117,10 +118,6 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
         return et_login_phone.text.isNotEmpty()&&
                 et_login_password.text.isNotEmpty()
 
-    }
-    override fun onDestroy() {
-        println("LoginActivity-----------onDestroy->")
-        super.onDestroy()
     }
 
 }

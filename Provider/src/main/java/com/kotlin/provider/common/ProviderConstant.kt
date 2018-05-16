@@ -1,6 +1,9 @@
 package com.kotlin.provider.common
 
 import android.icu.text.SimpleDateFormat
+import android.net.Uri
+import com.vondear.rxtools.RxFileTool
+import java.io.File
 import java.util.*
 
 /*
@@ -27,21 +30,66 @@ class ProviderConstant {
 
 
         //阿里云
-        const val OOS_ENDPOINT ="oss-cn-hongkong.aliyuncs.com"
+        const val OOS_ENDPOINT = "oss-cn-hongkong.aliyuncs.com"
         const val OOS_ACCESSKEYID = "LTAIRhH2MoxuE44s"  // accessKeyId
         const val OOS_ACCESSKEYSECRET = "cguCUzUzcOt2MGENfIElGGevCh5iHV" // accessKeySecret
-        const val OOS_BUCKET_NAME="header-icon"
+        const val OOS_BUCKET_NAME = "header-icon"
+        /**
+         *     获得照片的输出保存Uri
+         */
+
+        fun getImageCropUri(): Uri {
+            val file = File(RxFileTool.getSDCardPath(), "temp/" + System.currentTimeMillis() + ".jpg")
+            if (!file.parentFile.exists()) {
+                file.parentFile.mkdirs()
+            }
+            return Uri.fromFile(file)
+        }
 
         /**
+         * Description: 判断OSS服务文件上传时文件的contentType
          *
-         * @return 图片上传到阿里云的路径
+         * @param FilenameExtension 文件后缀
+         * @return String
          */
-//        fun getPhotoFileName(): String {
-//            val date = Date(System.currentTimeMillis())
-//            val dateFormat = SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.getDefault())
-//            return "img" + "/" + dateFormat.format(date) + ".webp"
-//        }
-    }
+        fun getcontentType(path: String): String {
 
+
+            var index=path.lastIndexOf(".")
+
+            var FilenameExtension=  path.substring(index+1,path.length)
+
+            if (FilenameExtension.equals(".bmp", ignoreCase = true)) {
+                return "image/bmp"
+            }
+            if (FilenameExtension.equals(".gif", ignoreCase = true)) {
+                return "image/gif"
+            }
+            if (FilenameExtension.equals(".jpeg", ignoreCase = true) ||
+                    FilenameExtension.equals(".jpg", ignoreCase = true) ||
+                    FilenameExtension.equals(".png", ignoreCase = true)) {
+                return "image/jpeg"
+            }
+            if (FilenameExtension.equals(".html", ignoreCase = true)) {
+                return "text/html"
+            }
+            if (FilenameExtension.equals(".txt", ignoreCase = true)) {
+                return "text/plain"
+            }
+            if (FilenameExtension.equals(".vsd", ignoreCase = true)) {
+                return "application/vnd.visio"
+            }
+            if (FilenameExtension.equals(".pptx", ignoreCase = true) || FilenameExtension.equals(".ppt", ignoreCase = true)) {
+                return "application/vnd.ms-powerpoint"
+            }
+            if (FilenameExtension.equals(".docx", ignoreCase = true) || FilenameExtension.equals(".doc", ignoreCase = true)) {
+                return "application/msword"
+            }
+            return if (FilenameExtension.equals(".xml", ignoreCase = true)) {
+                "text/xml"
+            } else "image/jpeg"
+        }
+        
+    }
 
 }

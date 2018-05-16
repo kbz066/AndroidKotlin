@@ -3,10 +3,7 @@ package com.kotlin.user.mvp.model.server.impl
 import com.kotlin.base.data.net.RetrofitManager
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.user.mvp.model.UserApi
-import com.kotlin.user.mvp.model.request.ForgetPwdRequest
-import com.kotlin.user.mvp.model.request.ResetPwdRequest
-import com.kotlin.user.mvp.model.request.UserLoginRequest
-import com.kotlin.user.mvp.model.request.UserRegisterRequest
+import com.kotlin.user.mvp.model.request.*
 import com.kotlin.user.mvp.model.response.UserInfoResponse
 import com.kotlin.user.mvp.model.server.UserServer
 import io.reactivex.Observable
@@ -41,5 +38,9 @@ class UserServerImpl: UserServer {
     override fun resetPwd(mobile: String, pwd: String): Observable<BaseResponse<String>> {
         return RetrofitManager.mInstance.create(UserApi::class.java)
                 .resetPwd(ResetPwdRequest(mobile, pwd))
+    }
+    override fun editUser(userIcon: String, userName: String, userGender: String, userSign: String): Observable<BaseResponse<UserInfoResponse>> {
+        return RetrofitManager.mInstance.create(UserApi::class.java)
+                .editUser(EditUserRequest(userIcon, userName,userGender,userSign))
     }
 }

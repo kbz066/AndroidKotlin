@@ -9,9 +9,13 @@ import org.apache.http.params.HttpConnectionParams.setConnectionTimeout
 import com.alibaba.sdk.android.oss.ClientConfiguration
 import com.alibaba.sdk.android.oss.OSS
 import com.alibaba.sdk.android.oss.OSSClient
+import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback
 import com.kotlin.base.common.BaseApplication
 import com.alibaba.sdk.android.oss.model.PutObjectRequest
 import com.alibaba.sdk.android.oss.model.PutObjectResult
+import com.alibaba.sdk.android.oss.model.ObjectMetadata
+
+
 
 
 /**
@@ -19,13 +23,16 @@ import com.alibaba.sdk.android.oss.model.PutObjectResult
  */
 object OSSUtils {
 
-    fun initOOS(mContext:Context):OSS{
+    private fun initOOS(mContext:Context):OSS{
         val conf = ClientConfiguration()
         conf.connectionTimeout = 15 * 1000 // 连接超时，默认15秒
         conf.socketTimeout = 15 * 1000 // socket超时，默认15秒
         conf.maxConcurrentRequest = 5 // 最大并发请求书，默认5个
         conf.maxErrorRetry = 2 // 失败后最大重试次数，默认2次
         OSSLog.enableLog()
+
+
+
         val credentialProvider by lazy { OSSPlainTextAKSKCredentialProvider(ProviderConstant.OOS_ACCESSKEYID,ProviderConstant.OOS_ACCESSKEYSECRET) }
         return OSSClient(mContext, ProviderConstant.OOS_ENDPOINT, credentialProvider, conf)
     }

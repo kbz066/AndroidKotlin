@@ -1,6 +1,7 @@
 package com.kotlin.user.mvp.model.server.impl
 
 import android.content.Context
+import com.alibaba.sdk.android.oss.model.ObjectMetadata
 import com.alibaba.sdk.android.oss.model.PutObjectRequest
 import com.alibaba.sdk.android.oss.model.PutObjectResult
 import com.kotlin.provider.utils.OSSUtils
@@ -15,7 +16,10 @@ class UploadImageServerImpl: UploadImageServer {
 
 
         return Observable.create{
-            var result:PutObjectResult=OSSUtils.initOOS(mContext).putObject(PutObjectRequest(testBucket, oosPath, locationPath))
+
+
+
+            var result:PutObjectResult=OSSUtils.uploadHeaderIcon(mContext,testBucket, oosPath, locationPath)
             it.onNext(result)
         }
 

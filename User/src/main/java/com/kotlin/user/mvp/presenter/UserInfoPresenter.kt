@@ -5,6 +5,7 @@ import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.provider.common.ProviderConstant
+import com.kotlin.user.mvp.model.response.UserInfoResponse
 import com.kotlin.user.mvp.model.server.UploadImageServer
 import com.kotlin.user.mvp.model.server.UserServer
 import com.kotlin.user.mvp.presenter.view.ResetPwdView
@@ -29,13 +30,13 @@ class UserInfoPresenter @Inject constructor():BasePresenter<UserInfoView>() {
 
 
 
-    fun setUserInfo( mobile: String, verifyCode: String){
+    fun updateUserInfo( userIcon:String,userName:String,userGender:String,userSign:String){
 
 
-        mUserServer.resetPwd(mobile,verifyCode)
-                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<String>>(mView){
-                    override fun success(data: BaseResponse<String>) {
-                      //  mView.onResetPwdResult(data.data)
+        mUserServer.editUser(userIcon,userName,userGender,userSign)
+                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<UserInfoResponse>>(mView){
+                    override fun success(data: BaseResponse<UserInfoResponse>) {
+                        mView.onEditUserResult(data.data)
 
                     }
 
@@ -55,12 +56,15 @@ class UserInfoPresenter @Inject constructor():BasePresenter<UserInfoView>() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe (
                         {
+
+
                             mView.onUploadImageResult(true)
-                            Logger.e("上传成功------------》"+it.eTag)
+
                         },
                         {
+
                             mView.onUploadImageResult(false)
-                            Logger.e("上传失败------------》")
+
                         }
                 )
 

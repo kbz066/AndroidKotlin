@@ -4,6 +4,7 @@ import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.user.mvp.model.response.UserInfoResponse
 import io.reactivex.Observable
 
+
 /**
  * Created by  on 2018/5/4.
  */
@@ -30,5 +31,9 @@ interface UserServer {
     fun resetPwd(mobile: String, pwd: String): Observable<BaseResponse<String>>
 
 
+    /**
+     * 编辑用户资料
+     */
+    fun editUser(userIcon:String,userName:String,userGender:String,userSign:String): Observable<BaseResponse<UserInfoResponse>>
 
 }

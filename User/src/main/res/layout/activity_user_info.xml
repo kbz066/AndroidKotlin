@@ -106,7 +106,7 @@
             <RadioButton android:textSize="@dimen/text_middle_size"
                 android:textColor="@drawable/gender_text_selector"
                 android:gravity="center"
-                android:id="@+id/mGenderMaleRb"
+                android:id="@+id/rb_gendermale"
                 android:background="@drawable/gender_bg_selector"
                 android:layout_width="28.0dip"
                 android:layout_height="28.0dip"
@@ -117,7 +117,7 @@
             <RadioButton android:textSize="@dimen/text_middle_size"
                 android:textColor="@drawable/gender_text_selector"
                 android:gravity="center"
-                android:id="@+id/mGenderFemaleRb"
+                android:id="@+id/rb_genderfemale"
                 android:background="@drawable/gender_bg_selector"
                 android:layout_width="28.0dip"
                 android:layout_height="28.0dip"
@@ -177,7 +177,8 @@
             style="@style/WrapWrap"
             android:background="@null"
 
-            android:maxLength="11"
+            android:hint="您填写签名"
+
             android:textColor="#ff868686"
             android:layout_marginTop="@dimen/common_padding"
             android:layout_marginRight="@dimen/common_padding"

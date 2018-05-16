@@ -1,6 +1,9 @@
 package com.kotlin.base.data.net
 
+import com.kotlin.base.common.BaseApplication
 import com.kotlin.base.common.BaseConstant
+import com.kotlin.base.utils.AppPrefsUtils
+import com.vondear.rxtools.RxSPTool
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -33,6 +36,7 @@ class RetrofitManager public constructor(){
                     .newBuilder()
                     .addHeader("Content-Type","application/json")
                     .addHeader("charset","utf-8")
+                    .addHeader("token", RxSPTool.getString(BaseApplication.mInstance,BaseConstant.KEY_SP_TOKEN))
                     .build();
             chain.proceed(req)
         }

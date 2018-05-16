@@ -1,10 +1,7 @@
 package com.kotlin.user.mvp.model
 
 import com.kotlin.base.data.protocol.BaseResponse
-import com.kotlin.user.mvp.model.request.ForgetPwdRequest
-import com.kotlin.user.mvp.model.request.ResetPwdRequest
-import com.kotlin.user.mvp.model.request.UserLoginRequest
-import com.kotlin.user.mvp.model.request.UserRegisterRequest
+import com.kotlin.user.mvp.model.request.*
 import com.kotlin.user.mvp.model.response.UserInfoResponse
 import io.reactivex.Observable
 import retrofit2.http.Body
@@ -34,4 +31,6 @@ interface UserApi {
     fun resetPwd(@Body req:ResetPwdRequest): Observable<BaseResponse<String>>
 
 
+    @POST("userCenter/editUser")
+    fun editUser(@Body req:EditUserRequest): Observable<BaseResponse<UserInfoResponse>>
 }
