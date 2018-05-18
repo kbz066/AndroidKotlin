@@ -48,7 +48,7 @@ abstract class BaseTakePhotoActivity<T:BasePresenter<*>>:BaseActivity(),BaseView
         mTakePhoto.onCreate(savedInstanceState)
         super.onCreate(savedInstanceState)
 
-        setContentView(getContentViewResId())
+
 
         mLoadingBar=ProgressLoadingBar(this, R.style.LightProgressDialog)
 
@@ -104,10 +104,7 @@ abstract class BaseTakePhotoActivity<T:BasePresenter<*>>:BaseActivity(),BaseView
                 .build()
     }
 
-    /**
-     * 子类提供ContentView
-     */
-    abstract fun getContentViewResId():  Int
+
 
     /**
      * 初始化view

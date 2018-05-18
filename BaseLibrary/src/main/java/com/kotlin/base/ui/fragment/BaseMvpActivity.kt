@@ -1,4 +1,4 @@
-package com.kotlin.base.ui.activity
+package com.kotlin.base.ui.fragment
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -19,7 +19,7 @@ import com.vondear.rxtools.RxTool
 import org.jetbrains.anko.toast
 import javax.inject.Inject
 
-abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
+abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseFragment(),BaseView{
 
 
     /**
@@ -42,7 +42,7 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
 
 
 
-        mLoadingBar=ProgressLoadingBar(this, R.style.LightProgressDialog)
+        mLoadingBar=ProgressLoadingBar(this.activity, R.style.LightProgressDialog)
 
         initActivityComponent()
         injectComponent()
@@ -55,7 +55,7 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
      */
     private fun initActivityComponent() {
 
-        mActiviComponent= DaggerBaseActivityComponent.builder().baseApplicationComponent((application as BaseApplication).mAppComponent)
+        mActiviComponent= DaggerBaseActivityComponent.builder().baseApplicationComponent((activity.application as BaseApplication).mAppComponent)
                 .lifecycleProviderModule(LifecycleProviderModule(this))
                 .build()
     }
@@ -87,17 +87,4 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
 
     }
 
-
-    override fun onBackPressed() {
-
-        val timeMillis = System.currentTimeMillis()
-        // 判断当前按下的时间与上一次按下的间隔.
-        if (timeMillis - mLastKeyDown >= 2000) {
-            toast("连续点击两次返回键退出")
-            mLastKeyDown = timeMillis;
-
-        } else {
-            RxActivityTool.AppExit(this)
-        }
-    }
 }

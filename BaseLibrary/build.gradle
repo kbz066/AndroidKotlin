@@ -39,10 +39,9 @@ allOpen {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     api 'com.android.support:appcompat-v7:27.1.1'
-
     api 'com.android.support:design:27.1.1'
-    api 'com.android.support.constraint:constraint-layout:1.1.0'
 
+    api 'com.android.support.constraint:constraint-layout:1.1.0'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "io.reactivex.rxjava2:rxkotlin:$rxkotlin"
     api "io.reactivex.rxjava2:rxandroid:$rxandroid"
@@ -50,8 +49,8 @@ dependencies {
     api "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
     api "org.ligboy.retrofit2:converter-fastjson-android:$converter_fastjson"
     api "com.squareup.okhttp3:okhttp:$okhttp"
-   // api "com.alibaba:fastjson:$fastjson"
 
+    // api "com.alibaba:fastjson:$fastjson"
     api "com.squareup.retrofit2:adapter-rxjava:$retrofit"
     api "com.squareup.okhttp3:logging-interceptor:$okhttp"
     api "org.jetbrains.anko:anko-commons:$anko_version"
@@ -67,30 +66,35 @@ dependencies {
 
     //Alert View
     api "com.bigkoo:alertview:${alert_view_version}"
+
     //RxTools
     api "com.github.vondear:${rxtools}"
 
-
     //eventbus
     api "org.greenrobot:${eventbus}"
+
     //logger
     api "com.orhanobut:${loggers}"
-    //glide
 
+    //glide
     api "com.github.bumptech.glide:${gilde}"
     kapt "com.github.bumptech.glide:${glide_compiler}"
 
     //Alert View
     api "com.bigkoo:alertview:${alert_view_version}"
+
     //Take Photo
     api "com.jph.takephoto:takephoto_library:${take_photo_version}"
+
     //rxpermissions2
     api "com.tbruyelle.rxpermissions2:${rxpermissions2}"
 
     //阿里
     api 'com.aliyun.dpa:oss-android-sdk:+'
 
+    api "com.ashokvarma.android:bottom-navigation-bar:${navbar}"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
 }

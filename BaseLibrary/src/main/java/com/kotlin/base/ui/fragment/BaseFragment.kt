@@ -1,17 +1,20 @@
-package com.kotlin.base.ui.activity
+package com.kotlin.base.ui.fragment
 
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
 import com.kotlin.base.R
 import com.kotlin.base.common.AppManager
 import com.orhanobut.logger.Logger
 import com.tbruyelle.rxpermissions2.RxPermissions
 import com.trello.rxlifecycle2.components.RxActivity
+import com.trello.rxlifecycle2.components.RxFragment
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.vondear.rxtools.RxActivityTool
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,17 +23,21 @@ import java.lang.reflect.Array.setInt
 import javax.inject.Inject
 
 
-abstract class BaseActivity : RxAppCompatActivity(){
+abstract class BaseFragment : RxFragment(){
 
 
 
-    private val mRxPermissions: RxPermissions by lazy {  RxPermissions(this)}
+    private val mRxPermissions: RxPermissions by lazy {  RxPermissions(this.activity)}
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(getContentViewResId())
-        RxActivityTool.addActivity(this)
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
+        return inflater!!.inflate(getContentViewResId(),null)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
     }
 
     fun requestRxPermissions(vararg permissions: String,mPermissionsListener:PermissionsListener) {
@@ -69,11 +76,6 @@ abstract class BaseActivity : RxAppCompatActivity(){
     }
 
 
-    override fun onDestroy() {
-
-        super.onDestroy()
-        RxActivityTool.finishActivity(this)
-    }
 
 
 
