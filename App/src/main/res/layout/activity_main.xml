@@ -4,13 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.activity.MainActivity">
 
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bv_bottom_navigation"
-        style="@style/MatchWrap">
 
-    </android.support.design.widget.BottomNavigationView>
+    <FrameLayout
+        android:id="@+id/fl_contaier"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bv_bottom_navigation"></FrameLayout>
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bv_bottom_navigation"
+        style="@style/MatchWrap"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </com.ashokvarma.bottomnavigation.BottomNavigationBar>
 
 </android.support.constraint.ConstraintLayout>

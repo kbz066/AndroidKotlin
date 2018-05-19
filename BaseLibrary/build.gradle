@@ -93,6 +93,16 @@ dependencies {
     api 'com.aliyun.dpa:oss-android-sdk:+'
 
     api "com.ashokvarma.android:bottom-navigation-bar:${navbar}"
+
+
+    //banner
+    api 'com.youth.banner:banner:1.4.10'  //最新版本
+    //标签
+    api 'com.github.shts:TriangleLabelView:1.1.2'
+
+    //adapter
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

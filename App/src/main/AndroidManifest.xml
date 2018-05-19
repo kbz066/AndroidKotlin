@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:name="com.kotlin.base.common.BaseApplication"
         android:theme="@style/AppTheme">
-        <activity android:name="com.kotlin.user.mvp.activity.LoginActivity">
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -37,6 +37,7 @@ abstract class BaseFragment : RxFragment(){
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        initView()
 
     }
 
@@ -66,6 +67,11 @@ abstract class BaseFragment : RxFragment(){
      * 子类提供ContentView
      */
     abstract fun getContentViewResId():  Int
+
+    /**
+     * 初始化view
+     */
+    abstract fun initView()
 
     /**
      * 权限申请回调

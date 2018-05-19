@@ -18,6 +18,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import org.jetbrains.anko.toast
 import java.lang.reflect.Array.setInt
 import javax.inject.Inject
+import java.lang.reflect.Array.setInt
+import android.os.Build
+
+
 
 
 abstract class BaseActivity : RxAppCompatActivity(){
@@ -29,9 +33,13 @@ abstract class BaseActivity : RxAppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setStatusBarColor()
         setContentView(getContentViewResId())
         RxActivityTool.addActivity(this)
+        initView()
     }
+
 
     fun requestRxPermissions(vararg permissions: String,mPermissionsListener:PermissionsListener) {
 
@@ -55,11 +63,27 @@ abstract class BaseActivity : RxAppCompatActivity(){
                 })
 
     }
+
+    fun setStatusBarColor(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            try {
+                val decorViewClazz = Class.forName("com.android.internal.policy.DecorView")
+                val field = decorViewClazz.getDeclaredField("mSemiTransparentStatusBarColor")
+                field.isAccessible = true
+                field.setInt(window.decorView, getColor(R.color.common_blue))
+            } catch (e: Exception) {
+            }
+
+        }
+    }
     /**
      * 子类提供ContentView
      */
     abstract fun getContentViewResId():  Int
-
+    /**
+     * 初始化view
+     */
+    abstract fun initView()
     /**
      * 权限申请回调
      */

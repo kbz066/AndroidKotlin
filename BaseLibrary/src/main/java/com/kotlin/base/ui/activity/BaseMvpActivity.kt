@@ -46,7 +46,7 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
 
         initActivityComponent()
         injectComponent()
-        initView()
+
     }
 
 
@@ -62,10 +62,7 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
 
 
 
-    /**
-     * 初始化view
-     */
-    abstract fun initView()
+
 
 
     /**

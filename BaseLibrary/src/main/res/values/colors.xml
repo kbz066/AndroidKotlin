@@ -6,6 +6,7 @@
     <color name="common_bg">#f5f5f5</color>
     <color name="common_black">#000000</color>
     <color name="common_blue">#03a9f4</color>
+    <color name="common_translucent_blue">#e003a9f4</color>
     <color name="common_blue_dark">#0288d1</color>
     <color name="common_blue_light">#039be5</color>
     <color name="common_disable">#d9d9d9</color>

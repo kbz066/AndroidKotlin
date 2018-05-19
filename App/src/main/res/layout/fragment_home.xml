@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.HomeFragment">
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_search_bg"
+        android:background="@color/common_blue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_header_bar_height"
+        app:layout_constraintTop_toTopOf="parent">
+        <EditText
+            android:id="@+id/sv_search"
+            android:hint="搜索商品/品类"
+            android:cursorVisible="false"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/home_header_corner_bg"
+            android:textColorHint="@color/white"
+            android:textCursorDrawable="@null"
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/common_margin_middle"
+            android:layout_marginBottom="@dimen/common_margin_middle"
+            android:layout_marginLeft="@dimen/common_margin_middle"
+            android:drawablePadding="@dimen/common_padding_middle"
+            android:drawableLeft="@drawable/icon_search"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:paddingLeft="@dimen/common_padding"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/iv_search_icon"/>
+
+
+
+        <ImageView
+            android:id="@+id/iv_search_icon"
+            style="@style/WrapWrap"
+            android:src="@drawable/icon_scan"
+            app:layout_constraintTop_toTopOf="@+id/sv_search"
+            app:layout_constraintBottom_toBottomOf="@+id/sv_search"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+    </android.support.constraint.ConstraintLayout>
+    <com.youth.banner.Banner
+        android:id="@+id/br_home_banner"
+        app:layout_constraintTop_toBottomOf="@+id/cl_search_bg"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+    <com.kotlin.base.ui.widgets.NewsFlipperView
+        android:id="@+id/nv_news_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/br_home_banner">
+
+    </com.kotlin.base.ui.widgets.NewsFlipperView>
+    <TextView
+
+        android:id="@+id/tv_discount_title"
+        android:textSize="@dimen/text_small_size"
+        android:textStyle="bold"
+        android:textColor="@color/text_light_dark"
+        android:background="@color/common_white"
+        android:paddingLeft="@dimen/common_margin"
+        android:paddingTop="@dimen/common_padding_small"
+        android:paddingBottom="@dimen/common_margin_small"
+        style="@style/MatchWrap"
+        android:text="火爆进行中"
+        android:drawableLeft="@drawable/icon_special"
+        android:drawablePadding="@dimen/common_padding_small"
+        app:layout_constraintTop_toBottomOf="@+id/nv_news_flipper"/>
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/rv_discount_list"
+        android:background="@color/common_white"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding"
+        android:paddingBottom="@dimen/common_padding_small"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/tv_discount_title"/>
+</android.support.constraint.ConstraintLayout>

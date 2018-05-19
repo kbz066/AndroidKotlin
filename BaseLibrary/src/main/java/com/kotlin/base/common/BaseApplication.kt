@@ -30,8 +30,7 @@ class BaseApplication  :Application() {
 
     private fun initLibrary() {
 
-        //初始化 rxtool
-        RxTool.init(this)
+
 
 
         //初始化 logger 日志库
