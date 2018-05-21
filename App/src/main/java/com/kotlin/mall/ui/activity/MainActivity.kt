@@ -15,8 +15,10 @@ import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.mall.R
 import com.kotlin.mall.ui.fragment.HomeFragment
 import com.kotlin.mall.ui.fragment.MeFragment
+import com.vondear.rxtools.RxActivityTool
 import com.vondear.rxtools.RxTool
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.toast
 import java.util.*
 
 
@@ -38,7 +40,7 @@ class MainActivity : BaseActivity() {
 
 
 
-
+    private var mLastKeyDown: Long = 0
     //购物车Tab 标签
     private var mCartBadge:TextBadgeItem? = null
     //消息Tab 标签
@@ -183,7 +185,18 @@ class MainActivity : BaseActivity() {
         manager.show(mStack[position])
         manager.commit()
     }
+    override fun onBackPressed() {
 
+        val timeMillis = System.currentTimeMillis()
+        // 判断当前按下的时间与上一次按下的间隔.
+        if (timeMillis - mLastKeyDown >= 2000) {
+            toast("连续点击两次返回键退出")
+            mLastKeyDown = timeMillis;
+
+        } else {
+            RxActivityTool.AppExit(this)
+        }
+    }
 
 
 }
