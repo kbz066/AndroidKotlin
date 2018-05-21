@@ -6,18 +6,24 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.RequestOptions.bitmapTransform
+
 
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.kotlin.base.R
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 /*
     Glide工具类
  */
 object GlideUtils {
-    fun loadImage(context: Context, url: String, imageView: ImageView) {
-
-        Glide.with(context).load(url).apply(RequestOptions().circleCrop()).into(imageView)
+    fun loadImageRoundedCorners(context: Context, url: String, imageView: ImageView) {
+        Glide.with(context)
+                .load(url)
+                .apply(RequestOptions.bitmapTransform(RoundedCornersTransformation(45, 0,
+                        RoundedCornersTransformation.CornerType.ALL)))
+                .into(imageView)
     }
 
     fun loadImageFitCenter(context: Context, url: String, imageView: ImageView) {

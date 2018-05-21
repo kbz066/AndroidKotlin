@@ -34,9 +34,11 @@ import com.jph.takephoto.permission.PermissionManager
 import org.jetbrains.anko.toast
 import com.jph.takephoto.permission.PermissionManager.TPermissionType
 import com.kotlin.base.ui.activity.BaseTakePhotoActivity
+import com.kotlin.base.utils.EventBusUtils
 import com.kotlin.base.utils.GlideUtils
 import com.kotlin.provider.utils.OSSUtils
 import com.kotlin.user.R.id.*
+import com.kotlin.user.utils.UserInfoUtils
 import com.orhanobut.logger.Logger
 import com.vondear.rxtools.RxFileTool
 import com.vondear.rxtools.RxTimeTool
@@ -133,22 +135,21 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>() ,UserInfoVie
      */
     private fun initData() {
 
-        var json:String?=RxSPTool.readJSONCache(this, ProviderConstant.KEY_SP_USER_CACHE)
-        json?.let {
-            var info:UserInfoResponse=JSON.parseObject(json,UserInfoResponse::class.java)
-            et_user_name.setText(info.userName)
-            tv_user_mobile.setText(info.userMobile)
+        UserInfoUtils.getUserInfo()?.let {
+
+            et_user_name.setText(it.userName)
+            tv_user_mobile.setText(it.userMobile)
 
 
-            if (TextUtils.isEmpty(info.userSign).not()){
-                et_user_sign.setText(info.userSign)
+            if (TextUtils.isEmpty(it.userSign).not()){
+                et_user_sign.setText(it.userSign)
             }
-            if (TextUtils.isEmpty(info.userIcon).not()){
+            if (TextUtils.isEmpty(it.userIcon).not()){
 
-                ossImagePath=info.userIcon
-                GlideUtils.loadUrlImage(this,info.userIcon,iv_user_icon_image)
+                ossImagePath=it.userIcon
+                GlideUtils.loadUrlImage(this,it.userIcon,iv_user_icon_image)
             }
-            if (info.userGender == "0") {
+            if (it.userGender == "0") {
                 rb_gendermale.isChecked = true
             }
             else {
@@ -200,7 +201,7 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>() ,UserInfoVie
      */
     override fun onEditUserResult(result: UserInfoResponse) {
         toast("修改成功")
-        RxSPTool.putJSONCache(this,ProviderConstant.KEY_SP_USER_CACHE,JSON.toJSONString(result))
+        EventBusUtils.post(result)
     }
 
     /**

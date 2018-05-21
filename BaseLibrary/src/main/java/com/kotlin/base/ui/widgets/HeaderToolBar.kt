@@ -9,8 +9,12 @@ import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.kotlin.base.R
+import com.kotlin.base.R.id.*
+
+
 import com.vondear.rxtools.RxActivityTool
 import kotlinx.android.synthetic.main.layout_header_bar.view.*
+
 
 /**
  * Created by  on 2018/5/9.
@@ -88,5 +92,8 @@ class HeaderToolBar: RelativeLayout {
         return tv_bar_right_txt
     }
 
+    fun hideCloseBar(){
+        iv_back_image.visibility=View.GONE
+    }
 
 }

@@ -2,18 +2,21 @@ package com.kotlin.mall.ui.fragment
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.kotlin.base.ext.loadImageRoundedCorners
 import com.kotlin.base.ui.fragment.BaseFragment
 
 import com.kotlin.mall.R
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer.DepthPage
 import com.kotlin.base.ui.widgets.GlideImageLoader
+
 import com.kotlin.mall.adapter.HomeDiscountAdapter
+import com.kotlin.mall.adapter.TopicAdapter
 import com.kotlin.mall.common.*
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -29,6 +32,7 @@ class HomeFragment : BaseFragment() {
         initBanner()
         initNews();
         initDiscount()
+        initTopic()
     }
 
 
@@ -55,9 +59,10 @@ class HomeFragment : BaseFragment() {
     private fun initNews() {
         nv_news_flipper.buildNewsView(arrayOf("夏日炎炎，第一波福利还有30秒到达战场", "新用户立领1000元优惠券"))
     }
+
     /*
     初始化折扣
- */
+    */
     private fun initDiscount(){
         val manager = LinearLayoutManager(activity)
         manager.orientation = LinearLayoutManager.HORIZONTAL
@@ -66,6 +71,13 @@ class HomeFragment : BaseFragment() {
         val discountAdapter  = HomeDiscountAdapter()
         rv_discount_list.adapter = discountAdapter
         discountAdapter.setNewData(mutableListOf(HOME_DISCOUNT_ONE, HOME_DISCOUNT_TWO, HOME_DISCOUNT_THREE, HOME_DISCOUNT_FOUR, HOME_DISCOUNT_FIVE))
+    }
+
+
+    private fun initTopic(){
+        val topicAdapter  = TopicAdapter(activity, listOf(HOME_TOPIC_ONE, HOME_TOPIC_TWO, HOME_TOPIC_THREE, HOME_TOPIC_FOUR, HOME_TOPIC_FIVE))
+        vp_topic_pager.adapter=topicAdapter
+
     }
 
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">User</string>
+    <string name="app_name">Kotlin商城</string>
     <string name="title_activity_rigister">RigisterActivity</string>
     <string name="http_service_error_500">（服务器内部错误） 服务器遇到错误，无法完成请求</string>
     <string name="http_service_error_502">（错误网关） 服务器作为网关或代理，从上游服务器收到无效响应</string>

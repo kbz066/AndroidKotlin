@@ -1,9 +1,11 @@
 package com.kotlin.mall.ui.activity
 
 import android.Manifest
+import android.app.Fragment
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.view.WindowManager
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
@@ -12,17 +14,28 @@ import com.ashokvarma.bottomnavigation.TextBadgeItem
 import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.mall.R
 import com.kotlin.mall.ui.fragment.HomeFragment
+import com.kotlin.mall.ui.fragment.MeFragment
 import com.vondear.rxtools.RxTool
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 
 class MainActivity : BaseActivity() {
-    override fun initView() {
-        initPermission()
-        initBottomNavBar()
-        //透明状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-    }
+
+
+    //Fragment 栈管理
+    private val mStack = Stack<Fragment>()
+    //主界面Fragment
+    private val mHomeFragment by lazy { HomeFragment() }
+    //商品分类Fragment
+    private val mCategoryFragment by lazy { HomeFragment() }
+    //购物车Fragment
+    private val mCartFragment by lazy { HomeFragment() }
+    //消息Fragment
+    private val mMsgFragment by lazy { HomeFragment() }
+    //"我的"Fragment
+    private val mMeFragment by lazy { MeFragment() }
+
 
 
 
@@ -30,6 +43,17 @@ class MainActivity : BaseActivity() {
     private var mCartBadge:TextBadgeItem? = null
     //消息Tab 标签
     private var mMsgBadge:ShapeBadgeItem? = null
+
+    override fun initView() {
+        initPermission()
+        initBottomNavBar()
+
+    }
+
+
+
+
+
 
 
     override fun getContentViewResId(): Int {
@@ -110,17 +134,55 @@ class MainActivity : BaseActivity() {
                 .addItem(userItem)
                 .setFirstSelectedPosition(0)
                 .initialise()
+        bv_bottom_navigation.setTabSelectedListener(object : BottomNavigationBar.OnTabSelectedListener {
+            override fun onTabReselected(position: Int) {
 
+            }
+
+            override fun onTabUnselected(position: Int) {
+            }
+
+            override fun onTabSelected(position: Int) {
+                changeFragment(position)
+            }
+
+        })
 
     }
 
     private fun initFragment() {
-       var transaction = fragmentManager.beginTransaction()
-        transaction.add(R.id.fl_contaier,HomeFragment())
+
+
+        val transaction = fragmentManager.beginTransaction()
+        transaction.add(R.id.fl_contaier,mHomeFragment)
+        transaction.add(R.id.fl_contaier,mCategoryFragment)
+        transaction.add(R.id.fl_contaier,mCartFragment)
+        transaction.add(R.id.fl_contaier,mMsgFragment)
+        transaction.add(R.id.fl_contaier,mMeFragment)
         transaction.commit()
+
+        mStack.add(mHomeFragment)
+        mStack.add(mCategoryFragment)
+        mStack.add(mCartFragment)
+        mStack.add(mMsgFragment)
+        mStack.add(mMeFragment)
+
+        changeFragment(0)
 
     }
 
+    /*
+        切换Tab，切换对应的Fragment
+     */
+    private fun changeFragment(position: Int) {
+        val manager = fragmentManager.beginTransaction()
+        for (fragment in mStack){
+            manager.hide(fragment)
+        }
+
+        manager.show(mStack[position])
+        manager.commit()
+    }
 
 
 

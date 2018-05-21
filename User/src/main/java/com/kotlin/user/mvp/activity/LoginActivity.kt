@@ -10,6 +10,7 @@ import com.kotlin.base.common.BaseConstant
 import com.kotlin.base.ext.enable
 import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.base.utils.AppPrefsUtils
+import com.kotlin.base.utils.EventBusUtils
 import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.user.R
 import com.kotlin.user.R.id.*
@@ -22,6 +23,7 @@ import com.kotlin.user.mvp.model.response.UserInfoResponse
 
 import com.kotlin.user.mvp.presenter.LoginPresenter
 import com.kotlin.user.mvp.presenter.view.LoginView
+import com.kotlin.user.utils.UserInfoUtils
 import com.orhanobut.logger.Logger
 import com.vondear.rxtools.RxFileTool
 import com.vondear.rxtools.RxSPTool
@@ -77,10 +79,10 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
     override fun onLoginSuccess(result: UserInfoResponse?) {
         toast("登录成功")
 
-        RxSPTool.putString(this,BaseConstant.KEY_SP_TOKEN, result?.id ?: "")
-        RxSPTool.putJSONCache(this,ProviderConstant.KEY_SP_USER_CACHE,JSON.toJSONString(result))
 
-        startActivity<UserInfoActivity>()
+
+        EventBusUtils.post(result!!)
+        this.finish()
     }
 
     override fun onError(statusCode: Int, msg: String?) {

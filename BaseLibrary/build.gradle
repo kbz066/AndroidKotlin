@@ -103,6 +103,16 @@ dependencies {
     //adapter
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
 
+    //viewpager 动画
+
+    api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+
+    //glide-transformations
+    api 'jp.wasabeef:glide-transformations:3.3.0'
+    // If you want to use the GPU Filters
+    api 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

@@ -4,10 +4,12 @@ import android.support.design.widget.FloatingActionButton
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import com.kotlin.base.Rx.BaseRxObserver
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.base.presenter.view.BaseView
 import com.kotlin.base.ui.widgets.DefaultTextWatcher
+import com.kotlin.base.utils.GlideUtils
 import com.trello.rxlifecycle2.LifecycleProvider
 import com.vondear.rxtools.RxNetTool
 import io.reactivex.Observable
@@ -54,4 +56,18 @@ fun Button.enable(vararg editText: EditText,isBtnEnable:()->Boolean){
 
         })
     }
+
+}
+
+
+fun ImageView.loadImageRoundedCorners(url:String){
+    GlideUtils.loadImageRoundedCorners(this.context,url,this)
+}
+
+fun ImageView.loadImageFitCenter(url:String){
+    GlideUtils.loadImageFitCenter(this.context,url,this)
+}
+
+fun ImageView.loadUrlImage(url:String){
+    GlideUtils.loadUrlImage(this.context,url,this)
 }
