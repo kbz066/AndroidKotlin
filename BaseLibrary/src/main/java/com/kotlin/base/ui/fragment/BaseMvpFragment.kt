@@ -19,7 +19,7 @@ import com.vondear.rxtools.RxTool
 import org.jetbrains.anko.toast
 import javax.inject.Inject
 
-abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseFragment(),BaseView{
+abstract class BaseMvpFragment<T:BasePresenter<*>>:BaseFragment(),BaseView{
 
 
     /**

@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ToxicBakery.viewpager.transforms.*
 import com.kotlin.base.ext.loadImageRoundedCorners
 import com.kotlin.base.ui.fragment.BaseFragment
 
@@ -20,6 +21,8 @@ import com.kotlin.mall.adapter.TopicAdapter
 import com.kotlin.mall.common.*
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
+import me.crosswall.lib.coverflow.CoverFlow
+import me.crosswall.lib.coverflow.core.CoverTransformer
 
 
 class HomeFragment : BaseFragment() {
@@ -77,7 +80,13 @@ class HomeFragment : BaseFragment() {
     private fun initTopic(){
         val topicAdapter  = TopicAdapter(activity, listOf(HOME_TOPIC_ONE, HOME_TOPIC_TWO, HOME_TOPIC_THREE, HOME_TOPIC_FOUR, HOME_TOPIC_FIVE))
         vp_topic_pager.adapter=topicAdapter
+        vp_topic_pager.currentItem = 1
+        vp_topic_pager.offscreenPageLimit = 5
 
+        CoverFlow.Builder().with(vp_topic_pager).scale(0.3f).pagerMargin(-30.0f).spaceSize(0.0f).build()
+        // vp_topic_pager.setPageTransformer(true,ForegroundToBackgroundTransformer() )
+        //CoverTransformer(0.3f,-30f,0f,0f)
+        // vp_topic_pager.pageMargin = 30;//设置页与页之间的间距
     }
 
 }

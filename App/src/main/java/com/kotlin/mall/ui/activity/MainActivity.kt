@@ -13,6 +13,7 @@ import com.ashokvarma.bottomnavigation.ShapeBadgeItem
 import com.ashokvarma.bottomnavigation.TextBadgeItem
 import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.mall.R
+import com.kotlin.mall.R.id.bv_bottom_navigation
 import com.kotlin.mall.ui.fragment.HomeFragment
 import com.kotlin.mall.ui.fragment.MeFragment
 import com.vondear.rxtools.RxActivityTool
@@ -150,6 +151,29 @@ class MainActivity : BaseActivity() {
 
         })
 
+    }
+
+    /**
+     * 设置MsgBadget显示
+     */
+    fun setMsgBadget(flag:Boolean){
+        if (flag){
+            mMsgBadge!!.show()
+        }else{
+            mMsgBadge!!.hide()
+        }
+    }
+
+    /**
+     * 检查购物车Tab是否显示标签
+     */
+    fun checkCartBadge(count:Int){
+        if (count==0){
+            mCartBadge!!.hide()
+        }else{
+            mCartBadge!!.show()
+            mCartBadge!!.setText("$count")
+        }
     }
 
     private fun initFragment() {

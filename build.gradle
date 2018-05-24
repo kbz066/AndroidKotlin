@@ -2,27 +2,27 @@
 
 buildscript {
     ext.kotlin_version = '1.2.41'
-    ext.retrofit='2.4.0'
-    ext.rxkotlin='2.2.0'
-    ext.rxandroid='2.0.1'
-    ext.fastjson='1.1.68.android'
-    ext.converter_fastjson='2.2.0'
-    ext.okhttp='3.10.0'
-    ext.logging_interceptor='3.9.0'
-    ext.anko_version='0.10.5'
-    ext.cardview='27.1.1'
-    ext.dagger='2.16'
-    ext.rx_lifecycle_version='2.2.1'
+    ext.retrofit = '2.4.0'
+    ext.rxkotlin = '2.2.0'
+    ext.rxandroid = '2.0.1'
+    ext.fastjson = '1.1.68.android'
+    ext.converter_fastjson = '2.2.0'
+    ext.okhttp = '3.10.0'
+    ext.logging_interceptor = '3.9.0'
+    ext.anko_version = '0.10.5'
+    ext.cardview = '27.1.1'
+    ext.dagger = '2.16'
+    ext.rx_lifecycle_version = '2.2.1'
     ext.alert_view_version = "1.0.3"
-    ext.rxtools='RxTools:v1.7.8.3'
-    ext.eventbus='eventbus:3.1.1'
-    ext.loggers='logger:2.2.0'
-    ext.gilde='glide:4.7.1'
-    ext.glide_compiler='compiler:4.7.1'
+    ext.rxtools = 'RxTools:v1.7.8.3'
+    ext.eventbus = 'eventbus:3.1.1'
+    ext.loggers = 'logger:2.2.0'
+    ext.gilde = 'glide:4.7.1'
+    ext.glide_compiler = 'compiler:4.7.1'
     ext.alert_view_version = '1.0.3'
     ext.take_photo_version = '4.0.3'
-    ext.rxpermissions2='rxpermissions:0.9.5@aar'
-    ext.navbar='2.0.4'
+    ext.rxpermissions2 = 'rxpermissions:0.9.5@aar'
+    ext.navbar = '2.0.4'
 
 
     repositories {
@@ -44,7 +44,7 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
-        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     }
 }
 

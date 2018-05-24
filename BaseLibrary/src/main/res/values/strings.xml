@@ -25,4 +25,10 @@
     <string name="nav_bar_cart">购物车</string>
     <string name="nav_bar_msg">消息</string>
     <string name="nav_bar_user">我的</string>
+
+
+
+    <string name="empty_view_hint">暂无数据</string>
+    <string name="error_view_hint">加载失败</string>
+    <string name="no_network_view_hint">网络异常</string>
 </resources>
