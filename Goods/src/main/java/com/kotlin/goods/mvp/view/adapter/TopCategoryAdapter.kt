@@ -1,4 +1,4 @@
-package com.kotlin.goods.adapter
+package com.kotlin.goods.mvp.view.adapter
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder

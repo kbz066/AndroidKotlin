@@ -26,16 +26,16 @@ import io.reactivex.schedulers.Schedulers
 
          this.compose(rxLifecycle.bindToLifecycle())
                  .subscribeOn(Schedulers.io())
+                 .observeOn(AndroidSchedulers.mainThread())
                  .doOnSubscribe{
 
-                     println("doOnSubscribe------------》\t\t\t"+checkNet.invoke().not())
                      if (checkNet.invoke().not()){
                          it.dispose()
                      }
                  }
 
 
-                 .observeOn(AndroidSchedulers.mainThread())
+
                  .subscribe(subscribe);
 }
 

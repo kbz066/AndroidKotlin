@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mvp.view.activity.GoodsListActivity">
+    <com.kotlin.base.ui.widgets.HeaderToolBar
+        android:id="@+id/tb_goods_bar"
+        app:titleText="商品分类"
+        style="@style/MatchWrap"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+
+    <com.kotlin.base.ui.widgets.MultipleStatusView
+        android:id="@+id/mv_goods_multiple_status"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/common_padding"
+        android:paddingLeft="@dimen/common_padding"
+        android:paddingRight="@dimen/common_padding"
+        app:contentView="@layout/activity_goods_list_context"
+        app:emptyView="@layout/custom_empty_view"
+        app:errorView="@layout/custom_error_view"
+        app:loadingView="@layout/custom_loading_view"
+        app:noNetworkView="@layout/custom_no_network_view"
+        app:layout_constraintTop_toBottomOf="@+id/tb_goods_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+</android.support.constraint.ConstraintLayout>

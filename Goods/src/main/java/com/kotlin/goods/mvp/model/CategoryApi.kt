@@ -9,7 +9,7 @@ import retrofit2.http.POST
 
 
 /**
- * Created by caofu on 2018/5/24.
+ * Created by  on 2018/5/24.
  */
 interface CategoryApi {
 

@@ -4,24 +4,24 @@ package com.kotlin.goods.mvp.view.fragment
 
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.kotlin.base.ui.fragment.BaseMvpFragment
 
 import com.kotlin.goods.R
 import com.kotlin.goods.R.id.*
-import com.kotlin.goods.adapter.SecondCategoryAdapter
-import com.kotlin.goods.adapter.TopCategoryAdapter
+import com.kotlin.goods.common.GoodsConstant
+import com.kotlin.goods.mvp.view.adapter.SecondCategoryAdapter
+import com.kotlin.goods.mvp.view.adapter.TopCategoryAdapter
 import com.kotlin.goods.dagger.component.DaggerCategoryComponent
 import com.kotlin.goods.dagger.module.CategoryModule
 import com.kotlin.goods.mvp.model.response.CategoryResPonse
 import com.kotlin.goods.mvp.presenter.CategoryPresenter
 import com.kotlin.goods.mvp.presenter.view.ICategoryView
-import com.orhanobut.logger.Logger
+import com.kotlin.goods.mvp.view.activity.GoodsListActivity
 import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.fragment_category_context.view.*
-import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
 class CategoryFragment : BaseMvpFragment<CategoryPresenter>() ,ICategoryView{
 
@@ -79,6 +79,12 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>() ,ICategoryView{
 
         rv_second_category_list.layoutManager=GridLayoutManager(activity,3);
         rv_second_category_list.adapter=mSecondCategoryAdapter
+        //点击事件
+        mSecondCategoryAdapter.onItemClickListener = BaseQuickAdapter.OnItemClickListener {
+            adapter, view, position ->
+
+            startActivity<GoodsListActivity>( GoodsConstant.KEY_GOODS_ID to mSecondCategoryAdapter.data[position].id)
+        }
     }
 
     /**

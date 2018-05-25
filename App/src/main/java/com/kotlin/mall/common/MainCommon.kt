@@ -1,7 +1,7 @@
 package com.kotlin.mall.common
 
 /**
- * Created by caofu on 2018/5/19.
+ * Created by  on 2018/5/19.
  */
 /*
  * 首页Banner

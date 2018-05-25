@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.layout_home_discount_item.view.*
 import java.util.*
 
 /**
- * Created by caofu on 2018/5/19.
+ * Created by  on 2018/5/19.
  */
 class HomeDiscountAdapter(): BaseQuickAdapter<String, BaseViewHolder>(R.layout.layout_home_discount_item) {
 

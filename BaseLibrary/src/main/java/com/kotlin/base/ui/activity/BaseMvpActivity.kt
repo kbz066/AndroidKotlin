@@ -37,15 +37,12 @@ abstract class BaseMvpActivity<T:BasePresenter<*>>:BaseActivity(),BaseView{
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-
-
-        mLoadingBar=ProgressLoadingBar(this, R.style.LightProgressDialog)
-
         initActivityComponent()
         injectComponent()
+
+        mLoadingBar=ProgressLoadingBar(this, R.style.LightProgressDialog)
+        super.onCreate(savedInstanceState)
+
 
     }
 
