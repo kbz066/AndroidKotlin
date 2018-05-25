@@ -84,9 +84,7 @@ class HomeFragment : BaseFragment() {
         vp_topic_pager.offscreenPageLimit = 5
 
         CoverFlow.Builder().with(vp_topic_pager).scale(0.3f).pagerMargin(-30.0f).spaceSize(0.0f).build()
-        // vp_topic_pager.setPageTransformer(true,ForegroundToBackgroundTransformer() )
-        //CoverTransformer(0.3f,-30f,0f,0f)
-        // vp_topic_pager.pageMargin = 30;//设置页与页之间的间距
+
     }
 
 }

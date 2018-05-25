@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-noarg'
+apply plugin: 'kotlin-allopen'
 android {
     compileSdkVersion 27
 
@@ -22,6 +25,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    noArg {
+        annotation("com.kotlin.base.annotation.Poko")
+    }
+
+    allOpen {
+        annotation("com.kotlin.base.annotation.Poko")
+    }
 
 }
 
@@ -33,6 +43,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api project(':Provider')
+    kapt "com.google.dagger:dagger-compiler:$dagger"
 }
 
 

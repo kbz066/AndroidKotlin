@@ -2,18 +2,13 @@ package com.kotlin.mall.ui.activity
 
 import android.Manifest
 import android.app.Fragment
-import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.view.WindowManager
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem
 import com.ashokvarma.bottomnavigation.TextBadgeItem
 import com.kotlin.base.ui.activity.BaseActivity
+import com.kotlin.goods.mvp.view.fragment.CategoryFragment
 import com.kotlin.mall.R
-import com.kotlin.mall.R.id.bv_bottom_navigation
 import com.kotlin.mall.ui.fragment.HomeFragment
 import com.kotlin.mall.ui.fragment.MeFragment
 import com.vondear.rxtools.RxActivityTool
@@ -31,7 +26,7 @@ class MainActivity : BaseActivity() {
     //主界面Fragment
     private val mHomeFragment by lazy { HomeFragment() }
     //商品分类Fragment
-    private val mCategoryFragment by lazy { HomeFragment() }
+    private val mCategoryFragment by lazy { CategoryFragment() }
     //购物车Fragment
     private val mCartFragment by lazy { HomeFragment() }
     //消息Fragment
