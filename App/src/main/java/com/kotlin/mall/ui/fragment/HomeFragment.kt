@@ -15,14 +15,17 @@ import com.kotlin.mall.R
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer.DepthPage
 import com.kotlin.base.ui.widgets.GlideImageLoader
+import com.kotlin.goods.mvp.view.activity.SearchGoodsActivity
 
 import com.kotlin.mall.adapter.HomeDiscountAdapter
 import com.kotlin.mall.adapter.TopicAdapter
 import com.kotlin.mall.common.*
+import com.orhanobut.logger.Logger
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_home.*
 import me.crosswall.lib.coverflow.CoverFlow
 import me.crosswall.lib.coverflow.core.CoverTransformer
+import org.jetbrains.anko.startActivity
 
 
 class HomeFragment : BaseFragment() {
@@ -36,6 +39,10 @@ class HomeFragment : BaseFragment() {
         initNews();
         initDiscount()
         initTopic()
+        tv_search_view.setOnClickListener {
+            startActivity<SearchGoodsActivity>()
+        }
+
     }
 
 

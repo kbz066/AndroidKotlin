@@ -23,7 +23,7 @@ class LoginPresenter @Inject constructor() :BasePresenter<LoginView>() {
     fun login(email:String, pwd:String,pushId:String){
 
 
-
+        mView.showLoading()
 
         mUserServer.login(email,pwd,pushId)
                 .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<UserInfoResponse>>(mView){

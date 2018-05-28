@@ -50,9 +50,6 @@ abstract class BaseActivity : RxAppCompatActivity(){
 
 
 
-
-
-
                     if (it){
                         toast("权限申请成功")
                         mPermissionsListener?.onPermissionsSuccess()

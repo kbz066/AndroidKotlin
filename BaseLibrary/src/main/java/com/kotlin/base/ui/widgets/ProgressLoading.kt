@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.ImageView
 import com.kotlin.base.R
+import com.orhanobut.logger.Logger
 import org.jetbrains.anko.find
 
 /**
@@ -16,11 +17,8 @@ class ProgressLoadingBar  constructor(context: Context?, themeResId: Int) : Dial
 
     lateinit var mAnimationDrawable: AnimationDrawable
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    init {
         initView()
-
     }
 
     private fun initView() {
@@ -34,6 +32,7 @@ class ProgressLoadingBar  constructor(context: Context?, themeResId: Int) : Dial
         lp.gravity= Gravity.CENTER
         //设置属性
         this.window.attributes = lp
+        Logger.e("对话框-------。initView")
     }
 
 
@@ -51,6 +50,7 @@ class ProgressLoadingBar  constructor(context: Context?, themeResId: Int) : Dial
     fun dismissLoadingBar(){
 
         this.dismiss()
+
         mAnimationDrawable?.stop()
     }
 

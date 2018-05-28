@@ -22,7 +22,7 @@ open class BasePresenter<T:BaseView> {
     fun checkNetWork(view:BaseView):Boolean{
 
         if(RxNetTool.isNetworkAvailable(mContext)){
-            view.showLoading()
+
             return true
         }
         mView.onError(1002,"网络不可用")

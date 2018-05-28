@@ -26,7 +26,7 @@ object UserInfoUtils {
 
     fun removeUserInfo(){
         RxSPTool.remove(BaseApplication.mInstance,BaseConstant.KEY_SP_TOKEN)
-        RxSPTool.clearPreference(BaseApplication.mInstance,"JSON_CACHE",ProviderConstant.KEY_SP_USER_CACHE)
+        RxSPTool.clearPreference(BaseApplication.mInstance,BaseConstant.SP_JSON_NAME,ProviderConstant.KEY_SP_USER_CACHE)
     }
 
     fun isLogin():Boolean{

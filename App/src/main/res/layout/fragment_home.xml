@@ -13,11 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_header_bar_height"
         app:layout_constraintTop_toTopOf="parent">
-        <EditText
-            android:id="@+id/sv_search"
+        <TextView
+            android:id="@+id/tv_search_view"
             android:hint="搜索商品/品类"
             android:cursorVisible="false"
             android:focusable="true"
+            android:gravity="center_vertical"
             android:focusableInTouchMode="true"
             android:background="@drawable/home_header_corner_bg"
             android:textColorHint="@color/white"
@@ -41,8 +42,8 @@
             style="@style/WrapWrap"
             android:src="@drawable/icon_scan"
 
-            app:layout_constraintTop_toTopOf="@+id/sv_search"
-            app:layout_constraintBottom_toBottomOf="@+id/sv_search"
+            app:layout_constraintTop_toTopOf="@+id/tv_search_view"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_search_view"
             app:layout_constraintRight_toRightOf="parent"
             />
     </android.support.constraint.ConstraintLayout>

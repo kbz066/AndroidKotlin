@@ -3,7 +3,8 @@
     package="com.kotlin.goods">
 
     <application>
-        <activity android:name=".mvp.view.activity.GoodsListActivity"></activity>
+        <activity android:name=".mvp.view.activity.GoodsListActivity" />
+        <activity android:name=".mvp.view.activity.SearchGoodsActivity"></activity>
     </application>
 
 </manifest>

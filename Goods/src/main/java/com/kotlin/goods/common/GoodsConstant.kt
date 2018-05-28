@@ -4,8 +4,7 @@ package com.kotlin.goods.common
  * Created by  on 2018/5/25.
  */
 object GoodsConstant {
-    //搜索历史 本地存储
-    const val SP_SEARCH_HISTORY = "search_history"
+
     //搜索商品类型
     const val KEY_SEARCH_GOODS_TYPE = "search_goods_type"
     //按分类搜索
