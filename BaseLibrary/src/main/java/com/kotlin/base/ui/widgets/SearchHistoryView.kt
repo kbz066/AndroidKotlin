@@ -98,5 +98,11 @@ class SearchHistoryView @JvmOverloads constructor(
             }
         }
     }
+    fun getSearchTxt():String{
+        return et_search_txt.text.toString()
+    }
+    fun setSearchFun(searchFun:(key:String)->Unit){
+        this.searchFun=searchFun
+    }
 }
 

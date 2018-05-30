@@ -38,14 +38,12 @@ allOpen {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-
     api 'com.android.support:appcompat-v7:27.1.1'
     api 'com.android.support:design:27.1.1'
-
+    api 'com.android.support:support-v13:27.1.1'
     api 'com.android.support.constraint:constraint-layout:1.1.0'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "io.reactivex.rxjava2:rxkotlin:$rxkotlin"
@@ -96,12 +94,13 @@ dependencies {
 
     //阿里
     api 'com.aliyun.dpa:oss-android-sdk:+'
-
     api "com.ashokvarma.android:bottom-navigation-bar:${navbar}"
 
-
     //banner
-    api 'com.youth.banner:banner:1.4.10'  //最新版本
+    api 'com.youth.banner:banner:1.4.10'
+
+    //最新版本
+
     //标签
     api 'com.github.shts:TriangleLabelView:1.1.2'
 
@@ -109,21 +108,18 @@ dependencies {
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
 
     //viewpager 动画
-
     api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
 
     //glide-transformations
     api 'jp.wasabeef:glide-transformations:3.3.0'
+
     // If you want to use the GPU Filters
     api 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+
     //viewpager画廊
     api 'com.github.crosswall:Android-Coverflow:release-v1.0.4'
 
     //loading库
     api 'com.wang.avi:library:2.1.3'
-
-
-
-
 
 }

@@ -18,6 +18,7 @@ import com.kotlin.goods.mvp.view.adapter.GoodsListAdapter
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_goods_list.*
 import kotlinx.android.synthetic.main.activity_goods_list_context.*
+import org.jetbrains.anko.startActivity
 
 class GoodsListActivity : BaseMvpActivity<GoodsListPresenter>(),IGoodsListView,SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
 
@@ -52,7 +53,13 @@ class GoodsListActivity : BaseMvpActivity<GoodsListPresenter>(),IGoodsListView,S
         rv_goods_list.adapter=mGoodsListAdapter
 
         mGoodsListAdapter.setOnLoadMoreListener(this,rv_goods_list)
+
         mGoodsListAdapter.disableLoadMoreIfNotFullPage();
+        mGoodsListAdapter.setOnItemClickListener {
+            adapter, view, position ->
+
+            startActivity<GoodsDetailActivity>()
+        }
         loadData()
     }
 
@@ -60,8 +67,14 @@ class GoodsListActivity : BaseMvpActivity<GoodsListPresenter>(),IGoodsListView,S
 
     fun loadData(){
 
-        mv_goods_multiple_status.showLoading()
-        mPresenter.getGoodsList(intent.getIntExtra(GoodsConstant.KEY_GOODS_ID,1),mCurrentPage)
+        if (intent.getIntExtra(GoodsConstant.KEY_SEARCH_GOODS_TYPE,0)==0){
+            mv_goods_multiple_status.showLoading()
+            mPresenter.getGoodsList(intent.getIntExtra(GoodsConstant.KEY_GOODS_ID,1),mCurrentPage)
+        }else{
+            mv_goods_multiple_status.showLoading()
+            mPresenter.getGoodsListByKeyword(intent.getStringExtra(GoodsConstant.KEY_GOODS_KEYWORD),mCurrentPage)
+        }
+
     }
     /**
      * 下拉刷新

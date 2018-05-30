@@ -45,4 +45,20 @@ class GoodsListPresenter @Inject constructor() :  BasePresenter<IGoodsListView>(
                 },rxLifecycle)
     }
 
+    fun getGoodsListByKeyword( keyword: String, pageNo: Int){
+
+        mCategoryServer.getGoodsListByKeyword(keyword,pageNo)
+                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<MutableList<GoodsListResponse>?>>(mView) {
+                    override fun success(data: BaseResponse<MutableList<GoodsListResponse>?>) {
+                        mView.onGetGoodsListResult(data.data)
+                    }
+
+                    override fun failure(statusCode: Int, msg: String?) {
+
+                    }
+
+
+                },rxLifecycle)
+    }
+
 }

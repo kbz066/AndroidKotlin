@@ -5,13 +5,12 @@
     <dimen name="common_header_bar_height">50dp</dimen>
     <dimen name="common_icon_height">60dp</dimen>
     <dimen name="common_icon_width">60dp</dimen>
-    <dimen name="common_line_height">40dp</dimen>
+    <dimen name="common_line_height">50dp</dimen>
     <dimen name="common_margin">15dp</dimen>
     <dimen name="common_margin_middle">10dp</dimen>
     <dimen name="common_margin_small">5dp</dimen>
     <dimen name="common_padding">15dp</dimen>
     <dimen name="common_padding_middle">10dp</dimen>
-    <dimen name="common_padding_max">15dp</dimen>
     <dimen name="common_padding_small">5dp</dimen>
     <dimen name="common_radius">6dp</dimen>
     <dimen name="common_border_size">1px</dimen>
