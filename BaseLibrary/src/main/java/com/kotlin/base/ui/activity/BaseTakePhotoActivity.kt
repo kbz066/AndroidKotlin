@@ -135,6 +135,7 @@ abstract class BaseTakePhotoActivity<T:BasePresenter<*>>:BaseActivity(),BaseView
         // 判断当前按下的时间与上一次按下的间隔.
         if (timeMillis - mLastKeyDown >= 2000) {
             toast("连续点击两次返回键退出")
+
             mLastKeyDown = timeMillis;
 
         } else {

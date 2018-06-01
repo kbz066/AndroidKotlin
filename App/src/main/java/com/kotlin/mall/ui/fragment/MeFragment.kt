@@ -50,6 +50,7 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
      * 加载数据
      */
     private fun loadData() {
+
         if (UserInfoUtils.isLogin()){
             UserInfoUtils.getUserInfo().let {
                 if (it.userIcon.isNotEmpty()){
@@ -102,6 +103,7 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
      */
     @Subscribe
     fun onMessageEvent(event: UserSignoutEvent) {
+
 
 
 

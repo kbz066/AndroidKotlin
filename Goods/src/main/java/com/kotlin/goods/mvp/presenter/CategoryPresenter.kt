@@ -1,18 +1,12 @@
 package com.kotlin.goods.mvp.presenter
 
 import com.kotlin.base.Rx.BaseRxObserver
-import com.kotlin.base.data.net.RetrofitManager
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.base.ext.excute
 import com.kotlin.base.presenter.BasePresenter
-import com.kotlin.goods.mvp.model.CategoryApi
-import com.kotlin.goods.mvp.model.request.GetCategoryRequest
-import com.kotlin.goods.mvp.model.response.CategoryResPonse
+import com.kotlin.goods.mvp.model.response.CategoryResponse
 import com.kotlin.goods.mvp.presenter.view.ICategoryView
 import com.kotlin.user.mvp.model.server.CategoryServer
-import com.orhanobut.logger.Logger
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
@@ -29,8 +23,8 @@ class CategoryPresenter @Inject constructor() :  BasePresenter<ICategoryView>() 
     fun getCategory(parentId: Int){
 
         mCategoryServer.getCategory(parentId)
-                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<MutableList<CategoryResPonse>?>>(mView) {
-                    override fun success(data: BaseResponse<MutableList<CategoryResPonse>?>) {
+                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<MutableList<CategoryResponse>?>>(mView) {
+                    override fun success(data: BaseResponse<MutableList<CategoryResponse>?>) {
                         mView.onGetCategoryResult(data.data)
                     }
 

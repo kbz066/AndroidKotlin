@@ -6,5 +6,5 @@ import com.kotlin.base.annotation.Poko
  * Created by  on 2018/5/3.
  */
 @Poko
-data class BaseResponse<T> constructor(var status:Int,var message:String,var data:T)
+data class BaseResponse<T> (var status:Int,var message:String, var data:T)
 

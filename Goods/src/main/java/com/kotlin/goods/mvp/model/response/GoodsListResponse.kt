@@ -19,6 +19,6 @@ data class GoodsListResponse(
         var goodsCode: String,//商品编号
         var goodsDefaultSku: String,//默认SKU
         var goodsBanner: String,//商品banner图
-        var goodsSku:List<GoodsSku>,//商品SKU
+        var goodsSku:List<GoodsSkuResponse>,//商品SKU
         var maxPage:Int//最大页码
         )

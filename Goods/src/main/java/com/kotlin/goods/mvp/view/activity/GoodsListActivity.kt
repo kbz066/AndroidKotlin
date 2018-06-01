@@ -58,7 +58,7 @@ class GoodsListActivity : BaseMvpActivity<GoodsListPresenter>(),IGoodsListView,S
         mGoodsListAdapter.setOnItemClickListener {
             adapter, view, position ->
 
-            startActivity<GoodsDetailActivity>()
+            startActivity<GoodsDetailActivity>(GoodsConstant.KEY_GOODS_ID to mGoodsListAdapter.data[position].id)
         }
         loadData()
     }

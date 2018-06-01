@@ -4,7 +4,7 @@ import com.kotlin.base.data.net.RetrofitManager
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.goods.mvp.model.CategoryApi
 import com.kotlin.goods.mvp.model.request.GetCategoryRequest
-import com.kotlin.goods.mvp.model.response.CategoryResPonse
+import com.kotlin.goods.mvp.model.response.CategoryResponse
 
 import com.kotlin.user.mvp.model.server.CategoryServer
 import io.reactivex.Observable
@@ -18,7 +18,7 @@ import javax.inject.Inject
 class CategoryServerImpl @Inject constructor(): CategoryServer {
 
 
-    override fun getCategory(parentId: Int): Observable<BaseResponse<MutableList<CategoryResPonse>?>> {
+    override fun getCategory(parentId: Int): Observable<BaseResponse<MutableList<CategoryResponse>?>> {
         return RetrofitManager.mInstance.create(CategoryApi::class.java)
                 .getCategory(GetCategoryRequest(parentId))
     }

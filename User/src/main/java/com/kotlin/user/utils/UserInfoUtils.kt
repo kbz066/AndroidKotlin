@@ -7,6 +7,7 @@ import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.user.mvp.model.response.UserInfoResponse
 import com.vondear.rxtools.RxSPTool
 
+
 /**
  * Created by  on 2018/5/21.
  */
@@ -21,6 +22,8 @@ object UserInfoUtils {
     }
     fun getUserInfo():UserInfoResponse{
         var json=RxSPTool.readJSONCache(BaseApplication.mInstance,ProviderConstant.KEY_SP_USER_CACHE)
+
+
         return JSON.parseObject(json,UserInfoResponse::class.java)
     }
 

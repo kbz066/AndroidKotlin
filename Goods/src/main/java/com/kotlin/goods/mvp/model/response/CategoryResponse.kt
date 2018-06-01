@@ -6,7 +6,7 @@ import com.kotlin.base.annotation.Poko
  * Created by  on 2018/5/24.
  */
 @Poko
-data class CategoryResPonse(
+data class CategoryResponse(
         var id: Int, //分类ID
         var categoryName: String, //分类名称
         var categoryIcon: String = "", //分类图标

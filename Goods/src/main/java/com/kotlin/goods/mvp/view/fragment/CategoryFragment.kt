@@ -4,18 +4,16 @@ package com.kotlin.goods.mvp.view.fragment
 
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
-import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.kotlin.base.ui.fragment.BaseMvpFragment
 
 import com.kotlin.goods.R
-import com.kotlin.goods.R.id.*
 import com.kotlin.goods.common.GoodsConstant
 import com.kotlin.goods.mvp.view.adapter.SecondCategoryAdapter
 import com.kotlin.goods.mvp.view.adapter.TopCategoryAdapter
 import com.kotlin.goods.dagger.component.DaggerCategoryComponent
 import com.kotlin.goods.dagger.module.CategoryModule
-import com.kotlin.goods.mvp.model.response.CategoryResPonse
+import com.kotlin.goods.mvp.model.response.CategoryResponse
 import com.kotlin.goods.mvp.presenter.CategoryPresenter
 import com.kotlin.goods.mvp.presenter.view.ICategoryView
 import com.kotlin.goods.mvp.view.activity.GoodsListActivity
@@ -102,7 +100,7 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>() ,ICategoryView{
     /**
      * 获取商品列表回调
      */
-    override fun onGetCategoryResult(result: MutableList<CategoryResPonse>?) {
+    override fun onGetCategoryResult(result: MutableList<CategoryResponse>?) {
 
 
 

@@ -32,7 +32,7 @@ class ProgressLoadingBar  constructor(context: Context?, themeResId: Int) : Dial
         lp.gravity= Gravity.CENTER
         //设置属性
         this.window.attributes = lp
-        Logger.e("对话框-------。initView")
+
     }
 
 

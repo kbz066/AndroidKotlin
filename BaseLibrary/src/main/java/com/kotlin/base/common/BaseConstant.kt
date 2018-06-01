@@ -9,7 +9,7 @@ object BaseConstant {
     //Token Key
     const val KEY_SP_TOKEN = "token"
 
-    const val SP_JSON_NAME = "sp_json_name"
+    const val SP_JSON_NAME = "JSON_CACHE"
 
     const val KEY_SP_SEARCH_HISTORY = "search_history"
 }

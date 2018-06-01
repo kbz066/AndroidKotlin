@@ -2,7 +2,7 @@ package com.kotlin.goods.mvp.model
 
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.goods.mvp.model.request.GetCategoryRequest
-import com.kotlin.goods.mvp.model.response.CategoryResPonse
+import com.kotlin.goods.mvp.model.response.CategoryResponse
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -17,5 +17,5 @@ interface CategoryApi {
     获取商品分类列表
  */
     @POST("category/getCategory")
-    fun getCategory(@Body req: GetCategoryRequest): Observable<BaseResponse<MutableList<CategoryResPonse>?>>
+    fun getCategory(@Body req: GetCategoryRequest): Observable<BaseResponse<MutableList<CategoryResponse>?>>
 }

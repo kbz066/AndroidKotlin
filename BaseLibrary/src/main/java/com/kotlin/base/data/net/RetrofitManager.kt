@@ -11,6 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.fastjson.FastJsonConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 import java.util.concurrent.TimeUnit
 
@@ -43,7 +44,7 @@ class RetrofitManager public constructor(){
         retrofit=Retrofit.Builder()
                 .baseUrl(BaseConstant.SERVER_ADDRESS)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(FastJsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
                 .client(initClient())
                 .build();
     }
