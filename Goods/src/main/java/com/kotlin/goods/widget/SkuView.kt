@@ -48,6 +48,7 @@ class SkuView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
                 return tv
             }
         }
+        fl_sku_content_view.adapter.setSelectedList(0)
         fl_sku_content_view.setOnTagClickListener { view, position, parent ->
             EventBusUtils.post(UpdateSkuTxtEvent())
             true

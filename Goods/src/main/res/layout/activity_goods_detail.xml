@@ -63,7 +63,7 @@
             android:textColor="@drawable/bottom_nav_text_selector"
             android:textSize="@dimen/text_small_size"/>
         <TextView
-            android:id="@+id/mEnterCartTv"
+            android:id="@+id/tv_enter_cart"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"

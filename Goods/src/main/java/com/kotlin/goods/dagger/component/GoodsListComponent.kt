@@ -10,7 +10,7 @@ import com.kotlin.goods.mvp.view.fragment.GoodsDetailTabOneFragment
 import dagger.Component
 
 /**
- * Created by caofu on 2018/5/25.
+ * Created by  on 2018/5/25.
  */
 @Component(dependencies = arrayOf(BaseActivityComponent::class),modules = arrayOf(GoodsListModule::class,CartModule::class) )
 interface GoodsListComponent {

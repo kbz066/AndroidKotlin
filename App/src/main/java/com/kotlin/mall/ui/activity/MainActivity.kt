@@ -7,13 +7,17 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem
 import com.ashokvarma.bottomnavigation.TextBadgeItem
 import com.kotlin.base.ui.activity.BaseActivity
+import com.kotlin.goods.common.GoodsConstant
+import com.kotlin.goods.event.UpdateCartSizeEvent
 import com.kotlin.goods.mvp.view.fragment.CategoryFragment
 import com.kotlin.mall.R
 import com.kotlin.mall.ui.fragment.HomeFragment
 import com.kotlin.mall.ui.fragment.MeFragment
 import com.vondear.rxtools.RxActivityTool
+import com.vondear.rxtools.RxSPTool
 import com.vondear.rxtools.RxTool
 import kotlinx.android.synthetic.main.activity_main.*
+import org.greenrobot.eventbus.Subscribe
 import org.jetbrains.anko.toast
 import java.util.*
 
@@ -47,7 +51,7 @@ class MainActivity : BaseActivity() {
 
         initPermission()
         initBottomNavBar()
-
+        loadCartSize()
 
     }
 
@@ -209,6 +213,16 @@ class MainActivity : BaseActivity() {
     }
 
 
+    @Subscribe()
+    fun onMessageEvent(event: UpdateCartSizeEvent){
+
+        loadCartSize()
+
+    }
+
+    private fun loadCartSize() {
+        checkCartBadge(RxSPTool.getInt(this, GoodsConstant.SP_CART_SIZE))
+    }
 
     override fun onBackPressed() {
 

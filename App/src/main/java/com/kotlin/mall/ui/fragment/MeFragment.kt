@@ -16,6 +16,7 @@ import com.kotlin.mall.R
 import com.kotlin.mall.R.id.iv_user_icon
 import com.kotlin.mall.R.id.tv_user_name
 import com.kotlin.mall.ui.activity.SettingActivity
+import com.kotlin.provider.common.isLogin
 import com.kotlin.user.mvp.activity.LoginActivity
 import com.kotlin.user.mvp.activity.UserInfoActivity
 import com.kotlin.user.mvp.model.response.UserInfoResponse
@@ -51,7 +52,7 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
      */
     private fun loadData() {
 
-        if (UserInfoUtils.isLogin()){
+        if (isLogin()){
             UserInfoUtils.getUserInfo().let {
                 if (it.userIcon.isNotEmpty()){
                     iv_user_icon.loadUrlImage(it.userIcon)
@@ -71,7 +72,7 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
 
         when(v.id){
             R.id.iv_user_icon,R.id.tv_user_name->{
-                if (UserInfoUtils.isLogin()){
+                if (isLogin()){
                     startActivity<UserInfoActivity>()
                 }else{
                     startActivity<LoginActivity>()
@@ -106,10 +107,8 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
 
 
 
-
         UserInfoUtils.removeUserInfo()
         loadData()
-
 
 
     }

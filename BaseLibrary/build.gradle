@@ -28,6 +28,7 @@ android {
     }
 
 }
+
 noArg {
     annotation("com.kotlin.base.annotation.Poko")
 }
@@ -131,7 +132,13 @@ dependencies {
 //kotlin-reflect
     api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
-    //
+    //converter-gson
     api "com.squareup.retrofit2:converter-gson:$retrofit"
+
+    //阿里 路由
+    api "com.alibaba:arouter-api:$arouter_api_version"
+
+    //badgeview
+    api 'q.rorbin:badgeview:1.1.3'
 
 }

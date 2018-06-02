@@ -6,7 +6,7 @@ import com.kotlin.goods.mvp.model.response.GoodsListResponse
 import com.kotlin.goods.mvp.model.response.GoodsSkuResponse
 
 /**
- * Created by caofu on 2018/5/25.
+ * Created by  on 2018/5/25.
  */
 interface IGoodsDetailView :BaseView{
     //获取商品详情

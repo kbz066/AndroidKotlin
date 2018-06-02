@@ -1,6 +1,7 @@
 package com.kotlin.base.common
 
 import android.app.Application
+import com.alibaba.android.arouter.launcher.ARouter
 import com.kotlin.base.dagger.component.BaseApplicationComponent
 import com.kotlin.base.dagger.component.DaggerBaseApplicationComponent
 import com.kotlin.base.dagger.module.BaseApplicationModule
@@ -39,8 +40,9 @@ class BaseApplication  :Application() {
                 .build()
 
        Logger.addLogAdapter(AndroidLogAdapter(formatStrategy))
-
-
+        ARouter.init(this);
+        ARouter.openLog();     // 打印日志
+        ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
 
     }
 

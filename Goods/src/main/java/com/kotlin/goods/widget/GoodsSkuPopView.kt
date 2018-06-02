@@ -5,16 +5,23 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.PopupWindow
 import com.kotlin.base.ext.loadImageFitCenter
+import com.kotlin.base.ui.widgets.DefaultTextWatcher
+import com.kotlin.base.utils.EventBusUtils
 import com.kotlin.base.utils.YuanFenConverter
 import com.kotlin.goods.R
 import com.kotlin.goods.common.GoodsConstant
+import com.kotlin.goods.event.AddCartEvent
+import com.kotlin.goods.event.UpdateSkuTxtEvent
 
 
 import com.kotlin.goods.mvp.model.response.GoodsSkuResponse
+import com.kotlin.provider.common.afterLogin
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.layout_sku_pop.view.*
+import org.jetbrains.anko.find
 
 
 /**
@@ -58,7 +65,9 @@ class GoodsSkuPopView(var mContext:Context) : PopupWindow(mContext) ,View.OnClic
     private fun initView() {
         contentView.ll_sku_group_view.addView(SkuView(context =mContext))
         contentView.iv_goods_close_icon.setOnClickListener(this)
-        contentView.mSkuCountBtn.setCurrentNumber(1)
+        contentView.bt_add_cart.setOnClickListener(this)
+        contentView.nb_sku_count.setCurrentNumber(1)
+
     }
 
 
@@ -67,6 +76,14 @@ class GoodsSkuPopView(var mContext:Context) : PopupWindow(mContext) ,View.OnClic
         when(v.id){
             R.id.iv_goods_close_icon->{
                 dismiss()
+            }
+            R.id.bt_add_cart->{
+
+                afterLogin {
+                    EventBusUtils.post(AddCartEvent())
+                    dismiss()
+                }
+
             }
         }
 
@@ -103,14 +120,21 @@ class GoodsSkuPopView(var mContext:Context) : PopupWindow(mContext) ,View.OnClic
             itemSkuView.addChildToSkuLayout(it)
             mSkuViewList.add(itemSkuView)
             contentView.ll_sku_group_view.addView(itemSkuView)
+            contentView.nb_sku_count.find<EditText>(R.id.text_count).addTextChangedListener(object :DefaultTextWatcher(){
 
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+
+                    EventBusUtils.post(UpdateSkuTxtEvent())
+                }
+            })
         }
     }
 
     /*
     获取商品数量
  */
-    fun getSelectCount() = contentView.mSkuCountBtn.number
+    fun getSelectCount() = contentView.nb_sku_count.number
 
     fun getSelectSku():String{
         var skuTxt:String=""

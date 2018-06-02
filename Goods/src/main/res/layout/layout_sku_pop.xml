@@ -57,7 +57,7 @@
                     android:textColor="@color/text_dark"
                     android:textSize="@dimen/text_small_size"/>
             <ren.qinc.numberbutton.NumberButton
-                android:id="@+id/mSkuCountBtn"
+                android:id="@+id/nb_sku_count"
                 style="@style/WrapWrap"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -65,7 +65,7 @@
                 zhy:editable="false"/>
         </RelativeLayout>
         <Button
-                android:id="@+id/mAddCartBtn"
+                android:id="@+id/bt_add_cart"
                 style="@style/MatchWrap"
                 android:layout_below="@id/rl_sku_amount"
                 android:layout_marginTop="80dp"

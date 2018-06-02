@@ -32,9 +32,7 @@ object UserInfoUtils {
         RxSPTool.clearPreference(BaseApplication.mInstance,BaseConstant.SP_JSON_NAME,ProviderConstant.KEY_SP_USER_CACHE)
     }
 
-    fun isLogin():Boolean{
-        return RxSPTool.readJSONCache(BaseApplication.mInstance,ProviderConstant.KEY_SP_USER_CACHE)!=null
-    }
+
 
 
 }

@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 
 /**
- * Created by caofu on 2018/6/1.
+ * Created by  on 2018/6/1.
  */
 class CartServiceImpl @Inject constructor(): CartService {
     override fun addCart(goodsId: Int, goodsDesc: String, goodsIcon: String, goodsPrice: Long, goodsCount: Int, goodsSku: String): Observable<BaseResponse<Int>> {

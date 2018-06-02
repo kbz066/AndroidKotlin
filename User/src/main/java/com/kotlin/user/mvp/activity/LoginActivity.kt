@@ -5,12 +5,14 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Environment
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.fastjson.JSON
 import com.kotlin.base.common.BaseConstant
 import com.kotlin.base.ext.enable
 import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.base.utils.AppPrefsUtils
 import com.kotlin.base.utils.EventBusUtils
+import com.kotlin.provider.common.ARouterPath
 import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.user.R
 import com.kotlin.user.R.id.*
@@ -33,6 +35,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
+@Route(path = ARouterPath.PATH_LOGIN)
 class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,LoginView{
 
 

@@ -16,12 +16,15 @@ import com.kotlin.goods.R.id.*
 import com.kotlin.goods.common.GoodsConstant
 import com.kotlin.goods.dagger.component.DaggerGoodsListComponent
 import com.kotlin.goods.dagger.module.GoodsListModule
+import com.kotlin.goods.event.AddCartEvent
+import com.kotlin.goods.event.UpdateCartSizeEvent
 import com.kotlin.goods.event.UpdateSkuTxtEvent
 import com.kotlin.goods.mvp.model.response.GoodsListResponse
 import com.kotlin.goods.mvp.presenter.GoodsDetailPresenter
 import com.kotlin.goods.mvp.presenter.view.IGoodsDetailView
 import com.kotlin.goods.widget.GoodsSkuPopView
 import com.orhanobut.logger.Logger
+import com.vondear.rxtools.RxSPTool
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 
@@ -81,9 +84,20 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>() ,IGood
      * 添加购物车
      */
     private fun addCart(){
-//        mPresenter.addCart(
-//
-//        )
+        mGoodsList?.let {
+            mPresenter.addCart(
+
+                    it.id,
+                    it.goodsDesc,
+                    it.goodsDefaultIcon,
+                    it.goodsDefaultPrice,
+
+                    mGoodsSkuPopView.getSelectCount(),
+                    mGoodsSkuPopView.getSelectSku()
+
+            )
+        }
+
     }
 
 
@@ -115,6 +129,9 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>() ,IGood
 
     override fun onAddCartResult(result: Int) {
 
+        RxSPTool.putInt(activity,GoodsConstant.SP_CART_SIZE,result)
+        EventBusUtils.post(UpdateCartSizeEvent())
+        Logger.e("onAddCartResult----------》\t\t\t"+result)
     }
     /**
      * 更新sku 文字
@@ -125,7 +142,12 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>() ,IGood
         tv_sku_selected.text=mGoodsSkuPopView.getSelectSku()+GoodsConstant.SKU_SEPARATOR + mGoodsSkuPopView.getSelectCount()+"件"
 
     }
+    @Subscribe()
+    fun onMessageEvent(event: AddCartEvent){
 
+        addCart()
+
+    }
 
     override fun onDestroy() {
         mGoodsSkuPopView.dismiss()
