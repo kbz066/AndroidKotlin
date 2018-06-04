@@ -9,8 +9,10 @@ import com.ashokvarma.bottomnavigation.TextBadgeItem
 import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.goods.common.GoodsConstant
 import com.kotlin.goods.event.UpdateCartSizeEvent
+import com.kotlin.goods.mvp.view.fragment.CartMainFragment
 import com.kotlin.goods.mvp.view.fragment.CategoryFragment
 import com.kotlin.mall.R
+import com.kotlin.mall.R.id.bv_bottom_navigation
 import com.kotlin.mall.ui.fragment.HomeFragment
 import com.kotlin.mall.ui.fragment.MeFragment
 import com.vondear.rxtools.RxActivityTool
@@ -32,7 +34,7 @@ class MainActivity : BaseActivity() {
     //商品分类Fragment
     private val mCategoryFragment by lazy { CategoryFragment() }
     //购物车Fragment
-    private val mCartFragment by lazy { HomeFragment() }
+    private val mCartFragment by lazy { CartMainFragment() }
     //消息Fragment
     private val mMsgFragment by lazy { HomeFragment() }
     //"我的"Fragment
@@ -170,7 +172,7 @@ class MainActivity : BaseActivity() {
      * 检查购物车Tab是否显示标签
      */
     fun checkCartBadge(count:Int){
-        if (count==0){
+        if (count<=0){
             mCartBadge!!.hide()
         }else{
             mCartBadge!!.show()

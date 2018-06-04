@@ -51,7 +51,7 @@ abstract class BaseActivity : RxAppCompatActivity(){
 
 
                     if (it){
-                        toast("权限申请成功")
+//                        toast("权限申请成功")
                         mPermissionsListener?.onPermissionsSuccess()
                     }else{
                         mPermissionsListener?.onPermissionsFail()
@@ -91,6 +91,7 @@ abstract class BaseActivity : RxAppCompatActivity(){
 
 
     override fun onDestroy() {
+
 
         super.onDestroy()
         RxActivityTool.finishActivity(this)

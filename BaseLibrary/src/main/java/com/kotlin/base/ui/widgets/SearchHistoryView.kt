@@ -3,6 +3,7 @@ package com.kotlin.base.ui.widgets
 import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.graphics.Color
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
 import android.util.AttributeSet
@@ -16,6 +17,7 @@ import android.support.v7.widget.SearchView.SearchAutoComplete
 import android.view.View
 import com.alibaba.fastjson.JSON
 import com.kotlin.base.common.BaseConstant
+import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.base.ui.adapter.SearchHistoryAdapter
 import com.orhanobut.logger.Logger
 import com.vondear.rxtools.RxSPTool
@@ -41,6 +43,7 @@ class SearchHistoryView @JvmOverloads constructor(
         initHistoryRecyclerView()
         view!!.bt_clear_history.setOnClickListener(this)
         view!!.rv_search_txt.setOnClickListener(this)
+        view!!.iv_left_back.setOnClickListener(this)
     }
 
     private fun initHistoryRecyclerView() {
@@ -95,6 +98,11 @@ class SearchHistoryView @JvmOverloads constructor(
                     addHistoryData(view!!.et_search_txt.text.toString())
                 }
 
+            }
+            R.id.iv_left_back->{
+
+                var activity=context as BaseActivity
+                activity.finish()
             }
         }
     }

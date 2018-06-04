@@ -19,7 +19,7 @@ interface CartApi {
         获取购物车列表
      */
     @POST("cart/getList")
-    fun getCartList(): rx.Observable<BaseResponse<MutableList<CartGoodsResponse>?>>
+    fun getCartList(): Observable<BaseResponse<MutableList<CartGoodsResponse>?>>
 
     /*
         添加商品到购物车

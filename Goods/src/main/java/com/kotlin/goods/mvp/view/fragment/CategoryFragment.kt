@@ -18,7 +18,7 @@ import com.kotlin.goods.mvp.presenter.CategoryPresenter
 import com.kotlin.goods.mvp.presenter.view.ICategoryView
 import com.kotlin.goods.mvp.view.activity.GoodsListActivity
 import kotlinx.android.synthetic.main.fragment_category.*
-import kotlinx.android.synthetic.main.fragment_category_context.view.*
+import kotlinx.android.synthetic.main.fragment_category_content.view.*
 import org.jetbrains.anko.startActivity
 
 class CategoryFragment : BaseMvpFragment<CategoryPresenter>() ,ICategoryView{

@@ -16,9 +16,15 @@ import javax.inject.Inject
  * Created by  on 2018/6/1.
  */
 class CartServiceImpl @Inject constructor(): CartService {
+
+
     override fun addCart(goodsId: Int, goodsDesc: String, goodsIcon: String, goodsPrice: Long, goodsCount: Int, goodsSku: String): Observable<BaseResponse<Int>> {
         return RetrofitManager.mInstance.create(CartApi::class.java)
                 .addCart(AddCartRequest(goodsId, goodsDesc, goodsIcon, goodsPrice, goodsCount, goodsSku))
+    }
+    override fun getCartList(): Observable<BaseResponse<MutableList<CartGoodsResponse>?>> {
+        return RetrofitManager.mInstance.create(CartApi::class.java)
+                .getCartList()
     }
 
 //    override fun getCartList(): Observable<MutableList<CartGoodsResponse>?> {

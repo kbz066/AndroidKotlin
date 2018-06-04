@@ -31,7 +31,7 @@
         android:paddingTop="@dimen/common_padding"
         android:paddingLeft="@dimen/common_padding"
         android:paddingRight="@dimen/common_padding"
-        app:contentView="@layout/fragment_category_context"
+        app:contentView="@layout/fragment_category_content"
         app:emptyView="@layout/custom_empty_view"
         app:errorView="@layout/custom_error_view"
         app:loadingView="@layout/custom_loading_view"

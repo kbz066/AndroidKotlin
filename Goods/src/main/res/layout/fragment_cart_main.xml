@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".mvp.view.fragment.CartMainFragment">
+    <com.kotlin.base.ui.widgets.HeaderToolBar
+        android:id="@+id/tb_cart_bar"
+        style="@style/MatchWrap"
+
+        app:isShowBack="false"
+        app:rightText="@string/common_edit"
+        app:titleText="购物车"/>
+
+
+    <com.kotlin.base.ui.widgets.MultipleStatusView
+        android:id="@+id/mv_multi_state_View"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        app:contentView="@layout/fragment_cart_main_content"
+        app:emptyView="@layout/custom_empty_view"
+        app:errorView="@layout/custom_error_view"
+        app:loadingView="@layout/custom_loading_view"
+        app:noNetworkView="@layout/custom_no_network_view"
+        app:layout_constraintTop_toBottomOf="@+id/tb_cart_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+       />
+
+</android.support.constraint.ConstraintLayout>

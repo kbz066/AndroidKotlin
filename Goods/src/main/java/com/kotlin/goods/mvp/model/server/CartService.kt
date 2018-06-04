@@ -15,11 +15,11 @@ interface CartService {
     fun addCart(goodsId: Int, goodsDesc: String, goodsIcon: String, goodsPrice: Long,
                 goodsCount: Int, goodsSku: String): Observable<BaseResponse<Int>>
 
-//    /*
-//        获取购物车列表
-//     */
-//    fun getCartList(): Observable<MutableList<CartGoodsResponse>?>
-//
+    /*
+        获取购物车列表
+     */
+    fun getCartList(): Observable<BaseResponse<MutableList<CartGoodsResponse>?>>
+
 //    /*
 //        删除购物车商品
 //     */

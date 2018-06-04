@@ -17,6 +17,7 @@ import com.kotlin.goods.common.GoodsConstant
 import com.kotlin.goods.dagger.component.DaggerGoodsListComponent
 import com.kotlin.goods.dagger.module.GoodsListModule
 import com.kotlin.goods.event.AddCartEvent
+import com.kotlin.goods.event.GoodsDetailImageEvent
 import com.kotlin.goods.event.UpdateCartSizeEvent
 import com.kotlin.goods.event.UpdateSkuTxtEvent
 import com.kotlin.goods.mvp.model.response.GoodsListResponse
@@ -114,7 +115,7 @@ class GoodsDetailTabOneFragment : BaseMvpFragment<GoodsDetailPresenter>() ,IGood
         tv_goods_price.text = YuanFenConverter.changeF2YWithUnit(result.goodsDefaultPrice)
         tv_sku_selected.text = result.goodsDefaultSku
         setSkuPopData(result)
-       // Logger.e("获取商品详情回调\t\t\t"+result)
+        EventBusUtils.post(GoodsDetailImageEvent(result.goodsDetailOne,result.goodsDetailTwo))
     }
 
     private fun setSkuPopData(result: GoodsListResponse) {

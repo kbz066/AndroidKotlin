@@ -95,5 +95,7 @@ class HeaderToolBar: RelativeLayout {
     fun hideCloseBar(){
         iv_back_image.visibility=View.GONE
     }
-
+    fun showCloseBar(){
+        iv_back_image.visibility=View.VISIBLE
+    }
 }

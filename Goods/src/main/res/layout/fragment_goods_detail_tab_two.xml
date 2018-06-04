@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mvp.view.fragment.GoodsDetailTabTwoFragment">
+    <LinearLayout style="@style/MatchWrap.Vertical">
+        <ImageView
+            android:id="@+id/iv_goods_detail_one"
+            style="@style/MatchWrap"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:id="@+id/iv_goods_detail_two"
+            style="@style/MatchWrap"
+            android:scaleType="fitXY"/>
+    </LinearLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+</android.support.v4.widget.NestedScrollView>

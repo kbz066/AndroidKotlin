@@ -5,7 +5,8 @@
     <application>
         <activity android:name=".mvp.view.activity.GoodsListActivity" />
         <activity android:name=".mvp.view.activity.SearchGoodsActivity" />
-        <activity android:name=".mvp.view.activity.GoodsDetailActivity"></activity>
+        <activity android:name=".mvp.view.activity.GoodsDetailActivity" />
+        <activity android:name=".mvp.view.activity.CartMainActivity"></activity>
     </application>
 
 </manifest>
