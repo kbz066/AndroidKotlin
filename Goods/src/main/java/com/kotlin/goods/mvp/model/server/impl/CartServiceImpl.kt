@@ -4,7 +4,9 @@ import com.kotlin.base.data.net.RetrofitManager
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.goods.mvp.model.CategoryApi
 import com.kotlin.goods.mvp.model.request.AddCartRequest
+import com.kotlin.goods.mvp.model.request.DeleteCartRequest
 import com.kotlin.goods.mvp.model.request.GetCategoryRequest
+import com.kotlin.goods.mvp.model.request.SubmitCartRequest
 import com.kotlin.goods.mvp.model.response.CartGoodsResponse
 import com.kotlin.goods.mvp.model.server.CartApi
 import com.kotlin.goods.mvp.model.server.CartService
@@ -27,15 +29,16 @@ class CartServiceImpl @Inject constructor(): CartService {
                 .getCartList()
     }
 
-//    override fun getCartList(): Observable<MutableList<CartGoodsResponse>?> {
-//
-//    }
-//
-//    override fun deleteCartList(list: List<Int>): Observable<Boolean> {
-//
-//    }
-//
-//    override fun submitCart(list: MutableList<CartGoodsResponse>, totalPrice: Long): Observable<Int> {
-//
-//    }
+    override fun deleteCartList(list: List<Int>): Observable<BaseResponse<String>> {
+
+        return RetrofitManager.mInstance.create(CartApi::class.java)
+                .deleteCartList(DeleteCartRequest(list))
+    }
+
+    override fun submitCart(list: MutableList<CartGoodsResponse>, totalPrice: Long):Observable<BaseResponse<Int>> {
+        return RetrofitManager.mInstance.create(CartApi::class.java)
+                .submitCart(SubmitCartRequest(list,totalPrice))
+    }
+
+
 }

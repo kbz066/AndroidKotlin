@@ -7,6 +7,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem
 import com.ashokvarma.bottomnavigation.TextBadgeItem
 import com.kotlin.base.ui.activity.BaseActivity
+import com.kotlin.base.utils.EventBusUtils
 import com.kotlin.goods.common.GoodsConstant
 import com.kotlin.goods.event.UpdateCartSizeEvent
 import com.kotlin.goods.mvp.view.fragment.CartMainFragment
@@ -15,6 +16,7 @@ import com.kotlin.mall.R
 import com.kotlin.mall.R.id.bv_bottom_navigation
 import com.kotlin.mall.ui.fragment.HomeFragment
 import com.kotlin.mall.ui.fragment.MeFragment
+import com.orhanobut.logger.Logger
 import com.vondear.rxtools.RxActivityTool
 import com.vondear.rxtools.RxSPTool
 import com.vondear.rxtools.RxTool
@@ -51,6 +53,7 @@ class MainActivity : BaseActivity() {
     override fun initView() {
 
 
+        EventBusUtils.register(this)
         initPermission()
         initBottomNavBar()
         loadCartSize()
@@ -218,11 +221,14 @@ class MainActivity : BaseActivity() {
     @Subscribe()
     fun onMessageEvent(event: UpdateCartSizeEvent){
 
+
         loadCartSize()
 
     }
 
     private fun loadCartSize() {
+
+
         checkCartBadge(RxSPTool.getInt(this, GoodsConstant.SP_CART_SIZE))
     }
 
@@ -240,6 +246,10 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    override fun onDestroy() {
+        EventBusUtils.unregister(this)
+        super.onDestroy()
+    }
 
 }
 

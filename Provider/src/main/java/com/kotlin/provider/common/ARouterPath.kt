@@ -6,4 +6,5 @@ package com.kotlin.provider.common
 object ARouterPath {
 
     const val PATH_LOGIN = "/user/login"
+    const val PATH_ORDER_CONFIRM = "/order/confirm"
 }

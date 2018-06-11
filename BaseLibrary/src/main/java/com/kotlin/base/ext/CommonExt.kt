@@ -2,6 +2,7 @@ package com.kotlin.base.ext
 
 import android.support.design.widget.FloatingActionButton
 import android.text.TextWatcher
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -70,4 +71,11 @@ fun ImageView.loadImageFitCenter(url:String){
 
 fun ImageView.loadUrlImage(url:String){
     GlideUtils.loadUrlImage(this.context,url,this)
+}
+
+/*
+    扩展视图可见性
+ */
+fun View.setVisible(visible:Boolean){
+    this.visibility = if (visible) View.VISIBLE else View.GONE
 }

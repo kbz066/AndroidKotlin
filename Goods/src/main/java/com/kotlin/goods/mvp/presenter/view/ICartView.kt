@@ -8,4 +8,8 @@ import com.kotlin.goods.mvp.model.response.CartGoodsResponse
  */
 interface ICartView :BaseView{
     fun onGetCartListResult(data: MutableList<CartGoodsResponse>?)
+
+    fun onDeleteCartListResult(data:String)
+
+    fun  onSubmitCartListResult(orderId:Int)
 }

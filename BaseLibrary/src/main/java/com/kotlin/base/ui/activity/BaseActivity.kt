@@ -20,8 +20,7 @@ import java.lang.reflect.Array.setInt
 import javax.inject.Inject
 import java.lang.reflect.Array.setInt
 import android.os.Build
-
-
+import com.alibaba.android.arouter.launcher.ARouter
 
 
 abstract class BaseActivity : RxAppCompatActivity(){
@@ -36,6 +35,7 @@ abstract class BaseActivity : RxAppCompatActivity(){
 
         setStatusBarColor()
         setContentView(getContentViewResId())
+        ARouter.getInstance().inject(this)
         RxActivityTool.addActivity(this)
         initView()
     }

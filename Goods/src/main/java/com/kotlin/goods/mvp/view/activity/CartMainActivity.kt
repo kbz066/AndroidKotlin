@@ -14,7 +14,7 @@ class CartMainActivity : BaseActivity() {
 
     override fun initView() {
         val fragment = fragmentManager.findFragmentById(R.id.ft_fragment_cart)
-        Logger.e("fragment------------->\t\t\t\t"+fragment)
+
         (fragment as CartMainFragment).showCloseBar()
     }
 

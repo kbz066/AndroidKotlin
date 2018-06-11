@@ -2,7 +2,9 @@ package com.kotlin.goods.mvp.model.server
 
 import com.kotlin.base.data.protocol.BaseResponse
 import com.kotlin.goods.mvp.model.request.AddCartRequest
+import com.kotlin.goods.mvp.model.request.DeleteCartRequest
 import com.kotlin.goods.mvp.model.request.GetCategoryRequest
+import com.kotlin.goods.mvp.model.request.SubmitCartRequest
 import com.kotlin.goods.mvp.model.response.CartGoodsResponse
 import com.kotlin.goods.mvp.model.response.CategoryResponse
 import io.reactivex.Observable
@@ -27,15 +29,15 @@ interface CartApi {
     @POST("cart/add")
     fun addCart(@Body req: AddCartRequest): Observable<BaseResponse<Int>>
 
-//    /*
-//        删除购物车商品
-//     */
-//    @POST("cart/delete")
-//    fun deleteCartList(@Body req: DeleteCartReq): rx.Observable<BaseResp<String>>
-//
-//    /*
-//        提交购物车商品
-//     */
-//    @POST("cart/submit")
-//    fun submitCart(@Body req: SubmitCartReq): rx.Observable<BaseResp<Int>>
+    /*
+        删除购物车商品
+     */
+    @POST("cart/delete")
+    fun deleteCartList(@Body req: DeleteCartRequest): Observable<BaseResponse<String>>
+
+    /*
+        提交购物车商品
+     */
+    @POST("cart/submit")
+    fun submitCart(@Body req: SubmitCartRequest): Observable<BaseResponse<Int>>
 }

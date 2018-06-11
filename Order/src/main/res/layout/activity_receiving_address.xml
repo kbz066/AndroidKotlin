@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical.Common">
+    <com.kotlin.base.ui.widgets.HeaderToolBar
+        android:id="@+id/bar_header"
+        style="@style/MatchWrap"
+        app:titleText="地址管理"/>
+
+    <com.kotlin.base.ui.widgets.MultipleStatusView
+        android:id="@+id/mv_multi_state_View"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:contentView="@layout/activity_receiving_address_content"
+        app:emptyView="@layout/custom_empty_view"
+        app:errorView="@layout/custom_error_view"
+        app:loadingView="@layout/custom_loading_view"
+        app:noNetworkView="@layout/custom_no_network_view"
+        android:layout_above="@+id/btn_add_address"
+        android:layout_below="@id/mHeaderBar"
+        />
+
+    <Button
+        android:id="@+id/btn_add_address"
+        style="@style/MatchWrap"
+        android:background="@drawable/btn_common_selector"
+        android:layout_margin="@dimen/common_margin"
+        android:padding="@dimen/common_padding_middle"
+        android:textSize="@dimen/text_big_size"
+        android:textColor="@color/common_white"
+        android:text="新建地址"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

@@ -125,6 +125,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView ,View
             }
 
         })
+
     }
 
     override fun animateRevealShow() {
