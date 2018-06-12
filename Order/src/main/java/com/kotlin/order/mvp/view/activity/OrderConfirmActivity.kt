@@ -20,6 +20,7 @@ import com.kotlin.provider.common.ProviderConstant
 import com.orhanobut.logger.Logger
 import com.vondear.rxtools.RxWebViewTool.loadData
 import kotlinx.android.synthetic.main.activity_order_confirm.*
+import org.jetbrains.anko.startActivity
 
 
 @Route(path = ARouterPath.PATH_ORDER_CONFIRM)
@@ -65,6 +66,9 @@ class OrderConfirmActivity : BaseMvpActivity<OrderConfirmPresenter>(),IOrderConf
 
     private fun setListener() {
 
+        tv_select_ship.setOnClickListener {
+            startActivity<ReceivingAddressActivity>()
+        }
         btn_submit_order.setOnClickListener {
 
         }

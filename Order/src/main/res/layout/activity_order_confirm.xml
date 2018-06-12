@@ -7,7 +7,7 @@
         style="@style/MatchWrap"
         app:titleText="订单确认"/>
     <TextView
-        android:id="@+id/mSelectShipTv"
+        android:id="@+id/tv_select_ship"
         style="@style/MatchWrap"
         android:text="选择收货人"
         android:textColor="@color/text_light_dark"
@@ -23,7 +23,7 @@
         android:paddingBottom="@dimen/common_padding_middle"
         android:visibility="gone"
         android:layout_marginTop="@dimen/common_margin"
-        android:layout_below="@id/mSelectShipTv">
+        android:layout_below="@id/tv_select_ship">
         <TextView
             android:id="@+id/mShipNameTv"
             android:textSize="@dimen/text_big_size"

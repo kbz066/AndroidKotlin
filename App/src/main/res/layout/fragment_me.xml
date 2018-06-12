@@ -46,7 +46,7 @@
             style="@style/MeOrderLabelStyle"/>
     </LinearLayout>
     <TextView
-        android:id="@+id/mAddressTv"
+        android:id="@+id/tv_address"
         android:background="@drawable/border_all"
         android:layout_marginTop="@dimen/common_margin"
         android:text="收货管理"

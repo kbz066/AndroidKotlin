@@ -17,13 +17,13 @@
         app:loadingView="@layout/custom_loading_view"
         app:noNetworkView="@layout/custom_no_network_view"
         android:layout_above="@+id/btn_add_address"
-        android:layout_below="@id/mHeaderBar"
+        android:layout_below="@id/bar_header"
         />
 
     <Button
         android:id="@+id/btn_add_address"
         style="@style/MatchWrap"
-        android:background="@drawable/btn_common_selector"
+        android:background="@drawable/btn_common_selector_blue"
         android:layout_margin="@dimen/common_margin"
         android:padding="@dimen/common_padding_middle"
         android:textSize="@dimen/text_big_size"

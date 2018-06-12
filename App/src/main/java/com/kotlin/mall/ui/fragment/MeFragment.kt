@@ -16,6 +16,7 @@ import com.kotlin.mall.R
 import com.kotlin.mall.R.id.iv_user_icon
 import com.kotlin.mall.R.id.tv_user_name
 import com.kotlin.mall.ui.activity.SettingActivity
+import com.kotlin.order.mvp.view.activity.ReceivingAddressActivity
 import com.kotlin.provider.common.isLogin
 import com.kotlin.user.mvp.activity.LoginActivity
 import com.kotlin.user.mvp.activity.UserInfoActivity
@@ -44,6 +45,9 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
         iv_user_icon.setOnClickListener(this)
         tv_user_name.setOnClickListener(this)
         tv_setting.setOnClickListener(this)
+        tv_address.setOnClickListener(this)
+
+
         loadData()
     }
 
@@ -81,6 +85,9 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
             }
             R.id.tv_setting->{
                 startActivity<SettingActivity>()
+            }
+            R.id.tv_address->{
+                startActivity<ReceivingAddressActivity>()
             }
         }
     }

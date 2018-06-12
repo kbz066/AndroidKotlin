@@ -4,6 +4,7 @@ import com.kotlin.base.dagger.component.BaseActivityComponent
 import com.kotlin.order.dagger.module.OrderModule
 import com.kotlin.order.dagger.module.ReceivingAddressModule
 import com.kotlin.order.mvp.view.activity.ReceivingAddressActivity
+import com.kotlin.order.mvp.view.activity.ReceivingAddressEditActivity
 import dagger.Component
 
 /**
@@ -12,4 +13,6 @@ import dagger.Component
 @Component(dependencies = arrayOf(BaseActivityComponent::class),modules = arrayOf(ReceivingAddressModule::class) )
 interface ReceivingAddressComponent {
     fun inject(receivingAddressActivity: ReceivingAddressActivity)
+    fun inject(receivingAddressEditActivity: ReceivingAddressEditActivity)
+
 }
