@@ -16,32 +16,32 @@
         android:padding="@dimen/common_padding"
         android:layout_below="@id/mHeaderBar"/>
     <RelativeLayout
-        android:id="@+id/mShipView"
+        android:id="@+id/rl_ship_view"
         style="@style/MatchWrap"
         android:background="@drawable/border_all"
         android:paddingTop="@dimen/common_padding_middle"
         android:paddingBottom="@dimen/common_padding_middle"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_marginTop="@dimen/common_margin"
         android:layout_below="@id/tv_select_ship">
         <TextView
-            android:id="@+id/mShipNameTv"
+            android:id="@+id/tv_ship_name"
             android:textSize="@dimen/text_big_size"
             android:textColor="@color/text_light_dark"
             android:background="@color/common_white"
             android:paddingLeft="@dimen/common_padding"
             android:paddingTop="@dimen/common_padding_small"
             android:paddingBottom="@dimen/common_padding_small"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
         <TextView
-            android:id="@+id/mShipAddressTv"
+            android:id="@+id/tv_ship_address"
             android:background="@null"
             android:paddingBottom="@dimen/common_padding_small"
-            android:layout_below="@id/mShipNameTv"
+            android:layout_below="@id/tv_ship_name"
             android:textSize="@dimen/text_small_size"
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:paddingLeft="@dimen/common_padding"
             />
         <ImageView
@@ -55,7 +55,7 @@
         android:id="@+id/rv_order_goods_list"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin"
-        android:layout_below="@id/mShipView"
+        android:layout_below="@id/rl_ship_view"
         style="@style/MatchMatch"/>
     <RelativeLayout
         android:background="@drawable/border_all"

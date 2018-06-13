@@ -79,3 +79,4 @@ fun ImageView.loadUrlImage(url:String){
 fun View.setVisible(visible:Boolean){
     this.visibility = if (visible) View.VISIBLE else View.GONE
 }
+

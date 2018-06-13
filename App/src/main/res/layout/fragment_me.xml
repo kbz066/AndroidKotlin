@@ -40,7 +40,7 @@
             android:drawableTop="@drawable/icon_order_completed"
             style="@style/MeOrderLabelStyle"/>
         <View style="@style/DividerFixedWidth"/>
-        <TextView android:id="@+id/mAllOrderTv"
+        <TextView android:id="@+id/tv_all_order"
             android:text="我的订单"
             android:drawableTop="@drawable/icon_order"
             style="@style/MeOrderLabelStyle"/>

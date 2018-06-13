@@ -9,4 +9,6 @@ import com.kotlin.order.mvp.model.response.OrderResponse
 interface IOrderConfirmView :BaseView{
     //获取订单回调
     fun onGetOrderByIdResult(result:OrderResponse)
+
+    fun onSubmitOrderResult(result:String?)
 }

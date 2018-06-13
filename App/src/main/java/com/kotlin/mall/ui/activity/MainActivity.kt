@@ -58,6 +58,7 @@ class MainActivity : BaseActivity() {
         initBottomNavBar()
         loadCartSize()
 
+
     }
 
 

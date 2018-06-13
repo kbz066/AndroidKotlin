@@ -15,6 +15,7 @@ import javax.inject.Inject
 class OrderConfirmPresenter @Inject constructor() : BasePresenter<IOrderConfirmView>() {
 
 
+
     @Inject
     lateinit var mOrderServer: OrderServer
 
@@ -25,6 +26,25 @@ class OrderConfirmPresenter @Inject constructor() : BasePresenter<IOrderConfirmV
                     override fun success(data: BaseResponse<OrderResponse>) {
 
                         mView.onGetOrderByIdResult(data.data)
+                    }
+
+                    override fun failure(statusCode: Int, msg: String?) {
+
+                    }
+
+                },rxLifecycle);
+    }
+
+
+
+    fun submitOrder(orderId: OrderResponse){
+
+        mView.showLoading()
+        mOrderServer.submitOrder(orderId)
+                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<String>>(mView) {
+                    override fun success(data: BaseResponse<String>) {
+
+                        mView.onSubmitOrderResult(data.data)
                     }
 
                     override fun failure(statusCode: Int, msg: String?) {

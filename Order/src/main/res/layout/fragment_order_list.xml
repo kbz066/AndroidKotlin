@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kotlin.base.ui.widgets.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mv_multi_state_View"
+    android:layout_height="0dp"
+    android:layout_width="0dp"
+    app:contentView="@layout/fragment_order_list_content"
+    app:emptyView="@layout/custom_empty_view"
+    app:errorView="@layout/custom_error_view"
+    app:loadingView="@layout/custom_loading_view"
+    app:noNetworkView="@layout/custom_no_network_view"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    tools:context=".mvp.view.fragment.OrderListFragment">
+
+
+</com.kotlin.base.ui.widgets.MultipleStatusView>

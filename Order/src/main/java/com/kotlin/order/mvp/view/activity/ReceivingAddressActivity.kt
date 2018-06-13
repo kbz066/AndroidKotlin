@@ -12,6 +12,7 @@ import com.kotlin.order.R
 import com.kotlin.order.R.id.*
 
 import com.kotlin.order.dagger.component.DaggerReceivingAddressComponent
+import com.kotlin.order.event.UpdateSelectAddressEvent
 import com.kotlin.order.mvp.model.response.ShipAddress
 import com.kotlin.order.mvp.presenter.ReceivingAddressPresenter
 import com.kotlin.order.mvp.presenter.view.IReceivingAddressView
@@ -75,6 +76,11 @@ class ReceivingAddressActivity : BaseMvpActivity<ReceivingAddressPresenter>(),IR
 
         }
 
+        mReceivingAddressAdapter.setOnItemClickListener { adapter, view, position ->
+
+            EventBusUtils.post(UpdateSelectAddressEvent(mReceivingAddressAdapter.data[position]))
+            finish()
+        }
 
 
         btn_add_address.setOnClickListener {
@@ -91,7 +97,7 @@ class ReceivingAddressActivity : BaseMvpActivity<ReceivingAddressPresenter>(),IR
 
     }
     /**
-     * 选择图片对话框
+     * 对话框
      */
     private fun showSelectDialog(id:Int) {
         AlertView("删除", "确定删除收货人地址吗?", "取消", null,  arrayOf("确定"), this, AlertView.Style.Alert, OnItemClickListener {
