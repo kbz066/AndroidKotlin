@@ -14,7 +14,7 @@ buildscript {
     ext.dagger = '2.16'
     ext.rx_lifecycle_version = '2.2.1'
     ext.alert_view_version = "1.0.3"
-    ext.rxtools = 'RxTools:v1.7.8.3'
+    ext.rxtools = 'RxKit:v2.0.1'
     ext.eventbus = 'eventbus:3.1.1'
     ext.loggers = 'logger:2.2.0'
     ext.gilde = 'glide:4.7.1'
@@ -31,7 +31,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha18'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"

@@ -17,7 +17,7 @@ import com.kotlin.user.dagger.module.UserModule
 import com.kotlin.user.mvp.model.response.UserInfoResponse
 import com.kotlin.user.mvp.presenter.UserInfoPresenter
 import com.kotlin.user.mvp.presenter.view.UserInfoView
-import com.vondear.rxtools.RxSPTool
+
 import kotlinx.android.synthetic.main.activity_user_info.*
 import com.bigkoo.alertview.AlertView
 import com.bigkoo.alertview.OnItemClickListener
@@ -40,8 +40,7 @@ import com.kotlin.provider.utils.OSSUtils
 import com.kotlin.user.R.id.*
 import com.kotlin.user.utils.UserInfoUtils
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxFileTool
-import com.vondear.rxtools.RxTimeTool
+
 import io.reactivex.Observable
 import java.io.File
 import java.util.*

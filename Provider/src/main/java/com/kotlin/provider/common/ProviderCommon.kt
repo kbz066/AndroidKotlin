@@ -2,7 +2,8 @@ package com.kotlin.provider.common
 
 import com.alibaba.android.arouter.launcher.ARouter
 import com.kotlin.base.common.BaseApplication
-import com.vondear.rxtools.RxSPTool
+import com.vondear.rxtool.RxSPTool
+
 
 /**
  * Created by  on 2018/5/21.

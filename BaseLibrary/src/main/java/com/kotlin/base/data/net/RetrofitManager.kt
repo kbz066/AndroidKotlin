@@ -3,7 +3,8 @@ package com.kotlin.base.data.net
 import com.kotlin.base.common.BaseApplication
 import com.kotlin.base.common.BaseConstant
 import com.kotlin.base.utils.AppPrefsUtils
-import com.vondear.rxtools.RxSPTool
+import com.vondear.rxtool.RxSPTool
+
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

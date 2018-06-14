@@ -3,7 +3,8 @@ package com.kotlin.base.presenter
 import android.content.Context
 import com.kotlin.base.presenter.view.BaseView
 import com.trello.rxlifecycle2.LifecycleProvider
-import com.vondear.rxtools.RxNetTool
+import com.vondear.rxtool.RxNetTool
+
 import javax.inject.Inject
 
 open class BasePresenter<T:BaseView> {

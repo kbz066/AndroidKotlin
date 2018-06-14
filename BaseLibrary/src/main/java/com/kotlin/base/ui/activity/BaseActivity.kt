@@ -13,7 +13,7 @@ import com.orhanobut.logger.Logger
 import com.tbruyelle.rxpermissions2.RxPermissions
 import com.trello.rxlifecycle2.components.RxActivity
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
-import com.vondear.rxtools.RxActivityTool
+
 import io.reactivex.android.schedulers.AndroidSchedulers
 import org.jetbrains.anko.toast
 import java.lang.reflect.Array.setInt
@@ -21,6 +21,7 @@ import javax.inject.Inject
 import java.lang.reflect.Array.setInt
 import android.os.Build
 import com.alibaba.android.arouter.launcher.ARouter
+import com.vondear.rxtool.RxActivityTool
 
 
 abstract class BaseActivity : RxAppCompatActivity(){

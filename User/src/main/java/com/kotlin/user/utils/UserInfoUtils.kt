@@ -5,7 +5,7 @@ import com.kotlin.base.common.BaseApplication
 import com.kotlin.base.common.BaseConstant
 import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.user.mvp.model.response.UserInfoResponse
-import com.vondear.rxtools.RxSPTool
+import com.vondear.rxtool.RxSPTool
 
 
 /**

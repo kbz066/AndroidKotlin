@@ -12,7 +12,7 @@ import com.kotlin.order.mvp.presenter.EditReceivingAddressPresenter
 import com.kotlin.order.mvp.presenter.ReceivingAddressPresenter
 import com.kotlin.order.mvp.presenter.view.IEditReceivingAddressView
 import com.kotlin.order.mvp.presenter.view.IReceivingAddressView
-import com.vondear.rxtools.RxWebViewTool.loadData
+
 import kotlinx.android.synthetic.main.activity_receiving_address_edit.*
 import org.jetbrains.anko.toast
 

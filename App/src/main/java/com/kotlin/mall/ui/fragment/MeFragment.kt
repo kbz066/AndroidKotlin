@@ -15,14 +15,16 @@ import com.kotlin.base.utils.EventBusUtils
 import com.kotlin.mall.R
 import com.kotlin.mall.R.id.*
 import com.kotlin.mall.ui.activity.SettingActivity
+import com.kotlin.order.common.OrderConstant
 import com.kotlin.order.mvp.view.activity.OrderListActivity
 import com.kotlin.order.mvp.view.activity.ReceivingAddressActivity
+import com.kotlin.provider.common.afterLogin
 import com.kotlin.provider.common.isLogin
 import com.kotlin.user.mvp.activity.LoginActivity
 import com.kotlin.user.mvp.activity.UserInfoActivity
 import com.kotlin.user.mvp.model.response.UserInfoResponse
 import com.kotlin.user.utils.UserInfoUtils
-import com.vondear.rxtools.RxWebViewTool.loadData
+
 
 
 import kotlinx.android.synthetic.main.fragment_me.*
@@ -47,6 +49,9 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
         tv_setting.setOnClickListener(this)
         tv_address.setOnClickListener(this)
         tv_all_order.setOnClickListener(this)
+        tv_wait_confirm_order.setOnClickListener(this)
+        tv_wait_pay_order.setOnClickListener(this)
+        tv_complete_order.setOnClickListener(this)
 
         loadData()
     }
@@ -84,13 +89,36 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
                 }
             }
             R.id.tv_setting->{
+
                 startActivity<SettingActivity>()
             }
             R.id.tv_address->{
                 startActivity<ReceivingAddressActivity>()
             }
             R.id.tv_all_order->{
-                startActivity<OrderListActivity>()
+                afterLogin {
+                    startActivity<OrderListActivity>()
+                }
+
+            }
+            R.id.tv_wait_confirm_order->{
+                afterLogin {
+                    startActivity<OrderListActivity>(OrderConstant.KEY_ORDER_STATUS to OrderConstant.ORDER_WAIT_CONFIRM)
+
+                }
+            }
+            R.id.tv_complete_order->{
+                afterLogin {
+                    startActivity<OrderListActivity>(OrderConstant.KEY_ORDER_STATUS to OrderConstant.ORDER_COMPLETED)
+
+                }
+            }
+            R.id.tv_wait_pay_order->{
+
+                afterLogin{
+                    startActivity<OrderListActivity>(OrderConstant.KEY_ORDER_STATUS to OrderConstant.ORDER_WAIT_PAY)
+                }
+
             }
         }
     }

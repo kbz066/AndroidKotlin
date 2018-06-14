@@ -16,11 +16,12 @@ import kotlinx.android.synthetic.main.layout_search_history_view.view.*
 import android.support.v7.widget.SearchView.SearchAutoComplete
 import android.view.View
 import com.alibaba.fastjson.JSON
+import com.kotlin.base.R.id.et_search_txt
 import com.kotlin.base.common.BaseConstant
 import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.base.ui.adapter.SearchHistoryAdapter
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxSPTool
+import com.vondear.rxtool.RxSPTool
 
 
 /**

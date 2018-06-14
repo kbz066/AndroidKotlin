@@ -10,9 +10,10 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.kotlin.base.R
 import com.kotlin.base.R.id.*
+import com.vondear.rxtool.RxActivityTool
 
 
-import com.vondear.rxtools.RxActivityTool
+
 import kotlinx.android.synthetic.main.layout_header_bar.view.*
 
 

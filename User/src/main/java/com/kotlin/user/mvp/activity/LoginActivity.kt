@@ -27,8 +27,7 @@ import com.kotlin.user.mvp.presenter.LoginPresenter
 import com.kotlin.user.mvp.presenter.view.LoginView
 import com.kotlin.user.utils.UserInfoUtils
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxFileTool
-import com.vondear.rxtools.RxSPTool
+
 import kotlinx.android.synthetic.main.activity_login.*
 
 

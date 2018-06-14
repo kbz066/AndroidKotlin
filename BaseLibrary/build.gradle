@@ -78,7 +78,8 @@ dependencies {
     api "com.bigkoo:alertview:${alert_view_version}"
 
     //RxTools
-    api "com.github.vondear:${rxtools}"
+
+    api "com.github.vondear.RxTool:${rxtools}"
 
     //eventbus
     api "org.greenrobot:${eventbus}"

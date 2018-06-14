@@ -27,7 +27,8 @@ import com.kotlin.goods.mvp.view.adapter.CartAdapter
 import com.kotlin.provider.common.ARouterPath
 import com.kotlin.provider.common.ProviderConstant
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxSPTool
+import com.vondear.rxtool.RxSPTool
+
 import kotlinx.android.synthetic.main.fragment_cart_main.*
 import kotlinx.android.synthetic.main.fragment_cart_main_content.*
 

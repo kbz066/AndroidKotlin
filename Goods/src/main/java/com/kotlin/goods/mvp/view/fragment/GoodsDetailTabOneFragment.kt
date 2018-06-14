@@ -25,7 +25,8 @@ import com.kotlin.goods.mvp.presenter.GoodsDetailPresenter
 import com.kotlin.goods.mvp.presenter.view.IGoodsDetailView
 import com.kotlin.goods.widget.GoodsSkuPopView
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxSPTool
+import com.vondear.rxtool.RxSPTool
+
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 

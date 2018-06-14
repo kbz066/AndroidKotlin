@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.alibaba.android.arouter.launcher.ARouter
 import com.bigkoo.alertview.AlertView
 import com.bigkoo.alertview.OnItemClickListener
 import com.kotlin.base.ui.fragment.BaseFragment
@@ -25,9 +26,10 @@ import com.kotlin.order.mvp.presenter.OrderListPresenter
 import com.kotlin.order.mvp.presenter.view.IOrderListView
 import com.kotlin.order.mvp.view.activity.OrderDetailActivity
 import com.kotlin.order.mvp.view.adapter.OrderListAdapter
+import com.kotlin.provider.common.ARouterPath
 import com.kotlin.provider.common.ProviderConstant
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxWebViewTool.loadData
+
 import kotlinx.android.synthetic.main.fragment_order_list.*
 import kotlinx.android.synthetic.main.fragment_order_list_content.*
 import org.jetbrains.anko.startActivity
@@ -73,6 +75,12 @@ class OrderListFragment : BaseMvpFragment<OrderListPresenter>(),IOrderListView {
 
                     showCancelDialog(mOrderListAdapter.data[position].id)
 
+                }
+                R.id.btn_pay->{
+                    ARouter.getInstance().build(ARouterPath.PATH_PAY)
+                            .withInt(ProviderConstant.KEY_ORDER_ID,mOrderListAdapter.data[position].id)
+                            .withLong(ProviderConstant.KEY_ORDER_PRICE,mOrderListAdapter.data[position].totalPrice)
+                            .navigation()
                 }
             }
         }

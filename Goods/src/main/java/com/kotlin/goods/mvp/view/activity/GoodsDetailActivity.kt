@@ -16,7 +16,8 @@ import com.kotlin.goods.event.UpdateCartSizeEvent
 import com.kotlin.goods.mvp.view.adapter.GoodsDetailPagerAdapter
 import com.kotlin.goods.widget.GoodsSkuPopView
 import com.kotlin.provider.common.afterLogin
-import com.vondear.rxtools.RxSPTool
+import com.vondear.rxtool.RxSPTool
+
 import kotlinx.android.synthetic.main.activity_goods_detail.*
 import org.greenrobot.eventbus.Subscribe
 import org.jetbrains.anko.startActivity

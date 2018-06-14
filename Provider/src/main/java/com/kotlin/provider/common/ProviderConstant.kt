@@ -2,7 +2,8 @@ package com.kotlin.provider.common
 
 import android.icu.text.SimpleDateFormat
 import android.net.Uri
-import com.vondear.rxtools.RxFileTool
+import com.vondear.rxtool.RxFileTool
+
 import java.io.File
 import java.util.*
 

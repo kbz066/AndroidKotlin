@@ -6,10 +6,10 @@ import com.kotlin.base.dagger.component.BaseApplicationComponent
 import com.kotlin.base.dagger.component.DaggerBaseApplicationComponent
 import com.kotlin.base.dagger.module.BaseApplicationModule
 import com.orhanobut.logger.*
-import com.vondear.rxtools.RxTool
+
 import javax.inject.Inject
 import com.orhanobut.logger.Logger.addLogAdapter
-import com.vondear.rxtools.RxCrashTool
+
 
 
 /**

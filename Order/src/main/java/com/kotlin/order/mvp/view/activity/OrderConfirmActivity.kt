@@ -22,7 +22,7 @@ import com.kotlin.order.mvp.view.adapter.OrderGoodsAdapter
 import com.kotlin.provider.common.ARouterPath
 import com.kotlin.provider.common.ProviderConstant
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxWebViewTool.loadData
+
 import kotlinx.android.synthetic.main.activity_order_confirm.*
 import kotlinx.android.synthetic.main.layout_address_item.view.*
 import org.greenrobot.eventbus.Subscribe

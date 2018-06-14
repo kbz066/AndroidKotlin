@@ -12,7 +12,7 @@ import com.kotlin.base.presenter.view.BaseView
 import com.kotlin.base.ui.widgets.DefaultTextWatcher
 import com.kotlin.base.utils.GlideUtils
 import com.trello.rxlifecycle2.LifecycleProvider
-import com.vondear.rxtools.RxNetTool
+
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

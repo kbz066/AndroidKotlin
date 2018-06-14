@@ -16,7 +16,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions
 import com.trello.rxlifecycle2.components.RxActivity
 import com.trello.rxlifecycle2.components.RxFragment
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
-import com.vondear.rxtools.RxActivityTool
+
 import io.reactivex.android.schedulers.AndroidSchedulers
 import org.jetbrains.anko.toast
 import java.lang.reflect.Array.setInt

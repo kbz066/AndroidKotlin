@@ -2,7 +2,7 @@ package com.kotlin.goods.mvp.view.activity
 
 import android.app.Activity
 import android.os.Bundle
-import com.alipay.sdk.app.statistic.c.x
+
 import com.kotlin.base.ui.activity.BaseActivity
 import com.kotlin.goods.R
 import com.kotlin.goods.R.id.sv_search_goods

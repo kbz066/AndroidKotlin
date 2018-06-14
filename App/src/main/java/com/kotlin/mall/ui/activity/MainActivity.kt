@@ -17,9 +17,10 @@ import com.kotlin.mall.R.id.bv_bottom_navigation
 import com.kotlin.mall.ui.fragment.HomeFragment
 import com.kotlin.mall.ui.fragment.MeFragment
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxActivityTool
-import com.vondear.rxtools.RxSPTool
-import com.vondear.rxtools.RxTool
+import com.vondear.rxtool.RxActivityTool
+import com.vondear.rxtool.RxSPTool
+import com.vondear.rxtool.RxTool
+
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.Subscribe
 import org.jetbrains.anko.toast

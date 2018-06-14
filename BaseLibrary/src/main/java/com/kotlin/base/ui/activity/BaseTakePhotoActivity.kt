@@ -19,8 +19,7 @@ import com.kotlin.base.presenter.BasePresenter
 import com.kotlin.base.presenter.view.BaseView
 import com.kotlin.base.ui.widgets.ProgressLoadingBar
 import com.orhanobut.logger.Logger
-import com.vondear.rxtools.RxActivityTool
-import com.vondear.rxtools.RxTool
+
 import org.jetbrains.anko.toast
 import javax.inject.Inject
 

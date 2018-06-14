@@ -8,5 +8,5 @@ object ARouterPath {
     const val PATH_LOGIN = "/user/login"
     const val PATH_ORDER_CONFIRM = "/order/confirm"
 
-
+    const val PATH_PAY = "/paySdk/pay"
 }
