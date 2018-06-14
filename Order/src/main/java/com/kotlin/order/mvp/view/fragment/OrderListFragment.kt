@@ -14,6 +14,8 @@ import com.kotlin.base.ui.fragment.BaseMvpFragment
 import com.kotlin.base.utils.EventBusUtils
 
 import com.kotlin.order.R
+import com.kotlin.order.R.id.mv_multi_state_View
+import com.kotlin.order.R.id.rv_order_list
 
 import com.kotlin.order.common.OrderConstant
 import com.kotlin.order.dagger.component.DaggerOrderComponent
@@ -21,11 +23,14 @@ import com.kotlin.order.event.UpdateOrderListEvent
 import com.kotlin.order.mvp.model.response.OrderResponse
 import com.kotlin.order.mvp.presenter.OrderListPresenter
 import com.kotlin.order.mvp.presenter.view.IOrderListView
+import com.kotlin.order.mvp.view.activity.OrderDetailActivity
 import com.kotlin.order.mvp.view.adapter.OrderListAdapter
+import com.kotlin.provider.common.ProviderConstant
 import com.orhanobut.logger.Logger
 import com.vondear.rxtools.RxWebViewTool.loadData
 import kotlinx.android.synthetic.main.fragment_order_list.*
 import kotlinx.android.synthetic.main.fragment_order_list_content.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 
@@ -70,6 +75,11 @@ class OrderListFragment : BaseMvpFragment<OrderListPresenter>(),IOrderListView {
 
                 }
             }
+        }
+
+        mOrderListAdapter.setOnItemClickListener { adapter, view, position ->
+
+            startActivity<OrderDetailActivity>(ProviderConstant.KEY_ORDER_ID to  mOrderListAdapter.data[position].id)
         }
         loadData()
 

@@ -6,7 +6,8 @@
         <activity android:name=".mvp.view.activity.OrderConfirmActivity" />
         <activity android:name=".mvp.view.activity.ReceivingAddressActivity" />
         <activity android:name=".mvp.view.activity.ReceivingAddressEditActivity" />
-        <activity android:name=".mvp.view.activity.OrderListActivity"></activity>
+        <activity android:name=".mvp.view.activity.OrderListActivity" />
+        <activity android:name=".mvp.view.activity.OrderDetailActivity"></activity>
     </application>
 
 </manifest>
