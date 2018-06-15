@@ -5,7 +5,7 @@ package com.kotlin.base.common
  */
 object BaseConstant {
 
-    const val SERVER_ADDRESS:String="http://10.0.0.107:8080/";
+    const val SERVER_ADDRESS:String="http://47.52.228.209:8080/Kotlin_Server/";
     //Token Key
     const val KEY_SP_TOKEN = "token"
 

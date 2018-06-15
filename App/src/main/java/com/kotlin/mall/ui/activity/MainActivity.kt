@@ -16,6 +16,8 @@ import com.kotlin.mall.R
 import com.kotlin.mall.R.id.bv_bottom_navigation
 import com.kotlin.mall.ui.fragment.HomeFragment
 import com.kotlin.mall.ui.fragment.MeFragment
+import com.kotlin.message.mvp.view.fragment.MessageFragment
+import com.kotlin.provider.event.UpdateMessageBadgeEvent
 import com.orhanobut.logger.Logger
 import com.vondear.rxtool.RxActivityTool
 import com.vondear.rxtool.RxSPTool
@@ -39,7 +41,7 @@ class MainActivity : BaseActivity() {
     //购物车Fragment
     private val mCartFragment by lazy { CartMainFragment() }
     //消息Fragment
-    private val mMsgFragment by lazy { HomeFragment() }
+    private val mMsgFragment by lazy { MessageFragment() }
     //"我的"Fragment
     private val mMeFragment by lazy { MeFragment() }
 
@@ -60,6 +62,7 @@ class MainActivity : BaseActivity() {
         loadCartSize()
 
 
+        setMsgBadget(false)
     }
 
 
@@ -225,6 +228,14 @@ class MainActivity : BaseActivity() {
 
 
         loadCartSize()
+
+    }
+
+    @Subscribe()
+    fun onMessageEvent(event: UpdateMessageBadgeEvent){
+
+
+        setMsgBadget(event.isVisible)
 
     }
 

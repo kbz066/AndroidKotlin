@@ -15,6 +15,8 @@ import com.kotlin.provider.common.ProviderConstant
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import com.alipay.sdk.app.PayTask
+import com.kotlin.base.utils.YuanFenConverter
+import com.kotlin.base.utils.YuanFenConverter.changeF2YWithUnit
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_pay.*
 import org.jetbrains.anko.uiThread
@@ -51,14 +53,33 @@ class PayActivity : BaseMvpActivity<PayPresenter>() ,IPayView{
 
     override fun initView() {
         EnvUtils.setEnv(EnvUtils.EnvEnum.SANDBOX);//支付宝沙箱环境
+        tv_alipay_type.setOnClickListener {
+            updateButState(true,false,false)
+        }
+        tv_weixin_type.setOnClickListener {
+            updateButState(false,true,false)
+
+        }
+        tv_bankcard_type.setOnClickListener {
+            updateButState(false,false,true)
+
+        }
+
+
         btn_pay.setOnClickListener {
-
-
-
-
             mPresenter.getPaySign(orderId,price)
         }
 
+        Logger.e("initView------------")
+        tv_alipay_type.isSelected=true
+        tv_total_price.text="待支付：${YuanFenConverter.changeF2YWithUnit(price)}"
+    }
+    fun updateButState(isAliPay:Boolean,isWeixinPay:Boolean,isBankCardPay:Boolean){
+        tv_alipay_type.isSelected=isAliPay
+
+        tv_weixin_type.isSelected=isWeixinPay
+
+        tv_bankcard_type.isSelected=isBankCardPay
     }
 
 
@@ -71,22 +92,24 @@ class PayActivity : BaseMvpActivity<PayPresenter>() ,IPayView{
 
             val result = alipay.payV2(result, true)
 
+            uiThread {
+                if (result["resultStatus"].equals("9000")){
 
-            if (result["resultStatus"].equals("9000")){
+                    mPresenter.payOrder(orderId)
 
-
-            }else{
-               uiThread {
-                   toast("支付失败${result["memo"]}")
-               }
+                }else{
+                    toast("支付失败${result["memo"]}")
+                }
             }
+
 
         }
 
     }
 
     override fun onPayOrderResult() {
-
+        toast("支付成功")
+        finish()
     }
 
 

@@ -5,6 +5,7 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Environment
 import android.view.View
+import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.fastjson.JSON
 import com.kotlin.base.common.BaseConstant
@@ -12,6 +13,7 @@ import com.kotlin.base.ext.enable
 import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.base.utils.AppPrefsUtils
 import com.kotlin.base.utils.EventBusUtils
+import com.kotlin.provider.Provider.PushProvider
 import com.kotlin.provider.common.ARouterPath
 import com.kotlin.provider.common.ProviderConstant
 import com.kotlin.user.R
@@ -37,6 +39,8 @@ import org.jetbrains.anko.toast
 @Route(path = ARouterPath.PATH_LOGIN)
 class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,LoginView{
 
+    @Autowired(name = ARouterPath.PATH_MESSAGE_PUSH)
+    lateinit var mPushProvider:PushProvider
 
     override fun initView() {
 
@@ -106,7 +110,9 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>() ,View.OnClickListener,Lo
                 startActivity(Intent(this, RegisterActivity::class.java), options.toBundle())
             }
             R.id.bt_userLogin->{
-                mPresenter.login(et_login_phone.text.toString(),et_login_password.text.toString(),"")//登录
+
+
+                mPresenter.login(et_login_phone.text.toString(),et_login_password.text.toString(),mPushProvider.getPushId()?:"")//登录
             }
 
             R.id.tv_forget_pwd->{

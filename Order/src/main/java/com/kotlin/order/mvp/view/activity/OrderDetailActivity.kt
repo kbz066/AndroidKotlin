@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Autowired
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.order.R
 import com.kotlin.order.common.OrderConstant
@@ -12,11 +13,13 @@ import com.kotlin.order.mvp.model.response.OrderResponse
 import com.kotlin.order.mvp.presenter.OrderDetailPresenter
 import com.kotlin.order.mvp.presenter.view.IOrderDetailView
 import com.kotlin.order.mvp.view.adapter.OrderGoodsAdapter
+import com.kotlin.provider.common.ARouterPath
 import com.kotlin.provider.common.ProviderConstant
 
 import kotlinx.android.synthetic.main.activity_order_detail.*
 import org.jetbrains.anko.toast
 
+@Route(path = ARouterPath.PATH_MESSAGE_ORDER)
 class OrderDetailActivity : BaseMvpActivity<OrderDetailPresenter>(),IOrderDetailView {
 
 

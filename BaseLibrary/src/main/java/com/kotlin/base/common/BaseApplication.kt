@@ -15,7 +15,7 @@ import com.orhanobut.logger.Logger.addLogAdapter
 /**
  * Created by  on 2018/5/2.
  */
-class BaseApplication  :Application() {
+open class BaseApplication  :Application() {
 
 
 

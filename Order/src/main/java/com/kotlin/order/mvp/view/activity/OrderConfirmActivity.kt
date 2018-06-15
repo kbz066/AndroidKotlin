@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.kotlin.base.ext.setVisible
 import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.base.utils.EventBusUtils
@@ -131,6 +132,10 @@ class OrderConfirmActivity : BaseMvpActivity<OrderConfirmPresenter>(),IOrderConf
     override fun onSubmitOrderResult(result: String?) {
 
         toast("提交成功")
+        ARouter.getInstance().build(ARouterPath.PATH_PAY)
+                .withInt(ProviderConstant.KEY_ORDER_ID,mOrder!!.id)
+                .withLong(ProviderConstant.KEY_ORDER_PRICE,mOrder!!.totalPrice)
+                .navigation()
     }
     override fun onDestroy() {
         EventBusUtils.unregister(this)

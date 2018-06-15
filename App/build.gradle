@@ -14,6 +14,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+
+        ]
     }
     buildTypes {
         release {
@@ -35,6 +39,7 @@ dependencies {
     api project(':Goods')
     api project(':Order')
     api project(':Pay')
+    api project(':Message')
 }
 repositories {
     mavenCentral()

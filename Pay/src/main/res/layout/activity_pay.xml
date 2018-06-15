@@ -7,26 +7,38 @@
         style="@style/MatchWrap"
         app:titleText="收银台"/>
     <TextView
-        android:id="@+id/mTotalPriceTv"
+        android:id="@+id/tv_total_price"
+        android:textColor="@color/common_red"
         style="@style/MatchWrap"
         android:gravity="right"
+
         android:padding="@dimen/common_padding"
         android:layout_below="@id/mHeaderBar"/>
-    <TextView android:id="@+id/mAlipayTypeTv"
+    <TextView
+        android:id="@+id/tv_alipay_type"
         android:text="支付宝支付"
+
         android:drawableLeft="@drawable/pay_type_alipay"
-        android:layout_below="@id/mTotalPriceTv"
+        android:layout_below="@id/tv_total_price"
         style="@style/OrderPayTypeStyle"/>
-    <TextView android:id="@+id/mWeixinTypeTv"
+    <TextView
+        android:id="@+id/tv_weixin_type"
         android:text="微信支付"
         android:drawableLeft="@drawable/pay_type_weixin"
-        android:layout_below="@id/mAlipayTypeTv"
+        android:layout_below="@id/tv_alipay_type"
         style="@style/OrderPayTypeStyle"/>
-    <TextView android:id="@+id/mBankCardTypeTv"
+    <TextView
+        android:id="@+id/tv_bankcard_type"
         android:text="银行卡支付"
         android:drawableLeft="@drawable/pay_type_bank"
-        android:layout_below="@id/mWeixinTypeTv"
+        android:layout_below="@id/tv_weixin_type"
         style="@style/OrderPayTypeStyle"/>
+    <TextView
+        android:layout_below="@+id/tv_bankcard_type"
+        android:text="支付宝测试账号:\n uogqbq2680@sandbox.com \n 密码：\n 111111 \n 支付密码：\n 111111"
+        android:textColor="@color/common_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <Button
         android:id="@+id/btn_pay"
         style="@style/MatchWrap"
@@ -39,4 +51,6 @@
         android:layout_weight="1.0"
         android:layout_alignParentBottom="true"
         />
+
+
 </RelativeLayout>

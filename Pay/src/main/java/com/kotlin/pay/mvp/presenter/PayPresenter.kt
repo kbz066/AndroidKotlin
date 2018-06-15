@@ -40,4 +40,22 @@ class PayPresenter @Inject constructor() : BasePresenter<IPayView>() {
 
 
 
+    fun payOrder(orderId: Int){
+
+        mPayServer.payOrder(orderId)
+                .excute({checkNetWork(mView)},object : BaseRxObserver<BaseResponse<String>>(mView) {
+                    override fun success(data: BaseResponse<String>) {
+
+                        mView.onPayOrderResult()
+                    }
+
+                    override fun failure(statusCode: Int, msg: String?) {
+
+                        Logger.e("failure\t\t\t\t"+msg)
+                    }
+
+                },rxLifecycle);
+    }
+
+
 }

@@ -9,4 +9,8 @@ object ARouterPath {
     const val PATH_ORDER_CONFIRM = "/order/confirm"
 
     const val PATH_PAY = "/paySdk/pay"
+
+    const val PATH_MESSAGE_PUSH = "/message/push"
+
+    const val PATH_MESSAGE_ORDER = "/message/order"
 }

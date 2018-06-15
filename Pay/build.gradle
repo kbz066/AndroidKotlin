@@ -45,5 +45,5 @@ dependencies {
     api project(':Provider')
     kapt "com.google.dagger:dagger-compiler:$dagger"
     kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
-    implementation files('libs/alipaySdk-20180601.jar')
+
 }

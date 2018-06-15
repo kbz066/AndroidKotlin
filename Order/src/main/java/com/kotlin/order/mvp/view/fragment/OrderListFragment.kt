@@ -56,6 +56,11 @@ class OrderListFragment : BaseMvpFragment<OrderListPresenter>(),IOrderListView {
 
     }
 
+    override fun onStart() {
+        loadData()
+        super.onStart()
+    }
+
     override fun initView() {
 
         rv_order_list.layoutManager=LinearLayoutManager(activity)
@@ -89,7 +94,7 @@ class OrderListFragment : BaseMvpFragment<OrderListPresenter>(),IOrderListView {
 
             startActivity<OrderDetailActivity>(ProviderConstant.KEY_ORDER_ID to  mOrderListAdapter.data[position].id)
         }
-        loadData()
+
 
     }
 
@@ -110,7 +115,12 @@ class OrderListFragment : BaseMvpFragment<OrderListPresenter>(),IOrderListView {
 
         ).show()
 
+
+
     }
+
+
+
 
     private fun loadData() {
         mv_multi_state_View.showLoading()
