@@ -19,7 +19,7 @@ import com.kotlin.provider.common.ProviderConstant
 import kotlinx.android.synthetic.main.activity_order_detail.*
 import org.jetbrains.anko.toast
 
-@Route(path = ARouterPath.PATH_MESSAGE_ORDER)
+@Route(path = ARouterPath.PATHE_ORDER_DETAIL)
 class OrderDetailActivity : BaseMvpActivity<OrderDetailPresenter>(),IOrderDetailView {
 
 

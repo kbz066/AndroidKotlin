@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical">
+    <com.kotlin.base.ui.widgets.HeaderToolBar
+        style="@style/MatchWrap"
+        app:isShowBack="false"
+        app:titleText="消息"/>
+
+    <com.kotlin.base.ui.widgets.MultipleStatusView
+        android:id="@+id/mv_multi_state_View"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:contentView="@layout/fragment_message_content"
+        app:emptyView="@layout/custom_empty_view"
+        app:errorView="@layout/custom_error_view"
+        app:loadingView="@layout/custom_loading_view"
+        app:noNetworkView="@layout/custom_no_network_view"
+
+        />
+</LinearLayout>

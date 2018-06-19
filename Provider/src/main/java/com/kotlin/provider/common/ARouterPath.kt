@@ -12,5 +12,5 @@ object ARouterPath {
 
     const val PATH_MESSAGE_PUSH = "/message/push"
 
-    const val PATH_MESSAGE_ORDER = "/message/order"
+    const val PATHE_ORDER_DETAIL = "/order/detail"
 }
