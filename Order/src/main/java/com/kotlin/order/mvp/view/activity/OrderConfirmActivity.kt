@@ -86,6 +86,10 @@ class OrderConfirmActivity : BaseMvpActivity<OrderConfirmPresenter>(),IOrderConf
         }
         btn_submit_order.setOnClickListener {
             mOrder?.let {
+                if (it.shipAddress==null){
+                    toast("请选择收货地址")
+                    return@setOnClickListener
+                }
                 mPresenter.submitOrder(it)
             }
 

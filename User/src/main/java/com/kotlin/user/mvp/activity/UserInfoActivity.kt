@@ -146,7 +146,7 @@ class UserInfoActivity : BaseTakePhotoActivity<UserInfoPresenter>() ,UserInfoVie
             if (TextUtils.isEmpty(it.userIcon).not()){
 
                 ossImagePath=it.userIcon
-                GlideUtils.loadUrlImage(this,it.userIcon,iv_user_icon_image)
+                GlideUtils.loadUrlImage(this,it.userIcon!!,iv_user_icon_image)
             }
             if (it.userGender == "0") {
                 rb_gendermale.isChecked = true

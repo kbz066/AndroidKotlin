@@ -62,10 +62,13 @@ class MeFragment : BaseFragment() ,View.OnClickListener{
     private fun loadData() {
 
         if (isLogin()){
-            UserInfoUtils.getUserInfo().let {
-                if (it.userIcon.isNotEmpty()){
-                    iv_user_icon.loadUrlImage(it.userIcon)
+            UserInfoUtils.getUserInfo()?.let {
+
+
+                it.userIcon?.let {
+                    iv_user_icon.loadUrlImage(it)
                 }
+
 
                 tv_user_name.setText(it.userName)
             }

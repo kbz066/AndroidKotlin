@@ -5,7 +5,7 @@ buildscript {
     ext.retrofit = '2.4.0'
     ext.rxkotlin = '2.2.0'
     ext.rxandroid = '2.0.1'
-    ext.fastjson = '1.1.68.android'
+    ext.fastjson = '1.2.47'
     ext.converter_fastjson = '2.2.0'
     ext.okhttp = '3.10.0'
     ext.logging_interceptor = '3.9.0'

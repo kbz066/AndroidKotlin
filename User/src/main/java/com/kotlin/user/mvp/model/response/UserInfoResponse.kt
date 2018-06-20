@@ -7,8 +7,8 @@ import com.kotlin.base.annotation.Poko
  */
 @Poko
 data class UserInfoResponse(var id:String,
-                            var userIcon:String,
+                            var userIcon:String?,
                             var userName:String,
-                            var userGender:String,
+                            var userGender:String?,
                             var userMobile:String,
-                            var userSign:String)
+                            var userSign:String?)

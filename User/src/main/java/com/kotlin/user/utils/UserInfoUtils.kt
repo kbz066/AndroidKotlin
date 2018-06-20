@@ -1,5 +1,6 @@
 package com.kotlin.user.utils
 
+
 import com.alibaba.fastjson.JSON
 import com.kotlin.base.common.BaseApplication
 import com.kotlin.base.common.BaseConstant
