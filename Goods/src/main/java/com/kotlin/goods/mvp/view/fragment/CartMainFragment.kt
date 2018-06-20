@@ -93,6 +93,11 @@ class CartMainFragment : BaseMvpFragment<CartPresenter>(),ICartView{
                     .map {
                         it.id
                     }
+
+            if (delList.size==0){
+                toast("请选择要删除的商品")
+                return@setOnClickListener
+            }
             mPresenter.deleteCart(delList)
         }
 
@@ -186,7 +191,10 @@ class CartMainFragment : BaseMvpFragment<CartPresenter>(),ICartView{
             tb_cart_bar.getRightView().setVisible(false)
             mv_multi_state_View.showEmpty()
         }
-        RxSPTool.putInt(activity, GoodsConstant.SP_CART_SIZE,data?.size?:0)
+        cb_all_checked.isChecked=mCartAdapter.data.all { it.isSelected }
+
+        Logger.e("size \t\t\t"+ data?.size)
+        RxSPTool.putInt(activity, GoodsConstant.SP_CART_SIZE, data?.size?:0)
 
         EventBusUtils.post(UpdateCartSizeEvent())
     }
@@ -194,6 +202,7 @@ class CartMainFragment : BaseMvpFragment<CartPresenter>(),ICartView{
     override fun onDeleteCartListResult(data: String) {
 
         loadCartList()
+
     }
 
 

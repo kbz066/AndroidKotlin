@@ -70,7 +70,7 @@ class GoodsDetailActivity : BaseActivity() ,View.OnClickListener{
         mCartBadgeView.setGravityOffset(10f,-2f,true)
 
         RxSPTool.getInt(this,GoodsConstant.SP_CART_SIZE).let {
-            if (it>0){
+            if (it>=0){
                 mCartBadgeView.showContextMenu()
                 mCartBadgeView.badgeNumber =it
             }

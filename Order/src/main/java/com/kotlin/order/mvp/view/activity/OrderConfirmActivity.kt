@@ -52,6 +52,7 @@ class OrderConfirmActivity : BaseMvpActivity<OrderConfirmPresenter>(),IOrderConf
         mPresenter.mView=this
     }
 
+
     override fun getContentViewResId(): Int {
         return R.layout.activity_order_confirm
     }
