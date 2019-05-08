@@ -90,6 +90,8 @@ class CategoryFragment : BaseMvpFragment<CategoryPresenter>() ,ICategoryView{
      */
     fun getCategoryList(id:Int=0){
 
+
+        println("aaaaaaaaaaaaaa        "+id)
         if (id!=0){
             mv_multiple_status_view.showLoading()
         }

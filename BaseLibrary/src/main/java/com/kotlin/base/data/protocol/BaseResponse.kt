@@ -8,3 +8,4 @@ import com.kotlin.base.annotation.Poko
 @Poko
 data class BaseResponse<T> (var status:Int,var message:String, var data:T)
 
+
