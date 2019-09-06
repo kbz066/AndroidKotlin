@@ -20,7 +20,7 @@ kapt {
     }
 }
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
 
 

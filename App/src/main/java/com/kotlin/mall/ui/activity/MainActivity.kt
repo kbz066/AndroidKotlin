@@ -2,6 +2,8 @@ package com.kotlin.mall.ui.activity
 
 import android.Manifest
 import android.app.Fragment
+import android.support.design.internal.BottomNavigationMenuView
+import android.support.design.widget.BottomNavigationView
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.ashokvarma.bottomnavigation.ShapeBadgeItem
@@ -135,6 +137,9 @@ class MainActivity : BaseActivity() {
                 .setInactiveIconResource(R.drawable.btn_nav_user_normal)
                 .setActiveColorResource(R.color.common_blue)
                 .setInActiveColorResource(R.color.text_normal)
+
+
+
 
         //设置底部导航模式及样式
         bv_bottom_navigation.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)

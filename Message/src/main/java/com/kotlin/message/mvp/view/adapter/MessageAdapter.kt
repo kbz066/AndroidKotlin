@@ -8,7 +8,7 @@ import com.kotlin.message.mvp.model.response.MessageResponse
 import kotlinx.android.synthetic.main.layout_message_item.view.*
 
 /**
- * Created by  on 2018/6/15.
+ * Created by  on 2018/6/15.b
  */
 class MessageAdapter(layoutId:Int= R.layout.layout_message_item) : BaseQuickAdapter<MessageResponse, BaseViewHolder>(layoutId) {
     override fun convert(helper: BaseViewHolder, item: MessageResponse) {
